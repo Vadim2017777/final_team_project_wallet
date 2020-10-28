@@ -6,3 +6,18 @@
   height: 40vmin;
   pointer-events: none;
 }
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}

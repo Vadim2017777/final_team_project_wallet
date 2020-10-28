@@ -1,0 +1,61 @@
+.box {
+    width: 281px;
+    margin: 0 auto;
+    height: 488px;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 210px;
+}
+
+.labelBox {
+    width: 50%;
+}
+
+.inputNumber,
+.inputDate {
+    width: 130px;
+}
+
+.commentNote {
+    text-align: left;
+}
+
+.textarea {
+    width: 281px;
+}
+
+.button {
+    width: 281px;
+    margin: 0 auto;
+}
+
+.btnBox {
+    position: relative;
+    bottom: 0px;
+}
+
+.container {
+    width: 303px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 705px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 1210px;
+    }
+}
