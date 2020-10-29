@@ -28,7 +28,7 @@ const LoginForm = () => {
             name="email"
             placeholder="E-mail"
             // value=""
-            className={s.loginFormEmaiInput}
+            className={s.loginForm_EmailInput}
           />
           <input
             type="password"
