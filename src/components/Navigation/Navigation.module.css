@@ -1,0 +1,27 @@
+.link .button {
+    background-color: #2a4262;
+    border: none;
+    border-radius: 5px 5px 5px 5px;
+    margin-left: 6px;
+    margin-right: 6px;
+    outline: none;
+}
+.active  .button{
+    background-color: #66778e;
+}
+.link .svg {
+    width: 29px;
+    height: 25px;
+    fill: #a9b3c0;
+    padding: 0px;
+}
+.active .svg {
+    fill: #ffffff;
+}
+.nav {
+    height: 40px;
+    background-color: #3a5374;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
