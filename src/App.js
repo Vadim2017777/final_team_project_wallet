@@ -1,5 +1,5 @@
 import './App.css';
-// import { AddTransactionForm } from './AddTransactionForm/AddTransactionForm';
+// import { AddTransactionForm } from './components/AddTransactionForm/AddTransactionForm';
 
 function App() {
 	return (
