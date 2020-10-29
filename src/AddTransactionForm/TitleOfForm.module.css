@@ -1,0 +1,41 @@
+.titleBox {
+    width: 303px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.title {
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 40px;
+}
+
+.wrapper {
+    background-color: #3a5374;
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        background-color: #f2f4f3;
+        width: 100%;
+        border-radius: 5px 5px 0px 0px;
+    }
+
+    .btn {
+        display: none;
+    }
+
+    .title {
+        color: #000000;
+    }
+
+    .titleBox {
+        text-align: center;
+    }
+}

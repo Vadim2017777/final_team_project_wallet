@@ -7,6 +7,7 @@
 .form {
     display: flex;
     flex-wrap: wrap;
+    height: 488px;
 }
 
 .formBox {
@@ -18,44 +19,105 @@
 
 .labelBox {
     width: 50%;
+    height: 73px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .inputNumber,
 .inputDate {
     width: 130px;
+    height: 34px;
+    border: 2px solid #b9c9d4;
+    border-radius: 5px 5px 5px 5px;
+    margin-bottom: 25px;
+}
+
+.inputCategory {
+    width: 281px;
+    height: 34px;
+    border: 2px solid #b9c9d4;
+    border-radius: 5px 5px 5px 5px;
 }
 
 .commentNote {
     text-align: left;
+    margin-bottom: 15px;
 }
 
 .textarea {
     width: 281px;
+    border-radius: 5px 5px 5px 5px;
+    border: 2px solid #b9c9d4;
+    resize: none;
+    height: 54px;
 }
 
 .button {
     width: 281px;
+    height: 40px;
     margin: 0 auto;
+    background-color: #fc842c;
+    border-radius: 5px 5px 5px 5px;
+    border: none;
+    color: #ffffff;
 }
+
 
 .btnBox {
-    position: relative;
-    bottom: 0px;
+    height: 70px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
 }
 
-.container {
-    width: 303px;
-    margin: 0 auto;
+.inputRadio {
+    height: 34px;
+}
+
+.categoryBox {
+    height: 67px;
 }
 
 @media screen and (min-width: 768px) {
+    .modal {
+        width: 100vw;
+        height: 100vh;
+        background-color: #00000017;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .container {
-        width: 705px;
+        width: 500px;
+        height: 478px;
+        border-radius: 5px 5px 5px 5px;
+        background-color: #ffffff;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .form {
+        height: 340px;
+    }
+
+    .formBox {
+        margin-bottom: 33px;
+    }
+    .button {
+        background-color: #415b7d;
+    }
+
+    .button:hover {
+        background-color: #fc842c;
     }
 }
 
 @media screen and (min-width: 1280px) {
-    .container {
-        width: 1210px;
+    .form {
+        height: 404px;
     }
 }
