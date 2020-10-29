@@ -1,33 +1,33 @@
-.loginForm_container {
+.registerForm_container {
   display: flex;
 }
 
-.loginForm_ImgBGWrapper {
+.registerForm_ImgBGWrapper {
   display: flex;
   flex-grow: 1;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: url("./images/Rectangle.png");
+  background-image: url("./images/Rectangle_2.png");
   background-size: cover;
 }
 
-.loginForm_imgWrapper {
+.registerForm_imgWrapper {
   text-align: center;
   width: 290px;
   height: 590px;
 }
 
-.loginForm_img {
+.registerForm_img {
   margin-bottom: 40px;
 }
 
-.loginForm_name {
+.registerForm_name {
   font-size: 24px;
   color: #ffff;
 }
 
-.loginForm_formWrapper {
+.registerForm_formWrapper {
   display: flex;
   flex-grow: 1;
   flex: 35%;
@@ -35,36 +35,34 @@
   justify-content: center;
 }
 
-.loginForm_form {
+.registerForm_form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 554px;
-  height: 390px;
 }
 
-.loginForm_form {
+.registerForm_form {
   box-sizing: border-box;
   width: 553px;
-  height: 391px;
+  height: 538px;
   padding: 40px;
   box-shadow: 10px 17.321px 40px 0px rgba(112, 124, 130, 0.3);
 }
 
-.loginForm_logo {
+.registerForm_logo {
   display: flex;
   font-size: 24px;
   align-items: center;
   margin-bottom: 32px;
 }
 
-.loginForm_svg {
+.registerForm_svg {
   width: 29px;
   height: 29px;
   margin-right: 14px;
 }
 
-.loginForm_EmailInput {
+.registerForm_EmailInput {
   width: 432px;
   height: 46px;
   border: 0;
@@ -72,7 +70,6 @@
   border-radius: 5px;
   outline: none;
   background: url("./images/svg/baseline-email-24px.svg") no-repeat;
-
   padding-left: 60px;
   background-color: #f9fbfb;
   background-position-x: 15px;
@@ -80,15 +77,15 @@
   font-size: 16px;
 }
 
-.loginForm_EmailInput::placeholder {
+.registerForm_EmailInput::placeholder {
   color: #dbe1e6;
 }
 
-.loginForm_passwordInput {
+.registerForm_passwordInput {
   width: 432px;
   height: 46px;
   border: 0;
-  margin-bottom: 36px;
+  margin-bottom: 16px;
   border-radius: 5px;
   outline: none;
   background: url("./images/svg/baseline-lock-24px.svg") no-repeat;
@@ -99,11 +96,30 @@
   font-size: 16px;
 }
 
-.loginForm_passwordInput::placeholder {
+.registerForm_passwordInput::placeholder {
   color: #dbe1e6;
 }
 
-.loginForm_button {
+.registerForm_nameInput {
+  width: 432px;
+  height: 46px;
+  border: 0;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  outline: none;
+  background: url("./images/svg/baseline-account_box-24px.svg") no-repeat;
+  padding-left: 60px;
+  background-color: #f9fbfb;
+  background-position-x: 15px;
+  background-position-y: 12px;
+  font-size: 16px;
+}
+
+.registerForm_nameInput::placeholder {
+  color: #dbe1e6;
+}
+
+.registerForm_button {
   width: 281px;
   height: 39px;
   color: #ffff;
@@ -115,68 +131,87 @@
   border-radius: 5px;
 }
 
-.loginForm_button:hover {
+.registerForm_button:hover {
   opacity: 0.9;
   cursor: pointer;
 }
 
-.loginForm_linkSignUp {
+.registerForm_linkSignUp {
   color: #707c82;
 }
 
+.loginForm_passwordBarProgress {
+  display: block;
+  position: relative;
+  top: -7px;
+  width: 486px;
+  height: 5px;
+  background-color: rgb(219, 191, 168);
+  border-radius: 4px;
+}
+
 @media screen and (max-width: 320px) {
-  .loginForm_ImgBGWrapper {
+  .registerForm_ImgBGWrapper {
     display: none;
   }
 
-  .loginForm_form {
+  .registerForm_form {
     height: 568px;
     width: 320px;
   }
 
-  .loginForm_EmailInput {
+  .registerForm_EmailInput {
     width: 220px;
     height: 40px;
   }
 
-  .loginForm_passwordInput {
+  .registerForm_passwordInput {
     width: 220px;
     height: 40px;
   }
 
-  .loginForm_logo {
+  .registerForm_nameInput {
+    width: 220px;
+    height: 40px;
+  }
+
+  .loginForm_passwordBarProgress {
+    width: 260px;
+  }
+
+  .registerForm_logo {
     display: flex;
     flex-direction: column;
   }
 
-  .loginForm_svg {
+  .registerForm_svg {
     padding-left: 10px;
     margin-bottom: 20px;
   }
 
-  .loginForm_button {
+  .registerForm_button {
     width: 240px;
   }
 }
 
 @media screen and (max-width: 768px) and (min-width: 321px) {
-  .loginForm_container {
-    background: url("./images/Rectangle.png") no-repeat;
+  .registerForm_container {
+    background: url("./images/Rectangle_2.png") no-repeat;
     background-size: cover;
     width: 1024px;
     height: 768px;
   }
 
-  .loginForm_ImgBGWrapper {
+  .registerForm_ImgBGWrapper {
     display: none;
   }
 
-  .loginForm_form {
+  .registerForm_form {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 557px;
-    height: 392px;
-    background-color: #dbe1e6;
+    height: 535px;
+    background-color: #ffff;
   }
 }
