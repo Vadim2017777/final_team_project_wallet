@@ -1,10 +1,13 @@
+import { BrowserRouter } from "react-router-dom";
+
 import "./App.css";
+import LoginForm from "./components/LoginForm/LoginForm";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello world!</h1>
-    </div>
+    <BrowserRouter>
+      <LoginForm />
+    </BrowserRouter>
   );
 }
 
