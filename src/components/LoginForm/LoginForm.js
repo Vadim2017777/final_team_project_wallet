@@ -64,7 +64,7 @@ const LoginForm = ({onLogin}) => {
           <button type="submit" className={s.loginForm_button}>
             Login
           </button>
-          <Link to="#" className={s.loginForm_linkSignUp}>
+          <Link to="/signup" className={s.loginForm_linkSignUp}>
             Sign up
           </Link>
         </form>

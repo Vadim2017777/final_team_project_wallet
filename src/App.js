@@ -1,25 +1,23 @@
-import {BrowserRouter} from 'react-router-dom';
-
 import './App.css';
+import {Route, Switch} from 'react-router-dom';
 // import { AddTransactionForm } from './components/AddTransactionForm/AddTransactionForm';
-// import {HomePageTitle} from './components/HomePageTitle/HomePageTitle';
-// import {Navigation} from './components/Navigation/Navigation';
-// import LoginForm from './components/LoginForm/LoginForm';
-// import RegisterForm from './components/RegisterForm/RegisterForm';
-// import LoginForm from './components/LoginForm/LoginForm';
-// import RegisterForm from './components/RegisterForm/RegisterForm';
+import {ProfilePage} from './views/ProfilePage';
+import RegisterForm from './components/RegisterForm/RegisterForm';
+import LoginForm from './components/LoginForm/LoginForm';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        {/* <HomePageTitle />
-        <Navigation /> */}
-        {/* <AddTransactionForm /> */}
-      </div>
-      {/* <RegisterForm /> */}
-      {/* <LoginForm /> */}
-    </BrowserRouter>
+        <Switch>
+          <>
+          <div className="App">
+            {/* <AddTransactionForm /> */}
+            <Route path="/profile" component={ProfilePage} />
+            <Route path="/" exact component={LoginForm} />
+            <Route path="/signup" exact component={RegisterForm} />
+          </div>
+          </>
+        </Switch>
+    
   );
 }
 

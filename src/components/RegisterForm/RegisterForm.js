@@ -99,7 +99,7 @@ const RegisterForm = ({onRegister}) => {
           <button type="submit" className={s.registerForm_button}>
             Login
           </button>
-          <Link to="#" className={s.registerForm_linkSignUp}>
+          <Link to="/" className={s.registerForm_linkSignUp}>
             Sign in
           </Link>
         </form>

@@ -81,6 +81,7 @@
 
     .text {
         align-self: flex-center;
+        padding-right: 3px;
     }
 
     .svg {
@@ -92,13 +93,14 @@
     .nav {
         width: 311px;
         flex-wrap: wrap;
-        align-items: flex-start;
-        background-color: transparent;
+        align-items: center;
+        background-color: #284060;
+        padding-top: 40px;
+        padding-bottom: 30px;
     }
 
     .link {
         align-items: flex-start;
-
     }
 
     .active .btnBox {
@@ -136,6 +138,7 @@
     }
 
     .button {
+        margin-left: 0px;
         padding: 0px;
     }
 
@@ -143,21 +146,6 @@
         margin-top: 30px;
     }
 
-    .effectT {
-        width: 311px;
-        height: 40px;
-        background-color: #284060;
-    }
-    .effectB {
-        width: 311px;
-        height: 30px;
-        background-color: #284060;
-    }
-    .effect {
-        width: 311px;
-        height: 25px;
-        background-color: #284060;
-    }
     .svg {
         margin-left: 25px;
     }
@@ -167,9 +155,22 @@
     .balance {
         display: flex;
         justify-content: space-between;
+        height: 90px;
+        margin-top: 30px;
     }
     .amount {
         margin-right: 30px;
     }
-
+    .textBalance {
+        color: #ffffff;
+        margin-left: 25px;
+        font-size: 15px;
+    }
+    
+    .amountBalance {
+        color: #ffffff;
+        margin-right: 30px;
+        font-size: 15px;
+    }
+    
 }

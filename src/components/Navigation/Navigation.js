@@ -18,49 +18,54 @@ export const Navigation = () => {
   }, [tabletScreen]);
 
   return (
-    <nav className={s.nav}>
-      {Number(tabletScreen) && <div className={s.effectT}></div>}
-      <NavLink className={s.link} activeClassName={s.active} to="/home">
-        <button className={s.button}>
-          {Number(tabletScreen) < 768 ? (
-            <Home s={s.svg} />
-          ) : (
-            <div className={s.btnBox}>
+    <>
+      <nav className={s.nav}>
+        <NavLink className={s.link} activeClassName={s.active} to="profile/home">
+          <button className={s.button}>
+            {Number(tabletScreen) < 768 ? (
               <Home s={s.svg} />
-              <span className={s.text}>Home</span>
-            </div>
-          )}
-        </button>
-      </NavLink>
-      <NavLink className={s.link} activeClassName={s.active} to="/statistics">
-        <button className={s.button}>
-          {Number(tabletScreen) < 768 ? (
-            <Timeline s={s.svg} />
-          ) : (
-            <div className={s.btnBox}>
+            ) : (
+              <div className={s.btnBox}>
+                <Home s={s.svg} />
+                <span className={s.text}>Home</span>
+              </div>
+            )}
+          </button>
+        </NavLink>
+        <NavLink className={s.link} activeClassName={s.active} to="profile/statistics">
+          <button className={s.button}>
+            {Number(tabletScreen) < 768 ? (
               <Timeline s={s.svg} />
-              <span className={s.text}>Statistics</span>
-            </div>
-          )}
-        </button>
-      </NavLink>
-      {Number(tabletScreen) && <div className={s.effectB}></div>}
-      {Number(tabletScreen) && (
-        <div className={[s.effect, s.linkTimeline].join(' ')}></div>
-      )}
-      <NavLink className={s.link} activeClassName={s.active} to="/balance">
-        <button className={s.button}>
-          {Number(tabletScreen) < 768 ? (
-            <Money s={s.svg} />
-          ) : (
-            <div className={[s.btnBox, s.balance].join(' ')}>
-              <span className={s.text}>Balance:</span>{' '}
-              <span className={s.amount}>24000 грн</span>
-            </div>
-          )}
-        </button>
-      </NavLink>
-      {Number(tabletScreen) && <div className={s.effect}></div>}
-    </nav>
+            ) : (
+              <div className={s.btnBox}>
+                <Timeline s={s.svg} />
+                <span className={s.text}>Statistics</span>
+              </div>
+            )}
+          </button>
+        </NavLink>
+        {Number(tabletScreen) < 768 && (
+          <NavLink className={s.link} activeClassName={s.active} to="profile/balance">
+            <button className={s.button}>
+              <Money s={s.svg} />
+            </button>
+          </NavLink>
+        )}
+        {Number(tabletScreen) > 768 && Number(tabletScreen) < 1279 && (
+          <div className={[s.btnBox, s.balance, s.link].join(' ')}>
+            <span className={s.text}>Balance:</span>{' '}
+            <span className={s.amount}> 24000 грн</span>
+          </div>
+        )}
+      </nav>
+      {/* {Number(tabletScreen) > 1280 && (
+        <div className={s.link}>
+          <div className={[s.btnBox, s.balance].join(' ')}>
+            <span className={s.textBalance}>Balance</span>{' '}
+            <span className={s.amountBalance}>24000 грн</span>
+          </div>
+        </div>
+      )} */}
+    </>
   );
 };
