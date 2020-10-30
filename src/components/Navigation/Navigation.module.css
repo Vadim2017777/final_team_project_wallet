@@ -6,22 +6,170 @@
     margin-right: 6px;
     outline: none;
 }
-.active  .button{
+
+.link .text {
+    color: #66778e;
+    font-size: 15px;
+}
+
+.link .amount {
+    color: #617490;
+    font-size: 15px;
+}
+
+.active .text {
+    color: #2a4262;
+    font-size: 15px;
+}
+
+.active .amount {
+    color: #2a4262;
+}
+
+.active .button {
     background-color: #66778e;
 }
+
 .link .svg {
     width: 29px;
     height: 25px;
     fill: #a9b3c0;
     padding: 0px;
 }
+
 .active .svg {
     fill: #ffffff;
 }
+
 .nav {
     height: 40px;
     background-color: #3a5374;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    .nav {
+        height: 84px;
+        background-color: #f8fff8;
+    }
+
+    .link .button {
+        background-color: transparent;
+        border: none;
+        border-radius: 5px 5px 5px 5px;
+        margin-left: 6px;
+        margin-right: 6px;
+        outline: none;
+    }
+
+    .active .svg {
+        fill: #2a4262;
+    }
+
+    .link {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .btnBox {
+        display: flex;
+        align-items: center;
+    }
+
+    .text {
+        align-self: flex-center;
+    }
+
+    .svg {
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .nav {
+        width: 311px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        background-color: transparent;
+    }
+
+    .link {
+        align-items: flex-start;
+
+    }
+
+    .active .btnBox {
+        background-color: #3a5374;
+    }
+
+    .link .svg {
+        fill: #b2bbc7;
+    }
+
+    .link .text {
+        color: #b2bbc7;
+    }
+
+    .link .amount {
+        color: #b2bbc7;
+    }
+
+    .active .svg {
+        fill: #ffffff;
+    }
+
+    .active .text {
+        color: #ffffff;
+    }
+
+    .active .amount {
+        color: #ffffff;
+    }
+
+    .btnBox {
+        width: 311px;
+        height: 40px;
+        background-color: #284060;
+    }
+
+    .button {
+        padding: 0px;
+    }
+
+    .linkTimeline {
+        margin-top: 30px;
+    }
+
+    .effectT {
+        width: 311px;
+        height: 40px;
+        background-color: #284060;
+    }
+    .effectB {
+        width: 311px;
+        height: 30px;
+        background-color: #284060;
+    }
+    .effect {
+        width: 311px;
+        height: 25px;
+        background-color: #284060;
+    }
+    .svg {
+        margin-left: 25px;
+    }
+    .text {
+        margin-left: 25px;
+    }
+    .balance {
+        display: flex;
+        justify-content: space-between;
+    }
+    .amount {
+        margin-right: 30px;
+    }
+
 }

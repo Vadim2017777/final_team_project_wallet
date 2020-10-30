@@ -5,17 +5,17 @@ import './App.css';
 // import {HomePageTitle} from './components/HomePageTitle/HomePageTitle';
 // import {Navigation} from './components/Navigation/Navigation';
 // import LoginForm from './components/LoginForm/LoginForm';
-import RegisterForm from './components/RegisterForm/RegisterForm';
+// import RegisterForm from './components/RegisterForm/RegisterForm';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        {/* <HomePageTitle /> */}
-        {/* <Navigation /> */}
+        {/* <HomePageTitle />
+        <Navigation /> */}
         {/* <AddTransactionForm /> */}
       </div>
-      <RegisterForm />
+      {/* <RegisterForm /> */}
     </BrowserRouter>
   );
 }
