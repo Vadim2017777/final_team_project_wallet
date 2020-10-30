@@ -6,6 +6,8 @@ import './App.css';
 // import {Navigation} from './components/Navigation/Navigation';
 // import LoginForm from './components/LoginForm/LoginForm';
 // import RegisterForm from './components/RegisterForm/RegisterForm';
+// import LoginForm from './components/LoginForm/LoginForm';
+// import RegisterForm from './components/RegisterForm/RegisterForm';
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         {/* <AddTransactionForm /> */}
       </div>
       {/* <RegisterForm /> */}
+      {/* <LoginForm /> */}
     </BrowserRouter>
   );
 }
