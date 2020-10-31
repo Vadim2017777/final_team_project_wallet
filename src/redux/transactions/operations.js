@@ -1,17 +1,51 @@
 import axios from 'axios';
-import {addTransactionRequest, addTransactionSuccess, addTransactionFailure} from './transactionActions';
+import {
+  addTransactionRequest,
+  addTransactionSuccess,
+  addTransactionFailure,
+  getTransactionRequest,
+  getTransactionSuccess,
+  getTransactionFailure,
+} from './transactionActions';
 
-axios.defaults.baseURL = 'https://lit-mountain-68142.herokuapp.com'
+axios.defaults.baseURL = 'https://lit-mountain-68142.herokuapp.com';
 
-export const addTransaction = ({date, type, category, comments, amount, token}) => async dispatch => {
+export const addTransaction = ({
+  date,
+  type,
+  category,
+  comments,
+  amount,
+  token,
+}) => async dispatch => {
   try {
     dispatch(addTransactionRequest());
-    const {data} = await axios.post('/finance/addOperation', {date, type, category, comments, amount}, {
-      headers: {"Authorization": `Bearer ${token}`}
-  });
-    console.log("operations", data);
+    const {data} = await axios.post(
+      '/finance/addOperation',
+      {date, type, category, comments, amount},
+      {
+        headers: {Authorization: `Bearer ${token}`},
+      },
+    );
+    console.log('operations', data);
     dispatch(addTransactionSuccess(data));
   } catch (error) {
     dispatch(addTransactionFailure(error));
+  }
+};
+
+export const getTransactions = (token) => async dispatch => {
+  try {
+    dispatch(getTransactionRequest());
+
+    const {data} = await axios.get(
+      '/finance/getdata',
+      {
+        headers: {Authorization: `Bearer ${token}`},
+      },
+    );
+    dispatch(getTransactionSuccess(data));
+  } catch (error) {
+    dispatch(getTransactionFailure(error));
   }
 };

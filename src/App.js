@@ -20,7 +20,7 @@ function App({isAuth}) {
                 exact
                 component={AddTransactionForm}
               />
-              <Route path="/" component={ProfilePage} />
+              <Route path="/" exact component={ProfilePage} />
             </>
           )}
           {!isAuth && (
