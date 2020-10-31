@@ -5,7 +5,7 @@ import s from './AddTransactionForm.module.css';
 import {TitleOfForm} from './TitleOfForm';
 
 
-const AddTransactionForm = ({onAddTransaction}) => {
+const AddTransactionForm = ({token, onAddTransaction}) => {
   const [typeOfTransaction, setTypeOfTransiction] = useState('');
   const updateTypeOfTransiction = e => {
     setAnmount('');
@@ -47,6 +47,7 @@ const AddTransactionForm = ({onAddTransaction}) => {
       category,
       comments, 
       amount,
+      token
     };
 
     console.log(formData);
@@ -147,8 +148,14 @@ const AddTransactionForm = ({onAddTransaction}) => {
   );
 }
 
+const mapStateToProps = state => {
+  return {
+    token: state.auth.token
+  };
+};
+
 const mapDispatchToProps = {
   onAddTransaction: addTransaction,
 };
 
-export default connect(null, mapDispatchToProps)(AddTransactionForm);
+export default connect(mapStateToProps, mapDispatchToProps)(AddTransactionForm);

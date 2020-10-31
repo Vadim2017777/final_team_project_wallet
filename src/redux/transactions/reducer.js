@@ -1,6 +1,5 @@
 import {createReducer} from '@reduxjs/toolkit';
 
-
 import {addTransactionSuccess} from './transactionActions';
 
 const onAddTransaction = (state, action) => {

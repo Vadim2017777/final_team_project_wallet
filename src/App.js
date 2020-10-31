@@ -10,7 +10,7 @@ function App() {
         <Switch>
           <>
           <div className="App">
-            <Route path='/newTransaction' componet={AddTransactionForm}/>
+            <Route path='/newTransaction' exact component={AddTransactionForm}/>
             <Route path="/profile" component={ProfilePage} />
             <Route path="/" exact component={LoginForm} />
             <Route path="/signup" exact component={RegisterForm} />

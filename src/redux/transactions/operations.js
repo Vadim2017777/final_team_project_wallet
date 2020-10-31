@@ -3,10 +3,12 @@ import {addTransactionRequest, addTransactionSuccess, addTransactionFailure} fro
 
 axios.defaults.baseURL = 'https://lit-mountain-68142.herokuapp.com'
 
-export const addTransaction = ({date, type, category, comments, amount}) => async dispatch => {
+export const addTransaction = ({date, type, category, comments, amount, token}) => async dispatch => {
   try {
     dispatch(addTransactionRequest());
-    const {data} = await axios.post('/finance/addOperation', {date, type, category, comments, amount});
+    const {data} = await axios.post('/finance/addOperation', {date, type, category, comments, amount}, {
+      headers: {"Authorization": `Bearer ${token}`}
+  });
     console.log("operations", data);
     dispatch(addTransactionSuccess(data));
   } catch (error) {
