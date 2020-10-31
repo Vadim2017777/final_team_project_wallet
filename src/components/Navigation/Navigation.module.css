@@ -1,3 +1,11 @@
+.nav {
+    height: 40px;
+    background-color: #3a5374;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .link .button {
     background-color: #2a4262;
     border: none;
@@ -18,8 +26,7 @@
 }
 
 .active .text {
-    color: #2a4262;
-    font-size: 15px;
+    color: #ffffff;
 }
 
 .active .amount {
@@ -41,13 +48,7 @@
     fill: #ffffff;
 }
 
-.nav {
-    height: 40px;
-    background-color: #3a5374;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 @media screen and (min-width: 768px) {
     .nav {
@@ -87,6 +88,17 @@
     .svg {
         margin-bottom: 5px;
     }
+    .textBalance {
+        color: #ffffff;
+        margin-left: 25px;
+        font-size: 15px;
+    }
+    
+    .amountBalance {
+        color: #ffffff;
+        margin-right: 30px;
+        font-size: 15px;
+    }
 }
 
 @media screen and (min-width: 1280px) {
@@ -109,14 +121,17 @@
 
     .link .svg {
         fill: #b2bbc7;
+        margin-left: 25px;
     }
 
     .link .text {
         color: #b2bbc7;
+        margin-left: 25px;
     }
 
     .link .amount {
         color: #b2bbc7;
+        margin-right: 30px;
     }
 
     .active .svg {
@@ -129,6 +144,7 @@
 
     .active .amount {
         color: #ffffff;
+        
     }
 
     .btnBox {
@@ -141,36 +157,11 @@
         margin-left: 0px;
         padding: 0px;
     }
-
-    .linkTimeline {
-        margin-top: 30px;
-    }
-
-    .svg {
-        margin-left: 25px;
-    }
-    .text {
-        margin-left: 25px;
-    }
+    
     .balance {
         display: flex;
         justify-content: space-between;
         height: 90px;
         margin-top: 30px;
     }
-    .amount {
-        margin-right: 30px;
-    }
-    .textBalance {
-        color: #ffffff;
-        margin-left: 25px;
-        font-size: 15px;
-    }
-    
-    .amountBalance {
-        color: #ffffff;
-        margin-right: 30px;
-        font-size: 15px;
-    }
-    
 }

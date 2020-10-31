@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
+import {addTransaction} from '../../redux/transactions/operations';
 import s from './AddTransactionForm.module.css';
 import {TitleOfForm} from './TitleOfForm';
 
 
-export const AddTransactionForm = () => {
+const AddTransactionForm = ({onAddTransaction}) => {
   const [typeOfTransaction, setTypeOfTransiction] = useState('');
   const updateTypeOfTransiction = e => {
     setAnmount('');
@@ -27,7 +29,7 @@ export const AddTransactionForm = () => {
     setDate(e.target.value);
   };
 
-  const [comment, setComment] = useState('');
+  const [comments, setComment] = useState('');
   const updateComment = e => {
     setComment(e.target.value);
   };
@@ -40,12 +42,15 @@ export const AddTransactionForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const formData = {
-      typeOfTransaction,
-      amount,
       date,
-      comment,
+      type: typeOfTransaction,
+      category,
+      comments, 
+      amount,
     };
+
     console.log(formData);
+    onAddTransaction(formData);
   };
 
   return (
@@ -59,9 +64,9 @@ export const AddTransactionForm = () => {
               <label className={s.labelBox}>
                 <input
                   type="radio"
-                  value="income"
+                  value="+"
                   name="typeOfTransiction"
-                  checked={typeOfTransaction === 'income'}
+                  checked={typeOfTransaction === '+'}
                   onChange={updateTypeOfTransiction}
                   required
                 />
@@ -70,14 +75,14 @@ export const AddTransactionForm = () => {
               <label className={s.labelBox}>
                 <input
                   type="radio"
-                  value="cost"
+                  value="-"
                   name="typeOfTransiction"
-                  checked={typeOfTransaction === 'cost'}
+                  checked={typeOfTransaction === '-'}
                   onChange={updateTypeOfTransiction}
                 />
                 cost{' '}
               </label>{' '}
-              {typeOfTransaction === 'cost' && (
+              {typeOfTransaction === '-' && (
                 <label className={s.categoryBox}>
                   <select
                     className={s.inputCategory}
@@ -121,7 +126,7 @@ export const AddTransactionForm = () => {
                   className={s.textarea}
                   type="text"
                   name="comment"
-                  value={comment}
+                  value={comments}
                   onChange={updateComment}
                   required
                 >
@@ -141,3 +146,9 @@ export const AddTransactionForm = () => {
       </div>
   );
 }
+
+const mapDispatchToProps = {
+  onAddTransaction: addTransaction,
+};
+
+export default connect(null, mapDispatchToProps)(AddTransactionForm);

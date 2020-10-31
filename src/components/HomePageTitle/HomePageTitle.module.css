@@ -68,4 +68,7 @@
     .wrapper {
         margin-bottom: 46px;
     }
+    .container {
+        width: 1192px;
+    }
 }
