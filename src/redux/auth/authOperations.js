@@ -15,7 +15,7 @@ const token = {
 const register = credentials => async dispatch => {
   dispatch(authActions.registerRequest());
   try {
-    const data = await axios.post('/users/signup', credentials);
+    const {data} = await axios.post('/users/signup', credentials);
     console.log(credentials);
     console.log(data);
     // token.set(data.token);
