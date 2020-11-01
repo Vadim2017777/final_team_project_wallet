@@ -1,32 +1,30 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {connect} from 'react-redux';
 
 import {authOperations} from '../../redux/auth';
 
 import {Link} from 'react-router-dom';
 
+import useInput from '../hooks/UseInput.js';
+
 import s from './LoginForm.module.css';
 import iphoneImg from './images/iPhone_6.png';
 import Logo from './images/svg/logo.svg';
 
-const LoginForm = ({onLogin}) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const LoginForm = ({onLogin, authError}) => {
+  const email = useInput('', {isEmpty: true, minLength: 1});
+  const password = useInput('', {isEmpty: true, minLength: 1});
 
-  const updateEmail = ({target}) => {
-    setEmail(target.value);
-  };
-
-  const updatePassword = ({target}) => {
-    setPassword(target.value);
-  };
+  console.log(authError);
 
   const handleSubmit = e => {
     e.preventDefault();
-    onLogin({email, password});
-    console.log(email);
-    setEmail('');
-    setPassword('');
+    const data = {
+      email: email.value,
+      password: password.value,
+    };
+    onLogin(data);
+    console.log(data);
   };
   return (
     <div className={s.loginForm_container}>
@@ -48,19 +46,38 @@ const LoginForm = ({onLogin}) => {
             type="email"
             name="email"
             placeholder="E-mail"
-            onChange={updateEmail}
-            value={email}
+            onChange={e => email.onChange(e)}
+            onBlur={e => email.onBlur(e)}
+            value={email.value}
             className={s.loginForm_EmailInput}
           />
+
+          {email.isDirty && email.minLength && (
+            <span className={s.loginForm_ErrorStringEmail}>
+              EMAIL IS REQUIRED
+            </span>
+          )}
+
           <input
             type="password"
             name="password"
             placeholder="Password"
-            onChange={updatePassword}
-            value={password}
-            autoComplete="on"
+            onChange={e => password.onChange(e)}
+            onBlur={e => password.onBlur(e)}
+            value={password.value}
+            autoComplete="off"
             className={s.loginForm_passwordInput}
           />
+          {password.isDirty && password.minLength && (
+            <span className={s.loginForm_ErrorStringPassword}>
+              PASSWORD IS REQUIRED
+            </span>
+          )}
+          {authError && (
+            <span className={s.loginForm_ErrorStringError}>
+              INCORRECT EMAIL OR PASSWORD
+            </span>
+          )}
           <button type="submit" className={s.loginForm_button}>
             Login
           </button>
@@ -73,4 +90,5 @@ const LoginForm = ({onLogin}) => {
   );
 };
 
-export default connect(null, {onLogin: authOperations.logIn})(LoginForm);
+const mSTP = ({auth}) => ({authError: auth.error});
+export default connect(mSTP, {onLogin: authOperations.logIn})(LoginForm);

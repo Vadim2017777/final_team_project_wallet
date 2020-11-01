@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: url("./images/Rectangle_2.png");
+  background-image: url('./images/Rectangle_2.png');
   background-size: cover;
 }
 
@@ -42,6 +42,7 @@
 }
 
 .registerForm_form {
+  position: relative;
   box-sizing: border-box;
   width: 553px;
   height: 538px;
@@ -66,10 +67,10 @@
   width: 432px;
   height: 46px;
   border: 0;
-  margin-bottom: 16px;
+  margin-bottom: 26px;
   border-radius: 5px;
   outline: none;
-  background: url("./images/svg/baseline-email-24px.svg") no-repeat;
+  background: url('./images/svg/baseline-email-24px.svg') no-repeat;
   padding-left: 60px;
   background-color: #f9fbfb;
   background-position-x: 15px;
@@ -85,10 +86,10 @@
   width: 432px;
   height: 46px;
   border: 0;
-  margin-bottom: 16px;
+  margin-bottom: 26px;
   border-radius: 5px;
   outline: none;
-  background: url("./images/svg/baseline-lock-24px.svg") no-repeat;
+  background: url('./images/svg/baseline-lock-24px.svg') no-repeat;
   padding-left: 60px;
   background-color: #f9fbfb;
   background-position-x: 15px;
@@ -107,7 +108,7 @@
   margin-bottom: 30px;
   border-radius: 5px;
   outline: none;
-  background: url("./images/svg/baseline-account_box-24px.svg") no-repeat;
+  background: url('./images/svg/baseline-account_box-24px.svg') no-repeat;
   padding-left: 60px;
   background-color: #f9fbfb;
   background-position-x: 15px;
@@ -146,8 +147,37 @@
   top: -7px;
   width: 486px;
   height: 5px;
-  background-color: rgb(219, 191, 168);
+  background-color: #d68b4d;
   border-radius: 4px;
+}
+
+.formRegister_ErrorStringEmail,
+.formRegister_ErrorStringPassword,
+.formRegister_ErrorStringConfirm,
+.formRegister_ErrorStringName {
+  position: absolute;
+  margin: 0;
+  font-size: 11px;
+  color: red;
+}
+
+.formRegister_ErrorStringEmail {
+  top: 155px;
+}
+
+.formRegister_ErrorStringPassword {
+  top: 231px;
+}
+
+.formRegister_ErrorStringConfirm {
+  top: 292px;
+}
+.formRegister_ErrorStringName {
+  top: 379px;
+}
+
+.registerForm_button:disabled {
+  background-color: rgb(219, 191, 168);
 }
 
 @media screen and (max-width: 320px) {
@@ -192,11 +222,25 @@
   .registerForm_button {
     width: 240px;
   }
+
+  .formRegister_ErrorStringEmail {
+    top: 197px;
+  }
+
+  .formRegister_ErrorStringPassword {
+    top: 265px;
+  }
+  .formRegister_ErrorStringConfirm {
+    top: 325px;
+  }
+  .formRegister_ErrorStringName {
+    top: 404px;
+  }
 }
 
 @media screen and (max-width: 768px) and (min-width: 321px) {
   .registerForm_container {
-    background: url("./images/Rectangle_2.png") no-repeat;
+    background: url('./images/Rectangle_2.png') no-repeat;
     background-size: cover;
     width: 1024px;
     height: 768px;

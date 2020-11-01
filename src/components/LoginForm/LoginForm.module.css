@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: url("./images/Rectangle.png");
+  background-image: url('./images/Rectangle.png');
   background-size: cover;
 }
 
@@ -44,6 +44,7 @@
 }
 
 .loginForm_form {
+  position: relative;
   box-sizing: border-box;
   width: 553px;
   height: 391px;
@@ -71,7 +72,7 @@
   margin-bottom: 16px;
   border-radius: 5px;
   outline: none;
-  background: url("./images/svg/baseline-email-24px.svg") no-repeat;
+  background: url('./images/svg/baseline-email-24px.svg') no-repeat;
 
   padding-left: 60px;
   background-color: #f9fbfb;
@@ -91,7 +92,7 @@
   margin-bottom: 36px;
   border-radius: 5px;
   outline: none;
-  background: url("./images/svg/baseline-lock-24px.svg") no-repeat;
+  background: url('./images/svg/baseline-lock-24px.svg') no-repeat;
   padding-left: 60px;
   background-color: #f9fbfb;
   background-position-x: 15px;
@@ -124,12 +125,38 @@
   color: #707c82;
 }
 
+.loginForm_ErrorStringEmail,
+.loginForm_ErrorStringPassword,
+.loginForm_ErrorStringError {
+  position: absolute;
+  margin: 0;
+  font-size: 11px;
+  color: red;
+}
+
+.loginForm_ErrorStringEmail {
+  top: 150px;
+}
+
+.loginForm_ErrorStringPassword {
+  top: 220px;
+}
+
+.loginForm_ErrorStringError {
+  top: 298px;
+}
+
+.registerForm_button:disabled {
+  background-color: rgb(219, 191, 168);
+}
+
 @media screen and (max-width: 320px) {
   .loginForm_ImgBGWrapper {
     display: none;
   }
 
   .loginForm_form {
+    position: relative;
     height: 568px;
     width: 320px;
   }
@@ -157,11 +184,23 @@
   .loginForm_button {
     width: 240px;
   }
+
+  .loginForm_ErrorStringEmail {
+    top: 192px;
+  }
+
+  .loginForm_ErrorStringPassword {
+    top: 254px;
+  }
+
+  .loginForm_ErrorStringError {
+    top: 330px;
+  }
 }
 
 @media screen and (max-width: 768px) and (min-width: 321px) {
   .loginForm_container {
-    background: url("./images/Rectangle.png") no-repeat;
+    background: url('./images/Rectangle.png') no-repeat;
     background-size: cover;
     width: 1024px;
     height: 768px;
@@ -178,5 +217,13 @@
     width: 557px;
     height: 392px;
     background-color: #dbe1e6;
+  }
+
+  .loginForm_ErrorStringEmail {
+    top: 158px;
+  }
+
+  .loginForm_ErrorStringPassword {
+    top: 228px;
   }
 }

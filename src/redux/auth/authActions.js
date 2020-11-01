@@ -1,4 +1,4 @@
-import { createAction } from '@reduxjs/toolkit';
+import {createAction} from '@reduxjs/toolkit';
 
 const registerRequest = createAction('auth/registerRequest');
 const registerSuccess = createAction('auth/registerSuccess');
@@ -16,7 +16,7 @@ const getCurrentUserRequest = createAction('auth/getCurrentUserRequest');
 const getCurrentUserSuccess = createAction('auth/getCurrentUserSuccess');
 const getCurrentUserError = createAction('auth/getCurrentUserError');
 
-export default {
+export {
   registerRequest,
   registerSuccess,
   registerError,

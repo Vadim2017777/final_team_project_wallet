@@ -1,5 +1,5 @@
 import axios from 'axios';
-import authActions from './authActions';
+import * as authActions from './authActions';
 
 axios.defaults.baseURL = 'https://lit-mountain-68142.herokuapp.com';
 
@@ -12,8 +12,10 @@ const token = {
   },
 };
 
-const register = credentials => async dispatch => {
+const register = credentials => async (dispatch, getState) => {
   dispatch(authActions.registerRequest());
+  dispatch(authActions.registerError(null));
+
   try {
     const {data} = await axios.post('/users/signup', credentials);
     console.log(credentials);
@@ -28,9 +30,10 @@ const register = credentials => async dispatch => {
 
 const logIn = credentials => async dispatch => {
   dispatch(authActions.loginRequest());
+  dispatch(authActions.registerError(null));
   try {
     const {data} = await axios.post('/users/signin', credentials);
-    console.log(data);
+    console.log(credentials);
     token.set(data.token);
     dispatch(authActions.loginSuccess(data));
   } catch (error) {
@@ -69,4 +72,4 @@ const logOut = () => async dispatch => {
   }
 };
 
-export default {register, logOut, logIn, getCurrentUser};
+export {register, logOut, logIn, getCurrentUser};

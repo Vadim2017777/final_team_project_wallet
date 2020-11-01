@@ -4,41 +4,41 @@ import {connect} from 'react-redux';
 import {authOperations} from '../../redux/auth';
 
 import {Link} from 'react-router-dom';
+import ProgressValidationBar from './ProgressValidationBar';
+
+import useInput from '../hooks/UseInput.js';
 
 import s from './RegisterForm.module.css';
 import iphoneImg from './images/iPhone_6_2.png';
 import Logo from './images/svg/logo.svg';
+import {useEffect} from 'react';
 
-const RegisterForm = ({onRegister}) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirm, setpasswordConfirm] = useState('');
-  const [name, setName] = useState('');
+const RegisterForm = ({onRegister, authError}) => {
+  const email = useInput('', {isEmpty: true, minLength: 3});
+  const password = useInput('', {isEmpty: true, minLength: 6});
+  const passwordConfirm = useInput('', {isEmpty: true});
+  const name = useInput('', {isEmpty: true, minLength: 3});
+  const [mathchPass, setmatchPass] = useState(true);
 
-  const updateEmail = ({target}) => {
-    setEmail(target.value);
-  };
-
-  const updatePassword = ({target}) => {
-    setPassword(target.value);
-  };
-
-  const updatepasswordConfirm = ({target}) => {
-    setpasswordConfirm(target.value);
-  };
-
-  const updateName = ({target}) => {
-    setName(target.value);
-  };
+  useEffect(() => {
+    if (passwordConfirm.value !== password.value) {
+      setmatchPass(true);
+    } else if (passwordConfirm.value === password.value) {
+      setmatchPass(false);
+    }
+  }, [password, passwordConfirm]);
 
   const handleSubmit = e => {
     e.preventDefault();
-    onRegister({email, password, passwordConfirm, name});
-    console.log(email);
-    setEmail('');
-    setPassword('');
-    setpasswordConfirm('');
-    setName('');
+
+    const data = {
+      email: email.value,
+      password: password.value,
+      passwordConfirm: passwordConfirm.value,
+      name: name.value,
+    };
+
+    onRegister(data);
   };
   return (
     <div className={s.registerForm_container}>
@@ -64,40 +64,77 @@ const RegisterForm = ({onRegister}) => {
             type="email"
             name="email"
             placeholder="E-mail"
-            onChange={updateEmail}
-            value={email}
+            onChange={e => email.onChange(e)}
+            onBlur={e => email.onBlur(e)}
+            value={email.value}
             className={s.registerForm_EmailInput}
           />
+          {email.isDirty && email.minLength && (
+            <span className={s.formRegister_ErrorStringEmail}>
+              EMAIL IS REQUIRED
+            </span>
+          )}
+          {authError && (
+            <span className={s.formRegister_ErrorStringEmail}>
+              EMAIL ALREADY EXISTS
+            </span>
+          )}
           <input
             type="password"
             name="password"
             placeholder="Password"
-            onChange={updatePassword}
-            value={password}
+            onChange={e => password.onChange(e)}
+            onBlur={e => password.onBlur(e)}
+            value={password.value}
             autoComplete="off"
             className={s.registerForm_passwordInput}
           />
-
+          {password.isDirty && password.minLength && (
+            <span className={s.formRegister_ErrorStringPassword}>
+              PASSWORD MUST BE AT LEAST 6 CHARACTERS
+            </span>
+          )}
           <input
             type="password"
             name="password"
             placeholder="Confirm Password"
-            onChange={updatepasswordConfirm}
-            value={passwordConfirm}
+            onChange={e => passwordConfirm.onChange(e)}
+            onBlur={e => passwordConfirm.onBlur(e)}
+            value={passwordConfirm.value}
             autoComplete="off"
             className={s.registerForm_passwordInput}
           />
-          <div className={s.loginForm_passwordBarProgress}></div>
+
+          {mathchPass && passwordConfirm.isDirty && (
+            <span className={s.formRegister_ErrorStringConfirm}>
+              PASSWORDS MUST MATCH
+            </span>
+          )}
+          <ProgressValidationBar
+            style={s.loginForm_passwordBarProgress}
+            password={password.value}
+          />
           <input
             type="text"
             name="name"
             placeholder="Name"
-            onChange={updateName}
-            value={name}
+            onChange={e => name.onChange(e)}
+            onBlur={e => name.onBlur(e)}
+            value={name.value}
             className={s.registerForm_nameInput}
           />
-          <button type="submit" className={s.registerForm_button}>
-            Login
+          {name.isDirty && name.minLength && (
+            <span className={s.formRegister_ErrorStringName}>
+              NAME IS REQUIRED
+            </span>
+          )}
+
+          <button
+            disabled={!email.inputValid || !password.inputValid || mathchPass}
+            type="submit"
+            className={s.registerForm_button}
+          >
+            Sign up
           </button>
           <Link to="/" className={s.registerForm_linkSignUp}>
             Sign in
@@ -108,6 +145,8 @@ const RegisterForm = ({onRegister}) => {
   );
 };
 
-export default connect(null, {onRegister: authOperations.register})(
+const mSTP = ({auth}) => ({authError: auth.error});
+
+export default connect(mSTP, {onRegister: authOperations.register})(
   RegisterForm,
 );
