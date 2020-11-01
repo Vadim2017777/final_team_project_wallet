@@ -1,11 +1,16 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {addTransaction} from '../../redux/transactions/operations';
+import isAuth from '../../redux/auth/authSelectors';
+import {getAddTransactionPage} from '../../redux/transactions/selectors';
+import {changeTransactionPage} from '../../redux/transactions/transactionActions';
 import s from './AddTransactionForm.module.css';
-import {TitleOfForm} from './TitleOfForm';
+import TitleOfForm from './TitleOfForm';
 
 
-const AddTransactionForm = ({token, onAddTransaction}) => {
+const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive, ...props}) => {
+  const pageStatus = !isActive;
   const [typeOfTransaction, setTypeOfTransiction] = useState('');
   const updateTypeOfTransiction = e => {
     setAnmount('');
@@ -49,9 +54,9 @@ const AddTransactionForm = ({token, onAddTransaction}) => {
       amount,
       token
     };
-
-    console.log(formData);
-    onAddTransaction(formData);
+    console.log(props);
+   onAddTransaction(formData);
+   updateStatus(pageStatus);
   };
 
   return (
@@ -136,9 +141,8 @@ const AddTransactionForm = ({token, onAddTransaction}) => {
               </label>{' '}
             </div>
             <div className={s.btnBox}>
-              <button className={s.button} type="submit">
-                {' '}
-                Add transaction{' '}
+              <button  className={s.button} type="submit">
+                Add transaction
               </button>{' '}
             </div>
           </form>{' '}
@@ -148,14 +152,14 @@ const AddTransactionForm = ({token, onAddTransaction}) => {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    token: state.auth.token
-  };
-};
+const mapStateToProps = state => ({
+  isActive: getAddTransactionPage(state),
+  token: isAuth.isAuthenticated(state)
+});
 
 const mapDispatchToProps = {
   onAddTransaction: addTransaction,
+  updateStatus: changeTransactionPage
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTransactionForm);

@@ -9,6 +9,8 @@ const FETCH_TRANSACTIONS_REQUEST = "transactions/getRequest";
 const FETCH_TRANSACTIONS_SUCCESS = "transactions/getSuccess";
 const FETCH_TRANSACTIONS_FAILURE = "transactions/getFailure";
 
+const CHANGE_TRANSACTIONS_SUCCESS = "transactions/getFailure";
+
 
 
 export const addTransactionRequest = createAction(ADD_TRANSACTION_REQUEST);
@@ -18,3 +20,5 @@ export const addTransactionFailure = createAction(ADD_TRANSACTION_FAILURE);
 export const getTransactionRequest = createAction(FETCH_TRANSACTIONS_REQUEST);
 export const getTransactionSuccess = createAction(FETCH_TRANSACTIONS_SUCCESS);
 export const getTransactionFailure = createAction(FETCH_TRANSACTIONS_FAILURE);
+
+export const changeTransactionPage = createAction(CHANGE_TRANSACTIONS_SUCCESS);

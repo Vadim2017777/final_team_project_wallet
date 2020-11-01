@@ -29,6 +29,7 @@ export const addTransaction = ({
     );
     console.log('operations', data);
     dispatch(addTransactionSuccess(data));
+  
   } catch (error) {
     dispatch(addTransactionFailure(error));
   }
@@ -49,3 +50,6 @@ export const getTransactions = (token) => async dispatch => {
     dispatch(getTransactionFailure(error));
   }
 };
+
+
+
