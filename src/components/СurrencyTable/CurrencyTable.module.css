@@ -13,6 +13,7 @@
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
+  color: #2c353e;
 }
 
 .CurrencyTable_name {

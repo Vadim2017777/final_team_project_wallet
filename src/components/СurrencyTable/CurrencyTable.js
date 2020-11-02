@@ -26,18 +26,18 @@ const CurrencyTable = ({currency, getCurrency}) => {
         <tbody className={s.CurrencyTable_body}>
           <tr className={s.CurrencyTable_row}>
             <th>EUR</th>
-            <th>{EUR.purchaseRate}</th>
-            <th>{EUR.saleRate}</th>
+            <th>{currency.length ? EUR.purchaseRate : 0}</th>
+            <th>{currency.length ? EUR.saleRate : 0}</th>
           </tr>
           <tr className={s.CurrencyTable_row}>
             <th>RUR</th>
-            <th>{RUB.purchaseRate}</th>
-            <th>{RUB.saleRate}</th>
+            <th>{currency.length ? RUB.purchaseRate : 0}</th>
+            <th>{currency.length ? RUB.saleRate : 0}</th>
           </tr>
           <tr className={s.CurrencyTable_row}>
             <th>USD</th>
-            <th>{USD.purchaseRate}</th>
-            <th>{USD.saleRate}</th>
+            <th>{currency.length ? USD.purchaseRate : 0}</th>
+            <th>{currency.length ? USD.saleRate : 0}</th>
           </tr>
         </tbody>
       </table>
