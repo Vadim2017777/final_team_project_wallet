@@ -9,6 +9,7 @@ import {ProfilePage} from './views/ProfilePage';
 import MainProfileInfo from './views/MainProfileInfo';
 import RegisterForm from './components/RegisterForm/RegisterForm';
 import LoginForm from './components/LoginForm/LoginForm';
+import CurrencyTable from './components/СurrencyTable/CurrencyTable';
 
 function App({isAuth, transactionPage}) {
   return (
@@ -19,6 +20,7 @@ function App({isAuth, transactionPage}) {
             <>
               <ProfilePage />
               <Route path="/" component={MainProfileInfo} />
+
               {transactionPage && (
                 <Route path="/newTransaction" component={AddTransactionForm} />
               )}

@@ -15,8 +15,6 @@ const LoginForm = ({onLogin, authError}) => {
   const email = useInput('', {isEmpty: true, minLength: 1});
   const password = useInput('', {isEmpty: true, minLength: 1});
 
-  console.log(authError);
-
   const handleSubmit = e => {
     e.preventDefault();
     const data = {

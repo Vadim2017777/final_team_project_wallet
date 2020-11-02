@@ -8,10 +8,11 @@ import {Balance} from '../components/Balance/Balance';
 import TransactionList from '../components/TransactionList/TransactionList';
 
 import s from './ProfilePage.module.css';
+import CurrencyTable from '../components/СurrencyTable/CurrencyTable';
 
 const MainProfileInfo = ({isActive, updateStatus}) => {
   const statusPage = !isActive;
-  
+
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
   const handleResize = () => {
     setTabletScreen(window.innerWidth);
@@ -24,13 +25,18 @@ const MainProfileInfo = ({isActive, updateStatus}) => {
 
   return (
     <>
-      {(statusPage || Number(tabletScreen) > 768) && <div className={s.box}>
-        <Navigation />
-        <Balance />
-        <TransactionList />
-      </div>}
+      {(statusPage || Number(tabletScreen) > 768) && (
+        <div className={s.box}>
+          <Navigation />
+          <Balance />
+          <TransactionList />
+          <CurrencyTable />
+        </div>
+      )}
       <Link to="/newTransaction">
-        {statusPage && <button onClick={()=> updateStatus(statusPage)}>+</button>}
+        {statusPage && (
+          <button onClick={() => updateStatus(statusPage)}>+</button>
+        )}
       </Link>
     </>
   );
@@ -43,6 +49,5 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   updateStatus: changeTransactionPage,
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainProfileInfo);

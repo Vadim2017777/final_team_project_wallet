@@ -1,0 +1,49 @@
+.CurrencyTable_form {
+  display: flex;
+
+  height: 380px;
+  width: 311px;
+  background-image: url('./images/Ractangle.png');
+
+  background-position-x: 36%;
+  background-position-y: 20%;
+}
+
+.CurrencyTable_table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.CurrencyTable_name {
+  height: 64px;
+  text-transform: uppercase;
+  background-color: #f8fbfe;
+  font-size: 15px;
+}
+
+.CurrencyTable_name > th:first-child {
+  padding-left: 16px;
+}
+
+.CurrencyTable_row {
+  height: 40px;
+  border-bottom: 1px solid #f8fbfe;
+}
+
+@media screen and (max-width: 320px) {
+  .CurrencyTable_form {
+    height: 454px;
+    width: 320px;
+    background-image: url('./images/Ractangle_mobile.png');
+    background-position-y: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 321px) {
+  .CurrencyTable_form {
+    height: 190px;
+    width: 353px;
+    background-image: none;
+  }
+}
