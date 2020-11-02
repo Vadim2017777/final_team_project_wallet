@@ -9,7 +9,6 @@ import {ProfilePage} from './views/ProfilePage';
 import MainProfileInfo from './views/MainProfileInfo';
 import RegisterForm from './components/RegisterForm/RegisterForm';
 import LoginForm from './components/LoginForm/LoginForm';
-import CurrencyTable from './components/СurrencyTable/CurrencyTable';
 
 function App({isAuth, transactionPage}) {
   return (
