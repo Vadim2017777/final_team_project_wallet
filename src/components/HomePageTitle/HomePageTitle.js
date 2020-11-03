@@ -27,7 +27,7 @@ export const HomePageTitle = () => {
           <button className={s.logout}>
             <Exit s={s.logoutSvg} />
           </button>
-          {Number(tabletScreen) > 768 && <span>Exit</span>}
+          {Number(tabletScreen) >= 768 && <span>Exit</span>}
         </div>
       </div>
     </div>

@@ -1,0 +1,71 @@
+.list {
+    padding-left: 0px;
+    margin: 0 auto;
+    width: 303px;
+}
+
+.btnAdd {
+    width: 54px;
+    height: 54px;
+    background-color: #f3713f;
+    border: none;
+    border-radius: 50% 50% 50% 50%;
+    position: fixed;
+    bottom: 10px;
+    transform: translateX(-50%);
+    font-size: 30px;
+    color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+    .list {
+        width: 705px;
+        border-collapse: separate;
+        border-spacing: 0px;
+    }
+
+    .date {
+        width: 100px;
+    }
+
+    .raw td {
+        padding-left: 23px;
+    }
+
+    .raw {
+        text-align: start;
+        height: 73px;
+    }
+
+    .type {
+        width: 65px;
+    }
+
+    .category {
+        width: 128px;
+    }
+
+    .amount {
+        width: 78px;
+    }
+
+    .balance {
+        width: 127px;
+    }
+
+    .raw .amount,
+    .balance {
+        text-align: end;
+        padding-right: 23px;
+    }
+
+    .tbody tr:nth-child(2n + 1) {
+        background-color: #f3f6f6;
+    }
+
+    .btnAdd {
+        right: 0px;
+    }
+
+
+}

@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {addTransaction} from '../../redux/transactions/operations';
 import isAuth from '../../redux/auth/authSelectors';
@@ -9,7 +8,7 @@ import s from './AddTransactionForm.module.css';
 import TitleOfForm from './TitleOfForm';
 
 
-const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive, ...props}) => {
+const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) => {
   const pageStatus = !isActive;
   const [typeOfTransaction, setTypeOfTransiction] = useState('');
   const updateTypeOfTransiction = e => {
@@ -54,9 +53,9 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive, ..
       amount,
       token
     };
-    console.log(props);
-   onAddTransaction(formData);
+    
    updateStatus(pageStatus);
+   onAddTransaction(formData);
   };
 
   return (
@@ -134,6 +133,7 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive, ..
                   name="comment"
                   value={comments}
                   onChange={updateComment}
+                  maxLength='30'
                   required
                 >
                   Lorem impsut lorem{' '}

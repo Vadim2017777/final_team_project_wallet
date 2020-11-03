@@ -84,6 +84,9 @@
         align-self: flex-center;
         padding-right: 3px;
     }
+    .active .text {
+        color: #284060;
+    }
 
     .svg {
         margin-bottom: 5px;
@@ -99,6 +102,7 @@
         margin-right: 30px;
         font-size: 15px;
     }
+    
 }
 
 @media screen and (min-width: 1280px) {

@@ -20,6 +20,7 @@ export const addTransaction = ({
 }) => async dispatch => {
   try {
     dispatch(addTransactionRequest());
+    
     const {data} = await axios.post(
       '/finance/addOperation',
       {date, type, category, comments, amount},
@@ -35,10 +36,10 @@ export const addTransaction = ({
   }
 };
 
-export const getTransactions = (token) => async dispatch => {
+export const getAllTransactions = (token) => async dispatch => {
   try {
     dispatch(getTransactionRequest());
-
+    
     const {data} = await axios.get(
       '/finance/getdata',
       {

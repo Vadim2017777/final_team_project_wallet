@@ -23,10 +23,10 @@ export const Navigation = () => {
         <NavLink
           className={s.link}
           activeClassName={s.active}
-          to="profile/home"
+          to="/home"
         >
           <button className={s.button}>
-            {Number(tabletScreen) < 768 ? (
+            {Number(tabletScreen) <= 767 ? (
               <Home s={s.svg} />
             ) : (
               <div className={s.btnBox}>
@@ -39,10 +39,10 @@ export const Navigation = () => {
         <NavLink
           className={s.link}
           activeClassName={s.active}
-          to="profile/statistics"
+          to="/statistics"
         >
           <button className={s.button}>
-            {Number(tabletScreen) < 768 ? (
+            {Number(tabletScreen) <= 767 ? (
               <Timeline s={s.svg} />
             ) : (
               <div className={s.btnBox}>
@@ -52,11 +52,11 @@ export const Navigation = () => {
             )}
           </button>
         </NavLink>
-        {Number(tabletScreen) < 768 && (
+        {Number(tabletScreen) <= 767 && (
           <NavLink
             className={s.link}
             activeClassName={s.active}
-            to="profile/balance"
+            to="/currency"
           >
             <button className={s.button}>
               <Money s={s.svg} />
