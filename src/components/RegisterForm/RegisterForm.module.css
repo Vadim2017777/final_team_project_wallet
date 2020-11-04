@@ -180,14 +180,15 @@
   background-color: rgb(219, 191, 168);
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 767px) {
   .registerForm_ImgBGWrapper {
     display: none;
   }
 
   .registerForm_form {
     height: 568px;
-    width: 320px;
+    width: 767px;
+    box-shadow: none;
   }
 
   .registerForm_EmailInput {
@@ -238,12 +239,12 @@
   }
 }
 
-@media screen and (max-width: 768px) and (min-width: 321px) {
+@media screen and (max-width: 1279px) and (min-width: 768px) {
   .registerForm_container {
     background: url('./images/Rectangle_2.png') no-repeat;
     background-size: cover;
-    width: 1024px;
-    height: 768px;
+    width: 1279px;
+    height: 100vh;
   }
 
   .registerForm_ImgBGWrapper {

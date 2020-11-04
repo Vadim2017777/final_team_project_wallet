@@ -1,0 +1,39 @@
+.CategoryTable {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-start;
+  margin: 0 auto;
+  height: 380px;
+  width: 370px;
+  background-color: red;
+}
+
+.CategoryTable_select {
+  width: 172px;
+  margin: 5px;
+
+  height: 40px;
+}
+
+.CategoryTable_form {
+  width: 370px;
+  margin-bottom: 40px;
+}
+
+.CategoryTable_head {
+}
+
+.CategoryTable_name {
+  background-color: grey;
+  height: 60px;
+}
+
+.CategoryTable_nameCategory {
+  width: 230px;
+}
+
+.CategoryTable_row {
+  height: 40px;
+}
