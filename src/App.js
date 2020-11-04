@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Redirect, Route, Switch} from 'react-router-dom';
 import isAuth from './redux/auth/authSelectors';
 import {connect} from 'react-redux';
 import AddTransactionForm from './components/AddTransactionForm/AddTransactionForm';
@@ -21,28 +21,25 @@ function App ({isAuth, transactionPage}) {
   useEffect(() => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [tabletScreen]);
+  }, [tabletScreen, isAuth, transactionPage]);
 
   return (
     <Switch>
       <>
         <div className='App'>
-          {isAuth && (
+          {isAuth ? (
             <>
               <ProfilePage />
               <div className='wrapperPage'>
                 <div className='profile-wrapper'>
-                  <Route path='/' component={MainProfileInfo} />
-                  <Route path='/home' component={TransactionList} />
+                  <MainProfileInfo/>
+                  {!transactionPage && Number(tabletScreen) <=767 && <Route path='/' exact component={TransactionList} />}
+                   {Number(tabletScreen) >=768 && <Route path='/' exact component={TransactionList} />}
                 </div>
                 {Number(tabletScreen)<=767 && <Route path='/currency' component={CurrencyTable} />}
               </div>
-
-              {transactionPage && (
-                <Route path='/newTransaction' component={AddTransactionForm} />
-              )}
             </>
-          )}
+          ) : <Redirect to='./'/>}
           {!isAuth && (
             <>
               <Route path='/' exact component={LoginForm} />

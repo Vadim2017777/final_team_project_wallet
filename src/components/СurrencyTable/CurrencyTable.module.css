@@ -1,10 +1,9 @@
 .CurrencyTable_form {
   display: flex;
-
+  margin: 0 auto;
   height: 380px;
   width: 311px;
   background-image: url('./images/Ractangle.png');
-
   background-position-x: 36%;
   background-position-y: 20%;
 }
@@ -36,11 +35,6 @@
   .CurrencyTable_form {
     height: 100vh;
     background-image: none;
-    width: 767px;
-  }
-
-  .CurrencyTable_table {
-    width: 767px;
   }
 }
 
@@ -51,7 +45,6 @@
     background-image: none;
     margin: 0 auto;
   }
-
 }
 
 @media screen and (min-width: 768px) {
@@ -63,8 +56,13 @@
 
 @media screen and (min-width: 1280px) {
   .CurrencyTable_container {
-    width: 1192px;
+   width: 309px;
     position: absolute;
     top: 295px;
   }
+
+  .CurrencyTable_form {
+    left: 0px;
+  }
+
 }

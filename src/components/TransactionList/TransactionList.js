@@ -13,6 +13,7 @@ import {Balance} from '../../components/Balance/Balance';
 import CurrencyTable from '../СurrencyTable/CurrencyTable';
 
 import s from './TransactionList.module.css';
+import AddTransactionForm from '../AddTransactionForm/AddTransactionForm';
 
 const TransactionList = ({
   isActive,
@@ -71,13 +72,12 @@ const TransactionList = ({
         <CurrencyTable/>
         </>
       )}
-      <Link to='/newTransaction'>
+      
         {statusPage && (
           <button className={s.btnAdd} onClick={() => updateStatus(statusPage)}>
             &#43;
           </button>
         )}
-      </Link>
     </>
   );
 };

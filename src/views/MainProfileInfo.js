@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import {getAddTransactionPage} from '../redux/transactions/selectors';
 import {Navigation} from '../components/Navigation/Navigation';
 
-
 import s from './ProfilePage.module.css';
+import AddTransactionForm from '../components/AddTransactionForm/AddTransactionForm';
 
 
 const MainProfileInfo = ({isActive}) => {
@@ -27,6 +27,7 @@ const MainProfileInfo = ({isActive}) => {
           <Navigation />
         </div>
       )}
+      {!statusPage && Number(tabletScreen) && <AddTransactionForm/>}
       </>
   );
 };

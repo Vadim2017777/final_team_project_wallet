@@ -10,7 +10,7 @@ const TitleOfForm = ({isActive, updateStatus}) => {
   return (
     <div className={s.wrapper}>
       <div className={s.titleBox}>
-        <Link to='/home'><button className={s.btn} onClick={()=> updateStatus(pageStatus)}>&lArr;</button></Link>
+        <Link to='/'><button className={s.btn} onClick={()=> updateStatus(pageStatus)}>&lArr;</button></Link>
         <span className={s.title}>ADD A TRANSACTION </span>
       </div>
     </div>

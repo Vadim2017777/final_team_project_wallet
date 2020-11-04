@@ -23,7 +23,7 @@ export const Navigation = () => {
         <NavLink
           className={s.link}
           activeClassName={s.active}
-          to="/home"
+          to="/"
         >
           <button className={s.button}>
             {Number(tabletScreen) <= 767 ? (

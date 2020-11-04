@@ -6,6 +6,7 @@ import {getAddTransactionPage} from '../../redux/transactions/selectors';
 import {changeTransactionPage} from '../../redux/transactions/transactionActions';
 import s from './AddTransactionForm.module.css';
 import TitleOfForm from './TitleOfForm';
+import { Link } from 'react-router-dom';
 
 
 const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) => {
@@ -54,8 +55,11 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) =
       token
     };
     
+   const result = onAddTransaction(formData);
+   console.log(result);
    updateStatus(pageStatus);
-   onAddTransaction(formData);
+   
+  
   };
 
   return (
@@ -141,7 +145,7 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) =
               </label>{' '}
             </div>
             <div className={s.btnBox}>
-              <button  className={s.button} type="submit">
+              <button className={s.button} type="submit">
                 Add transaction
               </button>{' '}
             </div>

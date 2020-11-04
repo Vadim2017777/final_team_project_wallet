@@ -82,12 +82,16 @@
 
 @media screen and (min-width: 768px) {
     .modal {
-        width: 100vw;
-        height: 100vh;
-        background-color: #00000017;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #00000071;
         display: flex;
+        position: fixed;
         justify-content: center;
         align-items: center;
+        z-index: 2;
     }
 
     .container {

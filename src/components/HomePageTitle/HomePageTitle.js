@@ -4,8 +4,9 @@ import s from './HomePageTitle.module.css';
 import {Logo} from '../Svg/Logo';
 import {Exit} from '../Svg/Exit';
 import getName from '../../redux/auth/authSelectors';
+import {authOperations} from '../../redux/auth';
 
-const HomePageTitle = ({name}) => {
+const HomePageTitle = ({name, onLogout}) => {
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
 
   const handleResize = () => {
@@ -25,8 +26,8 @@ const HomePageTitle = ({name}) => {
           <span className={s.logoName}>Wallet</span>
         </div>
         <div className={s.userInfo}>
-          <span className={s.userName}>{name}</span>
-          <button className={s.logout}>
+          <span className={s.userName}>name</span>
+          <button className={s.logout} onClick={onLogout}>
             <Exit s={s.logoutSvg} />
           </button>
           {Number(tabletScreen) >= 768 && <span>Exit</span>}
@@ -37,8 +38,12 @@ const HomePageTitle = ({name}) => {
 };
 
 const mapStateToProps = state => ({
- name: getName.getUserName(state)
+//  name: getName.getUserName(state)
 });
 
-export default connect(mapStateToProps)(HomePageTitle);
+const mapDispatchToProps = {
+  onLogout: authOperations.logOut
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePageTitle);
 
