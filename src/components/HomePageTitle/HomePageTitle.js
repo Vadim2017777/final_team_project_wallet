@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import {connect} from 'react-redux';
 import s from './HomePageTitle.module.css';
 import {Logo} from '../Svg/Logo';
 import {Exit} from '../Svg/Exit';
+import getName from '../../redux/auth/authSelectors';
 
-export const HomePageTitle = () => {
+const HomePageTitle = ({name}) => {
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
 
   const handleResize = () => {
@@ -23,7 +25,7 @@ export const HomePageTitle = () => {
           <span className={s.logoName}>Wallet</span>
         </div>
         <div className={s.userInfo}>
-          <span className={s.userName}>name</span>
+          <span className={s.userName}>{name}</span>
           <button className={s.logout}>
             <Exit s={s.logoutSvg} />
           </button>
@@ -33,4 +35,10 @@ export const HomePageTitle = () => {
     </div>
   );
 };
+
+const mapStateToProps = state => ({
+ name: getName.getUserName(state)
+});
+
+export default connect(mapStateToProps)(HomePageTitle);
 

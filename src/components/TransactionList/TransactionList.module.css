@@ -22,10 +22,7 @@
         width: 705px;
         border-collapse: separate;
         border-spacing: 0px;
-    }
-
-    .date {
-        width: 100px;
+        margin-bottom: 240px;
     }
 
     .raw td {
@@ -37,35 +34,30 @@
         height: 73px;
     }
 
-    .type {
-        width: 65px;
-    }
-
-    .category {
-        width: 128px;
-    }
-
-    .amount {
-        width: 78px;
-    }
-
-    .balance {
-        width: 127px;
-    }
-
     .raw .amount,
     .balance {
         text-align: end;
         padding-right: 23px;
     }
 
-    .tbody tr:nth-child(2n + 1) {
+    .tbody tr:nth-child(even) {
         background-color: #f3f6f6;
     }
 
     .btnAdd {
         right: 0px;
     }
+}
 
+@media screen and (min-width: 1280px) {
+    .list {
+        width: 856px;
+        margin-bottom: 10px;
+        position: relative;
+        left: -280px;
+    }
+    .raw {
+       background-color: #ffffff;
+    }
 
 }

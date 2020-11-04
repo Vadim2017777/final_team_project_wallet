@@ -30,10 +30,14 @@ function App ({isAuth, transactionPage}) {
           {isAuth && (
             <>
               <ProfilePage />
-              <Route path='/' component={MainProfileInfo} />
-              <Route path='/home' component={TransactionList} />
-              <Route path='/currency' component={CurrencyTable} />
-              {Number(tabletScreen) >= 768 && <CurrencyTable />}
+              <div className='wrapperPage'>
+                <div className='profile-wrapper'>
+                  <Route path='/' component={MainProfileInfo} />
+                  <Route path='/home' component={TransactionList} />
+                </div>
+                {Number(tabletScreen)<=767 && <Route path='/currency' component={CurrencyTable} />}
+              </div>
+
               {transactionPage && (
                 <Route path='/newTransaction' component={AddTransactionForm} />
               )}

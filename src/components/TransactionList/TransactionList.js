@@ -9,6 +9,8 @@ import {changeTransactionPage} from '../../redux/transactions/transactionActions
 import {getAllTransactions} from '../../redux/transactions/operations';
 import isAuth from '../../redux/auth/authSelectors';
 import TransactionItem from '../TransactionItem/TransactionItem';
+import {Balance} from '../../components/Balance/Balance';
+import CurrencyTable from '../СurrencyTable/CurrencyTable';
 
 import s from './TransactionList.module.css';
 
@@ -39,6 +41,7 @@ const TransactionList = ({
 
   return (
     <>
+      <Balance />
       {isTransactions && Number(tabletScreen) <= 767 && (
         <ul className={s.list}>
           {transactions.map(item => {
@@ -47,6 +50,7 @@ const TransactionList = ({
         </ul>
       )}
       {isTransactions && Number(tabletScreen) >= 768 && (
+        <>
         <table className={s.list}>
           <thead>
             <tr className={s.raw}>
@@ -64,6 +68,8 @@ const TransactionList = ({
             })}
           </tbody>
         </table>
+        <CurrencyTable/>
+        </>
       )}
       <Link to='/newTransaction'>
         {statusPage && (

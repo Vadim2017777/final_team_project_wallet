@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {getAddTransactionPage} from '../redux/transactions/selectors';
-import {changeTransactionPage} from '../redux/transactions/transactionActions';
 import {Navigation} from '../components/Navigation/Navigation';
-import {Balance} from '../components/Balance/Balance';
 
 
 import s from './ProfilePage.module.css';
@@ -27,10 +25,9 @@ const MainProfileInfo = ({isActive}) => {
       {(statusPage || Number(tabletScreen) >= 768) && (
         <div className={s.box}>
           <Navigation />
-          <Balance />
         </div>
       )}
-    </>
+      </>
   );
 };
 

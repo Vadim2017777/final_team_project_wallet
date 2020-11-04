@@ -23,4 +23,12 @@
         margin-left: 0px;
     }
 }
+@media screen and (min-width: 768px) {
+    .box {
+        position: relative;
+        top: 167px;
+        left: -309px;
+    }
+}
+
 

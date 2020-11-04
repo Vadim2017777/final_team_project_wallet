@@ -48,6 +48,8 @@
         height: 80px;
         background-color: #e5e5e5;
         box-shadow: 0 6px 4px -4px rgba(0, 0, 0, .2);
+        position: relative;
+        z-index: 2;
     }
 
     .container {
@@ -68,6 +70,7 @@
     .wrapper {
         margin-bottom: 46px;
     }
+
     .container {
         width: 1192px;
     }
