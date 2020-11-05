@@ -3,7 +3,6 @@ import React, {useState, useEffect} from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom';
 import isAuth from './redux/auth/authSelectors';
 import {connect} from 'react-redux';
-import AddTransactionForm from './components/AddTransactionForm/AddTransactionForm';
 import {getAddTransactionPage} from './redux/transactions/selectors';
 import {ProfilePage} from './views/ProfilePage';
 import MainProfileInfo from './views/MainProfileInfo';
@@ -11,8 +10,9 @@ import RegisterForm from './components/RegisterForm/RegisterForm';
 import LoginForm from './components/LoginForm/LoginForm';
 import TransactionList from './components/TransactionList/TransactionList';
 import CurrencyTable from './components/СurrencyTable/CurrencyTable';
+import {getCurrentUser} from './redux/auth/authOperations';
 
-function App ({isAuth, transactionPage}) {
+function App ({isAuth, transactionPage, currentUser, state}) {
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
   const handleResize = () => {
     setTabletScreen(window.innerWidth);
@@ -23,6 +23,12 @@ function App ({isAuth, transactionPage}) {
     return () => window.removeEventListener('resize', handleResize);
   }, [tabletScreen, isAuth, transactionPage]);
 
+  // useEffect(() => {
+  //   if (isAuth) {
+  //     currentUser();
+  //   }
+  // }, []);
+
   return (
     <Switch>
       <>
@@ -32,14 +38,22 @@ function App ({isAuth, transactionPage}) {
               <ProfilePage />
               <div className='wrapperPage'>
                 <div className='profile-wrapper'>
-                  <MainProfileInfo/>
-                  {!transactionPage && Number(tabletScreen) <=767 && <Route path='/' exact component={TransactionList} />}
-                   {Number(tabletScreen) >=768 && <Route path='/' exact component={TransactionList} />}
+                  <MainProfileInfo />
+                  {!transactionPage && Number(tabletScreen) <= 767 && (
+                    <Route path='/' exact component={TransactionList} />
+                  )}
+                  {Number(tabletScreen) >= 768 && (
+                    <Route path='/' exact component={TransactionList} />
+                  )}
                 </div>
-                {Number(tabletScreen)<=767 && <Route path='/currency' component={CurrencyTable} />}
+                {Number(tabletScreen) <= 767 && (
+                  <Route path='/currency' component={CurrencyTable} />
+                )}
               </div>
             </>
-          ) : <Redirect to='./'/>}
+          ) : (
+            <Redirect to='./' />
+          )}
           {!isAuth && (
             <>
               <Route path='/' exact component={LoginForm} />
@@ -55,6 +69,11 @@ function App ({isAuth, transactionPage}) {
 const mapStateToProps = state => ({
   isAuth: isAuth.isAuthenticated(state),
   transactionPage: getAddTransactionPage(state),
+  state
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = {
+  currentUser: getCurrentUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

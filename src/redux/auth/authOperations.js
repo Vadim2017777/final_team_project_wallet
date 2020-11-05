@@ -12,7 +12,7 @@ const token = {
   },
 };
 
-const register = credentials => async (dispatch, getState) => {
+const register = credentials => async dispatch => {
   dispatch(authActions.registerRequest());
   dispatch(authActions.registerError(null));
 
@@ -55,6 +55,7 @@ const getCurrentUser = () => async (dispatch, getState) => {
   dispatch(authActions.getCurrentUserRequest());
   try {
     const {data} = await axios.get('/users/current');
+    console.log(data);
 
     dispatch(authActions.getCurrentUserSuccess(data));
   } catch (error) {
@@ -65,7 +66,8 @@ const getCurrentUser = () => async (dispatch, getState) => {
 const logOut = () => async dispatch => {
   dispatch(authActions.logoutRequest());
   try {
-    axios.post('/users/logout');
+    console.log(axios.defaults.headers.common.Authorization);
+    await axios.post('/users/logout');
     token.unset();
     dispatch(authActions.logoutSuccess());
   } catch (error) {

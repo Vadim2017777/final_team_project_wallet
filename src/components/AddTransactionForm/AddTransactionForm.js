@@ -6,8 +6,6 @@ import {getAddTransactionPage} from '../../redux/transactions/selectors';
 import {changeTransactionPage} from '../../redux/transactions/transactionActions';
 import s from './AddTransactionForm.module.css';
 import TitleOfForm from './TitleOfForm';
-import { Link } from 'react-router-dom';
-
 
 const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) => {
   const pageStatus = !isActive;
@@ -55,15 +53,18 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) =
       token
     };
     
-   const result = onAddTransaction(formData);
-   console.log(result);
+   onAddTransaction(formData);
    updateStatus(pageStatus);
-   
-  
   };
 
+  const handleClick =(e)=> {
+    if(e.target.className === s.modal) {
+      updateStatus(pageStatus);
+    }
+  }
+
   return (
-    <div className={s.modal}>
+    <div className={s.modal} onClick={handleClick}>
       <div className={s.container}>
         <TitleOfForm/>
         <div className={s.box}>

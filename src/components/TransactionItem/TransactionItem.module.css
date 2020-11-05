@@ -47,6 +47,11 @@
     font-size: 20px;
 }
 
+.raw .amountMinus {
+    color: #f3713f;
+    font-weight: bold;
+}
+
 @media screen and (min-width: 768px) {
     .raw {
         height: 60px;
@@ -55,7 +60,14 @@
     .raw .amount {
         text-align: end;
         padding-right: 23px;
+      
     }
+
+    .raw .amountMinus {
+        padding-right: 23px;
+        text-align: end;
+    }
+
     .raw .balance {
         text-align: end;
         padding-right: 23px;

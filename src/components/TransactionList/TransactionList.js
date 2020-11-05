@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {
   getTransactions,
@@ -13,7 +12,6 @@ import {Balance} from '../../components/Balance/Balance';
 import CurrencyTable from '../СurrencyTable/CurrencyTable';
 
 import s from './TransactionList.module.css';
-import AddTransactionForm from '../AddTransactionForm/AddTransactionForm';
 
 const TransactionList = ({
   isActive,
@@ -50,7 +48,7 @@ const TransactionList = ({
           })}
         </ul>
       )}
-      {isTransactions && Number(tabletScreen) >= 768 && (
+      {isTransactions && Number(tabletScreen) >= 768 ? (
         <>
         <table className={s.list}>
           <thead>
@@ -71,7 +69,7 @@ const TransactionList = ({
         </table>
         <CurrencyTable/>
         </>
-      )}
+      ): <div></div>}
       
         {statusPage && (
           <button className={s.btnAdd} onClick={() => updateStatus(statusPage)}>

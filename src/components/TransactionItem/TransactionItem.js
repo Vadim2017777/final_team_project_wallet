@@ -6,6 +6,9 @@ const TransactionItem = ({items}) => {
   const item = Object.entries(items);
   const [category, balance, , date, type, comments, amount] = item;
 
+  let currentStyle ='amount';
+  if (type[1] === '-'){currentStyle = 'amountMinus'};
+
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
   const handleResize = () => {
     setTabletScreen(window.innerWidth);
@@ -40,7 +43,7 @@ const TransactionItem = ({items}) => {
               </tr>
               <tr className={s.raw}>
                 <td className={s.point}>Amount</td>
-                <td className={s.amount}>{amount[1]}</td>
+                <td className={s[`${currentStyle}`]}>{amount[1]}</td>
               </tr>
               <tr className={s.raw}>
                 <td className={s.point}>Balance</td>
@@ -57,7 +60,7 @@ const TransactionItem = ({items}) => {
             <td className={s.type}>{type[1]}</td>
             <td>{category[1]}</td>
             <td>{comments[1]}</td>
-            <td className={s.amount}>{amount[1]}</td>
+            <td className={s[`${currentStyle}`]}>{amount[1]}</td>
             <td className={s.balance}>{balance[1]}</td>
           </tr>
         </>
