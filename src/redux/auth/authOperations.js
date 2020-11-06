@@ -66,7 +66,7 @@ const getCurrentUser = () => async (dispatch, getState) => {
 const logOut = () => async dispatch => {
   dispatch(authActions.logoutRequest());
   try {
-    console.log(axios.defaults.headers.common.Authorization);
+    console.log("token", axios.defaults.headers.common.Authorization);
     await axios.post('/users/logout');
     token.unset();
     dispatch(authActions.logoutSuccess());

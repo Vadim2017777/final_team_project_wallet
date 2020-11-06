@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
-import {getAddTransactionPage} from '../redux/transactions/selectors';
-import {Navigation} from '../components/Navigation/Navigation';
+import {getAddTransactionPage} from '../../redux/transactions/selectors';
+import {Navigation} from '../Navigation/Navigation';
+import AddTransactionForm from '../AddTransactionForm/AddTransactionForm';
 
-import s from './ProfilePage.module.css';
-import AddTransactionForm from '../components/AddTransactionForm/AddTransactionForm';
-
+import s from './MainProfile.module.css';
 
 const MainProfileInfo = ({isActive}) => {
   const statusPage = !isActive;

@@ -1,18 +1,21 @@
-import './App.css';
 import React, {useState, useEffect} from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom';
 import isAuth from './redux/auth/authSelectors';
 import {connect} from 'react-redux';
 import {getAddTransactionPage} from './redux/transactions/selectors';
-import {ProfilePage} from './views/ProfilePage';
-import MainProfileInfo from './views/MainProfileInfo';
+import {getCurrentUser} from './redux/auth/authOperations';
+import {Wrapper} from './components/Wrapper/Wrapper';
+import {WrapperPage} from './components/Wrapper/WrapperPage';
+import {WrapperProfile} from './components/Wrapper/WrapperProfile';
+import HomePageTitle from './components/HomePageTitle/HomePageTitle';
+import MainProfileInfo from './components/MainProfile/MainProfileInfo';
 import RegisterForm from './components/RegisterForm/RegisterForm';
 import LoginForm from './components/LoginForm/LoginForm';
 import TransactionList from './components/TransactionList/TransactionList';
 import CurrencyTable from './components/СurrencyTable/CurrencyTable';
-import {getCurrentUser} from './redux/auth/authOperations';
+import {Balance} from './components/Balance/Balance';
 
-function App ({isAuth, transactionPage, currentUser, state}) {
+function App ({isAuth, transactionPage, currentUser}) {
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
   const handleResize = () => {
     setTabletScreen(window.innerWidth);
@@ -31,37 +34,42 @@ function App ({isAuth, transactionPage, currentUser, state}) {
 
   return (
     <Switch>
-      <>
-        <div className='App'>
-          {isAuth ? (
-            <>
-              <ProfilePage />
-              <div className='wrapperPage'>
-                <div className='profile-wrapper'>
-                  <MainProfileInfo />
-                  {!transactionPage && Number(tabletScreen) <= 767 && (
-                    <Route path='/' exact component={TransactionList} />
-                  )}
-                  {Number(tabletScreen) >= 768 && (
-                    <Route path='/' exact component={TransactionList} />
-                  )}
-                </div>
-                {Number(tabletScreen) <= 767 && (
-                  <Route path='/currency' component={CurrencyTable} />
+      <Wrapper>
+        {isAuth ? (
+          <>
+            <HomePageTitle />
+            <WrapperPage>
+              <WrapperProfile>
+                <MainProfileInfo />
+                {!transactionPage && Number(tabletScreen) <= 767 && (
+                  <Route path='/home' exact component={TransactionList} />
                 )}
-              </div>
-            </>
-          ) : (
-            <Redirect to='./' />
-          )}
-          {!isAuth && (
-            <>
-              <Route path='/' exact component={LoginForm} />
-              <Route path='/signup' exact component={RegisterForm} />
-            </>
-          )}
-        </div>
-      </>
+                {Number(tabletScreen) >= 768 &&
+                  Number(tabletScreen) <= 1279 && (
+                    <Route path='/home' exact component={TransactionList} />
+                  )}
+                {Number(tabletScreen) >= 1280 && (
+                  <>
+                    <Balance />
+                    <Route path='/home' exact component={TransactionList} />
+                    <CurrencyTable />
+                  </>
+                )}
+              </WrapperProfile>
+              {Number(tabletScreen) <= 767 && (
+                <Route path='/currency' component={CurrencyTable} />
+              )}
+            </WrapperPage>
+            <Redirect to='/home' />
+          </>
+        ) : (
+          <>
+            <Route path='/' exact component={LoginForm} />
+            <Route path='/signup' exact component={RegisterForm} />
+            <Redirect to='/' />
+          </>
+        )}
+      </Wrapper>
     </Switch>
   );
 }
@@ -69,7 +77,6 @@ function App ({isAuth, transactionPage, currentUser, state}) {
 const mapStateToProps = state => ({
   isAuth: isAuth.isAuthenticated(state),
   transactionPage: getAddTransactionPage(state),
-  state
 });
 
 const mapDispatchToProps = {

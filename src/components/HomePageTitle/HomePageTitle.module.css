@@ -12,6 +12,8 @@
 .logout {
     background-color: transparent;
     border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 .logoutSvg {
@@ -63,6 +65,9 @@
 
     .logoName {
         color: #344b68;
+    }
+    .logout>span {
+        margin-left: 5px;
     }
 }
 

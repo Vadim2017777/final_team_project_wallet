@@ -13,6 +13,7 @@
     margin-left: 6px;
     margin-right: 6px;
     outline: none;
+    cursor: pointer;
 }
 
 .link .text {
@@ -102,7 +103,7 @@
         margin-right: 30px;
         font-size: 15px;
     }
-    
+
 }
 
 @media screen and (min-width: 1280px) {

@@ -28,9 +28,8 @@ const HomePageTitle = ({name, onLogout}) => {
         <div className={s.userInfo}>
           <span className={s.userName}>name</span>
           <button className={s.logout} onClick={onLogout}>
-            <Exit s={s.logoutSvg} />
+            <Exit s={s.logoutSvg} />{Number(tabletScreen) >= 768 && <span>Exit</span>}
           </button>
-          {Number(tabletScreen) >= 768 && <span>Exit</span>}
         </div>
       </div>
     </div>

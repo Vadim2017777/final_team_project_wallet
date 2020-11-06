@@ -17,6 +17,10 @@
     margin-bottom: 210px;
 }
 
+.formBox input, .formBox textarea, .formBox select {
+    outline: none;
+}
+
 .labelBox {
     width: 50%;
     height: 73px;
@@ -62,6 +66,8 @@
     border-radius: 5px 5px 5px 5px;
     border: none;
     color: #ffffff;
+    outline: none;
+    cursor: pointer;
 }
 
 

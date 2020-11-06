@@ -14,6 +14,7 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) =
     setAnmount('');
     setDate(currentDate);
     setComment('');
+    setCategory('');
     setTypeOfTransiction(e.target.value);
   };
 
@@ -115,11 +116,14 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) =
               )}
               <input
                 className={s.inputNumber}
-                type="number"
+                type="text"
                 placeholder="0.00"
                 name="amount"
                 value={amount}
                 onChange={updateAnmount}
+                min='1'
+                pattern="\d+"
+                maxLength='12'
                 required
               />
               <input
