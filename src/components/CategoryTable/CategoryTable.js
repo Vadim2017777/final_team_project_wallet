@@ -12,32 +12,9 @@ import {connect} from 'react-redux';
 
 import handleDataDisplay from './helpers/handleDataDisplay';
 
-const categories = [
-  {
-    year: '2020',
-    month: 'March',
-    category: 'food',
-    amount: 5,
-  },
-  {
-    year: '2020',
-    month: 'January',
-    category: 'car',
-    amount: 10,
-  },
-  {
-    year: '2021',
-    month: 'January',
-    category: 'car',
-    amount: 10,
-  },
-];
-
 const CategoryTable = ({transaction, getCurrentTransactions, token}) => {
   const [inputMonth, setInputMonth] = useState('');
   const [inputYear, setInputYear] = useState('');
-
-  console.log(token);
 
   useEffect(() => {
     getCurrentTransactions(token);
@@ -47,7 +24,6 @@ const CategoryTable = ({transaction, getCurrentTransactions, token}) => {
   const filteredCost = transactions.filter(({type}) => type === '-');
 
   const filtered = filteredCost.filter(item => {
-    console.log(inputMonth);
     if (inputMonth && inputYear) {
       return item.month === inputMonth && item.year === inputYear;
     }
@@ -60,11 +36,10 @@ const CategoryTable = ({transaction, getCurrentTransactions, token}) => {
     if (inputMonth === '' && inputYear === '') {
       return item;
     }
+    return item;
   });
 
   const dataToDisplay = handleDataDisplay(filtered);
-
-  console.log(handleDataDisplay(filteredCost));
 
   const updateInputMonth = e => {
     console.log(e.target.value);
@@ -77,9 +52,11 @@ const CategoryTable = ({transaction, getCurrentTransactions, token}) => {
   };
   return (
     <div className={s.CategoryTable}>
-      <span className={s.CategoryTable_form}>
+      <div className={s.CategoryTable_form}>
         <select className={s.CategoryTable_select} onChange={updateInputMonth}>
-          <option selected>Month</option>
+          <option selected disabled hidden>
+            Month
+          </option>
           <option>January</option>
           <option>February</option>
           <option>March</option>
@@ -95,11 +72,13 @@ const CategoryTable = ({transaction, getCurrentTransactions, token}) => {
         </select>
 
         <select className={s.CategoryTable_select} onChange={updateInputYear}>
-          <option>Year</option>
+          <option selected disabled hidden>
+            Year
+          </option>
           <option>2020</option>
           <option>2021</option>
         </select>
-      </span>
+      </div>
 
       <table className={s.CategoryTable_table}>
         <thead className={s.CategoryTable_head}>
@@ -109,10 +88,70 @@ const CategoryTable = ({transaction, getCurrentTransactions, token}) => {
           </tr>
         </thead>
         <tbody className={s.CategoryTable_body}>
-          <tr className={s.CategoryTable_row}>
-            <th>{dataToDisplay.food ? 'Food' : ''}</th>
-            <th>{dataToDisplay.food ? dataToDisplay.food : ''}</th>/
-          </tr>
+          {dataToDisplay.expenses ? (
+            <tr className={s.CategoryTable_row}>
+              <th className={`${s.CategoryTable_th} ${s.Main_expenses}`}>
+                Main expenses
+              </th>
+              <th>{dataToDisplay.expenses}</th>
+            </tr>
+          ) : null}
+          {dataToDisplay.food ? (
+            <tr className={s.CategoryTable_row}>
+              <th className={`${s.CategoryTable_th} ${s.Food}`}>Food</th>
+              <th>{dataToDisplay.food}</th>
+            </tr>
+          ) : null}
+          {dataToDisplay.car ? (
+            <tr className={s.CategoryTable_row}>
+              <th className={`${s.CategoryTable_th} ${s.Car}`}>Car</th>
+              <th>{dataToDisplay.car}</th>
+            </tr>
+          ) : null}
+          {dataToDisplay.selfcare ? (
+            <tr className={s.CategoryTable_row}>
+              <th className={`${s.CategoryTable_th} ${s.Self_Care}`}>
+                Self Care
+              </th>
+              <th>{dataToDisplay.selfcare}</th>
+            </tr>
+          ) : null}
+          {dataToDisplay.childcare ? (
+            <tr className={s.CategoryTable_row}>
+              <th className={`${s.CategoryTable_th} ${s.Child_Care}`}>
+                Child Care
+              </th>
+              <th>{dataToDisplay.childcare}</th>
+            </tr>
+          ) : null}
+          {dataToDisplay.house ? (
+            <tr className={s.CategoryTable_row}>
+              <th className={`${s.CategoryTable_th} ${s.House}`}>House</th>
+              <th>{dataToDisplay.house}</th>
+            </tr>
+          ) : null}
+          {dataToDisplay.education ? (
+            <tr className={s.CategoryTable_row}>
+              <th className={`${s.CategoryTable_th} ${s.Education}`}>
+                Education
+              </th>
+              <th>{dataToDisplay.education}</th>
+            </tr>
+          ) : null}
+          {dataToDisplay.enterteinment ? (
+            <tr className={s.CategoryTable_row}>
+              <th className={`${s.CategoryTable_th} ${s.Enterteinment}`}>
+                Enterteinment
+              </th>
+              <th>{dataToDisplay.enterteinment}</th>
+            </tr>
+          ) : null}
+          {dataToDisplay.others ? (
+            <tr className={s.CategoryTable_row}>
+              <th className={`${s.CategoryTable_th} ${s.Others}`}>Others</th>
+              <th>{dataToDisplay.others}</th>
+            </tr>
+          ) : null}
         </tbody>
       </table>
     </div>
