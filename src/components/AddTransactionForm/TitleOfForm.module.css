@@ -6,8 +6,9 @@
 
 .title {
     color: #ffffff;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 40px;
+    font-weight: bold;
 }
 
 .wrapper {
@@ -35,6 +36,8 @@
 
     .title {
         color: #000000;
+        font-size: 15px;
+        font-weight: bold;
     }
 
     .titleBox {

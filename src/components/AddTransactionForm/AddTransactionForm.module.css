@@ -11,6 +11,7 @@
 }
 
 .formBox {
+    width: 281px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -27,15 +28,35 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #939393;
+}
+
+.inputRadio {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 5px;
 }
 
 .inputNumber,
 .inputDate {
-    width: 130px;
+    max-width: 128px;
     height: 34px;
     border: 2px solid #b9c9d4;
     border-radius: 5px 5px 5px 5px;
     margin-bottom: 25px;
+    padding: 0px;
+}
+
+.inputNumber::placeholder {
+    text-align: center;
+}
+.inputDate {
+    padding-left: 5px;
+    text-align: end;
+}
+.inputNumber {
+    padding-left: 5px;
+    text-align: center;
 }
 
 .inputCategory {
@@ -44,18 +65,26 @@
     border: 2px solid #b9c9d4;
     border-radius: 5px 5px 5px 5px;
 }
+.textareaBox {
+    width: 281px;
+}
 
 .commentNote {
+    width: 281px;
     text-align: left;
     margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 .textarea {
+    box-sizing: border-box;
     width: 281px;
     border-radius: 5px 5px 5px 5px;
     border: 2px solid #b9c9d4;
     resize: none;
     height: 54px;
+    padding: 5px;
 }
 
 .button {
@@ -68,18 +97,14 @@
     color: #ffffff;
     outline: none;
     cursor: pointer;
+    font-size: 15px;
 }
-
 
 .btnBox {
     height: 70px;
     width: 100vw;
     display: flex;
     align-items: center;
-}
-
-.inputRadio {
-    height: 34px;
 }
 
 .categoryBox {

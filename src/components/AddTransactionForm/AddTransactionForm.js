@@ -73,7 +73,8 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) =
             <div className={s.formBox}>
               {' '}
               <label className={s.labelBox}>
-                <input
+                <input 
+                  className={s.inputRadio}
                   type="radio"
                   value="+"
                   name="typeOfTransiction"
@@ -85,6 +86,7 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) =
               </label>{' '}
               <label className={s.labelBox}>
                 <input
+                  className={s.inputRadio}
                   type="radio"
                   value="-"
                   name="typeOfTransiction"
@@ -116,7 +118,7 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) =
               )}
               <input
                 className={s.inputNumber}
-                type="text"
+                type="number"
                 placeholder="0.00"
                 name="amount"
                 value={amount}
@@ -134,7 +136,7 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) =
                 onChange={updateDate}
                 required
               />
-              <label>
+              <label className={s.textareaBox}>
                 <p className={s.commentNote}>Comment</p>
                 <textarea
                   className={s.textarea}

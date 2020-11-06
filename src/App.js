@@ -26,11 +26,11 @@ function App ({isAuth, transactionPage, currentUser}) {
     return () => window.removeEventListener('resize', handleResize);
   }, [tabletScreen, isAuth, transactionPage]);
 
-  // useEffect(() => {
-  //   if (isAuth) {
-  //     currentUser();
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (isAuth) {
+      currentUser();
+    }
+  }, []);
 
   return (
     <Switch>

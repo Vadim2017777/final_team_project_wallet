@@ -26,9 +26,9 @@ const HomePageTitle = ({name, onLogout}) => {
           <span className={s.logoName}>Wallet</span>
         </div>
         <div className={s.userInfo}>
-          <span className={s.userName}>name</span>
+          <span className={s.userName}>{name}</span>
           <button className={s.logout} onClick={onLogout}>
-            <Exit s={s.logoutSvg} />{Number(tabletScreen) >= 768 && <span>Exit</span>}
+            <Exit s={s.logoutSvg} />{Number(tabletScreen) >= 768 && <span className={s.exit}>Exit</span>}
           </button>
         </div>
       </div>
@@ -37,7 +37,7 @@ const HomePageTitle = ({name, onLogout}) => {
 };
 
 const mapStateToProps = state => ({
-//  name: getName.getUserName(state)
+ name: getName.getUserName(state)
 });
 
 const mapDispatchToProps = {
