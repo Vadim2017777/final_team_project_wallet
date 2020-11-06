@@ -10,6 +10,8 @@ import {getAllTransactions} from '../../redux/transactions/operations';
 import s from './CategoryTable.module.css';
 import {connect} from 'react-redux';
 
+import handleDataDisplay from './helpers/handleDataDisplay';
+
 const categories = [
   {
     year: '2020',
@@ -40,15 +42,29 @@ const CategoryTable = ({transaction, getCurrentTransactions, token}) => {
   useEffect(() => {
     getCurrentTransactions(token);
   }, [getCurrentTransactions, token]);
+  const {transactions} = transaction;
 
-  const filtered = categories.filter(category => {
+  const filteredCost = transactions.filter(({type}) => type === '-');
+
+  const filtered = filteredCost.filter(item => {
     console.log(inputMonth);
-    return (
-      category.month.includes(inputMonth) && category.year.includes(inputYear)
-    );
+    if (inputMonth && inputYear) {
+      return item.month === inputMonth && item.year === inputYear;
+    }
+    if (inputMonth && inputYear === '') {
+      return item.month === inputMonth;
+    }
+    if (inputMonth === '' && inputYear) {
+      return item.year === inputYear;
+    }
+    if (inputMonth === '' && inputYear === '') {
+      return item;
+    }
   });
 
-  console.log(filtered);
+  const dataToDisplay = handleDataDisplay(filtered);
+
+  console.log(handleDataDisplay(filteredCost));
 
   const updateInputMonth = e => {
     console.log(e.target.value);
@@ -93,12 +109,10 @@ const CategoryTable = ({transaction, getCurrentTransactions, token}) => {
           </tr>
         </thead>
         <tbody className={s.CategoryTable_body}>
-          {filtered.map(({category, amount}) => (
-            <tr className={s.CategoryTable_row}>
-              <th>{category}</th>
-              <th>{amount}</th>
-            </tr>
-          ))}
+          <tr className={s.CategoryTable_row}>
+            <th>{dataToDisplay.food ? 'Food' : ''}</th>
+            <th>{dataToDisplay.food ? dataToDisplay.food : ''}</th>/
+          </tr>
         </tbody>
       </table>
     </div>
