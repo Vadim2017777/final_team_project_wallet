@@ -15,7 +15,7 @@ import TransactionList from './components/TransactionList/TransactionList';
 import CurrencyTable from './components/СurrencyTable/CurrencyTable';
 import {Balance} from './components/Balance/Balance';
 
-function App ({isAuth, transactionPage, currentUser}) {
+function App({isAuth, transactionPage, currentUser}) {
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
   const handleResize = () => {
     setTabletScreen(window.innerWidth);
@@ -42,31 +42,31 @@ function App ({isAuth, transactionPage, currentUser}) {
               <WrapperProfile>
                 <MainProfileInfo />
                 {!transactionPage && Number(tabletScreen) <= 767 && (
-                  <Route path='/home' exact component={TransactionList} />
+                  <Route path="/home" exact component={TransactionList} />
                 )}
                 {Number(tabletScreen) >= 768 &&
                   Number(tabletScreen) <= 1279 && (
-                    <Route path='/home' exact component={TransactionList} />
+                    <Route path="/home" exact component={TransactionList} />
                   )}
                 {Number(tabletScreen) >= 1280 && (
                   <>
                     <Balance />
-                    <Route path='/home' exact component={TransactionList} />
+                    <Route path="/home" exact component={TransactionList} />
                     <CurrencyTable />
                   </>
                 )}
               </WrapperProfile>
               {Number(tabletScreen) <= 767 && (
-                <Route path='/currency' component={CurrencyTable} />
+                <Route path="/currency" component={CurrencyTable} />
               )}
             </WrapperPage>
-            <Redirect to='/home' />
+            <Redirect to="/home" />
           </>
         ) : (
           <>
-            <Route path='/' exact component={LoginForm} />
-            <Route path='/signup' exact component={RegisterForm} />
-            <Redirect to='/' />
+            <Route path="/" exact component={LoginForm} />
+            <Route path="/signup" exact component={RegisterForm} />
+            <Redirect to="/" />
           </>
         )}
       </Wrapper>

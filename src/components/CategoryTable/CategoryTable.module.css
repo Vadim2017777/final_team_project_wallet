@@ -1,13 +1,12 @@
 .CategoryTable {
   display: flex;
-
   flex-direction: column;
-
   justify-content: flex-start;
   margin: 0 auto;
-  height: 380px;
-  width: 370px;
+  height: 600px;
+  width: 375px;
   background-color: red;
+  text-align: left;
 }
 
 .CategoryTable_select {
@@ -22,18 +21,68 @@
   margin-bottom: 40px;
 }
 
-.CategoryTable_head {
-}
-
 .CategoryTable_name {
   background-color: grey;
   height: 60px;
+  text-align: center;
 }
 
 .CategoryTable_nameCategory {
   width: 230px;
+  text-indent: 30px;
+  text-align: left;
 }
 
 .CategoryTable_row {
   height: 40px;
+}
+
+.CategoryTable_row > th:nth-child(2n) {
+  padding-left: 40px;
+}
+
+.CategoryTable_th {
+  padding-left: 60px;
+  position: relative;
+}
+
+.CategoryTable_th::before {
+  position: absolute;
+  left: 30px;
+  display: block;
+  content: '';
+  width: 16px;
+  height: 16px;
+
+  z-index: 999;
+}
+
+.Main_expenses::before {
+  background-color: rgb(236, 178, 42);
+}
+
+.Food::before {
+  background-color: rgb(226, 139, 32);
+}
+
+.Car::before {
+  background-color: rgb(210, 89, 37);
+}
+.Self_Care::before {
+  background-color: rgb(103, 183, 208);
+}
+.Child_Care::before {
+  background-color: rgb(85, 147, 215);
+}
+.House::before {
+  background-color: rgb(236, 178, 42);
+}
+.Education::before {
+  background-color: rgb(156, 194, 84);
+}
+.Enterteinment::before {
+  background-color: rgb(115, 173, 87);
+}
+.Others::before {
+  background-color: rgb(80, 124, 58);
 }
