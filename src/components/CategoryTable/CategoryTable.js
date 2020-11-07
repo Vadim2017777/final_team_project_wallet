@@ -11,6 +11,8 @@ import s from './CategoryTable.module.css';
 import {connect} from 'react-redux';
 
 import handleDataDisplay from './helpers/handleDataDisplay';
+import filtredCosts from './helpers/filtredCosts';
+import filtredIncome from './helpers/filterdIncome';
 
 const CategoryTable = ({transaction, getCurrentTransactions, token}) => {
   const [inputMonth, setInputMonth] = useState('');
@@ -23,23 +25,13 @@ const CategoryTable = ({transaction, getCurrentTransactions, token}) => {
 
   const filteredCost = transactions.filter(({type}) => type === '-');
 
-  const filtered = filteredCost.filter(item => {
-    if (inputMonth && inputYear) {
-      return item.month === inputMonth && item.year === inputYear;
-    }
-    if (inputMonth && inputYear === '') {
-      return item.month === inputMonth;
-    }
-    if (inputMonth === '' && inputYear) {
-      return item.year === inputYear;
-    }
-    if (inputMonth === '' && inputYear === '') {
-      return item;
-    }
-    return item;
-  });
+  const filteredIncome = transactions.filter(({type}) => type === '+');
 
-  const dataToDisplay = handleDataDisplay(filtered);
+  const cost = filtredCosts(filteredCost, inputMonth, inputYear);
+
+  const income = filtredIncome(filteredIncome, inputMonth, inputYear);
+
+  const dataToDisplay = handleDataDisplay(cost, income);
 
   const updateInputMonth = e => {
     console.log(e.target.value);
@@ -79,7 +71,6 @@ const CategoryTable = ({transaction, getCurrentTransactions, token}) => {
           <option>2021</option>
         </select>
       </div>
-
       <table className={s.CategoryTable_table}>
         <thead className={s.CategoryTable_head}>
           <tr className={s.CategoryTable_name}>
@@ -154,6 +145,21 @@ const CategoryTable = ({transaction, getCurrentTransactions, token}) => {
           ) : null}
         </tbody>
       </table>
+      <div className={s.CategoryTable_summ}>
+        <div className={`${s.CategoryTable_summName} ${s.orangeColor}`}>
+          Cost{' '}
+          <span>
+            {dataToDisplay.costs ? `${dataToDisplay.costs} UAH` : `0 UAH`}
+          </span>
+        </div>
+
+        <div className={s.CategoryTable_summName}>
+          Income{' '}
+          <span>
+            {dataToDisplay.income ? `${dataToDisplay.income} UAH` : `0 UAH`}
+          </span>
+        </div>
+      </div>
     </div>
   );
 };

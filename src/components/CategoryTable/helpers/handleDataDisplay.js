@@ -1,4 +1,8 @@
-const handleDataDisplay = filteredCost => {
+const handleDataDisplay = (filteredCost, filteredIn) => {
+  const costs = filteredCost.reduce((acc = 0, {amount}) => acc + amount, 0);
+  const income = filteredIn.reduce((acc = 0, {amount}) => acc + amount, 0);
+  console.log(filteredIn);
+
   const expenses = filteredCost.filter(
     item => item.category === 'Main expenses',
   );
@@ -49,6 +53,8 @@ const handleDataDisplay = filteredCost => {
     education: educationsumm,
     enterteinment: enterteinmentsumm,
     others: otherssumm,
+    costs,
+    income,
   };
   return renderObg;
 };
