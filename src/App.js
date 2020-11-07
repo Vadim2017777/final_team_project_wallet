@@ -31,7 +31,7 @@ function App({isAuth, transactionPage, currentUser}) {
     if (isAuth) {
       currentUser();
     }
-  },[currentUser, isAuth]);
+  }, [currentUser, isAuth]);
 
   return (
     <Switch>
@@ -39,10 +39,11 @@ function App({isAuth, transactionPage, currentUser}) {
         {isAuth ? (
           <>
             <HomePageTitle />
+
             <WrapperPage>
               <WrapperProfile>
                 <MainProfileInfo />
-                <Route path="/statistics" exact component={CategoryTable} />
+
                 {!transactionPage && Number(tabletScreen) <= 767 && (
                   <Route path="/home" exact component={TransactionList} />
                 )}
@@ -62,6 +63,7 @@ function App({isAuth, transactionPage, currentUser}) {
                 <Route path="/currency" component={CurrencyTable} />
               )}
             </WrapperPage>
+            <Route path="/statistics" exact component={CategoryTable} />
             <Redirect to="/home" />
           </>
         ) : (

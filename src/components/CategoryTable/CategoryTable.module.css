@@ -1,3 +1,28 @@
+.Statistics_wrapper {
+  display: flex;
+  width: 860px;
+  height: 680px;
+  flex-wrap: wrap;
+
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  margin: 0 auto;
+}
+
+.Statistic_header {
+  flex: 0 0 100%;
+  height: 60px;
+  line-height: 60px;
+  margin-bottom: 30px;
+  background-color: aqua;
+}
+
+.StatisticsChart_wrapper {
+  display: block;
+  width: 428px;
+  height: 600px;
+}
+
 .CategoryTable {
   display: flex;
   flex-direction: column;
