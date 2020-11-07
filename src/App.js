@@ -13,7 +13,7 @@ import RegisterForm from './components/RegisterForm/RegisterForm';
 import LoginForm from './components/LoginForm/LoginForm';
 import TransactionList from './components/TransactionList/TransactionList';
 import CurrencyTable from './components/СurrencyTable/CurrencyTable';
-import {Balance} from './components/Balance/Balance';
+import Balance from './components/Balance/Balance';
 import CategoryTable from './components/CategoryTable/CategoryTable';
 
 function App({isAuth, transactionPage, currentUser}) {

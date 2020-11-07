@@ -8,7 +8,7 @@ import {changeTransactionPage} from '../../redux/transactions/transactionActions
 import {getAllTransactions} from '../../redux/transactions/operations';
 import isAuth from '../../redux/auth/authSelectors';
 import TransactionItem from '../TransactionItem/TransactionItem';
-import {Balance} from '../../components/Balance/Balance';
+import Balance from '../../components/Balance/Balance';
 import CurrencyTable from '../СurrencyTable/CurrencyTable';
 
 import s from './TransactionList.module.css';
@@ -50,32 +50,34 @@ const TransactionList = ({
       )}
       {isTransactions && Number(tabletScreen) >= 768 ? (
         <>
-        <table className={s.list}>
-          <thead>
-            <tr className={s.raw}>
-              <td className={s.date}>Date</td>
-              <td className={s.type}>Type</td>
-              <td className={s.category}>Category</td>
-              <td className={s.comments}>Comments</td>
-              <td className={s.amount}>Amount</td>
-              <td className={s.balance}>Balance</td>
-            </tr>
-          </thead>
-          <tbody className={s.tbody}>
-            {transactions.map(item => {
-              return <TransactionItem items={item} key={item._id} />;
-            })}
-          </tbody>
-        </table>
-        <CurrencyTable/>
+          <table className={s.list}>
+            <thead>
+              <tr className={s.raw}>
+                <td className={s.date}>Date</td>
+                <td className={s.type}>Type</td>
+                <td className={s.category}>Category</td>
+                <td className={s.comments}>Comments</td>
+                <td className={s.amount}>Amount</td>
+                <td className={s.balance}>Balance</td>
+              </tr>
+            </thead>
+            <tbody className={s.tbody}>
+              {transactions.map(item => {
+                return <TransactionItem items={item} key={item._id} />;
+              })}
+            </tbody>
+          </table>
+          <CurrencyTable />
         </>
-      ): <div></div>}
-      
-        {statusPage && (
-          <button className={s.btnAdd} onClick={() => updateStatus(statusPage)}>
-            &#43;
-          </button>
-        )}
+      ) : (
+        <div></div>
+      )}
+
+      {statusPage && (
+        <button className={s.btnAdd} onClick={() => updateStatus(statusPage)}>
+          &#43;
+        </button>
+      )}
     </>
   );
 };
