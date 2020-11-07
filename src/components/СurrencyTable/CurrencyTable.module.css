@@ -22,7 +22,7 @@
   font-size: 15px;
 }
 
-.CurrencyTable_name>th:first-child {
+.CurrencyTable_name > th:first-child {
   padding-left: 16px;
 }
 
@@ -56,7 +56,7 @@
 
 @media screen and (min-width: 1280px) {
   .CurrencyTable_container {
-   width: 309px;
+    width: 309px;
     position: absolute;
     top: 295px;
   }
@@ -64,5 +64,4 @@
   .CurrencyTable_form {
     left: 0px;
   }
-
 }

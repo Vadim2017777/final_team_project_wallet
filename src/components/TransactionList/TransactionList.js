@@ -8,7 +8,7 @@ import {changeTransactionPage} from '../../redux/transactions/transactionActions
 import {getAllTransactions} from '../../redux/transactions/operations';
 import isAuth from '../../redux/auth/authSelectors';
 import TransactionItem from '../TransactionItem/TransactionItem';
-import {Balance} from '../../components/Balance/Balance';
+import Balance from '../../components/Balance/Balance';
 import CurrencyTable from '../СurrencyTable/CurrencyTable';
 
 import s from './TransactionList.module.css';
