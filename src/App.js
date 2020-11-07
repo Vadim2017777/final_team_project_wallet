@@ -30,7 +30,7 @@ function App({isAuth, transactionPage, currentUser}) {
     if (isAuth) {
       currentUser();
     }
-  }, []);
+  },[currentUser, isAuth]);
 
   return (
     <Switch>
