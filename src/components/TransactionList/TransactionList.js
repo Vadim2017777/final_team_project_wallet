@@ -41,36 +41,47 @@ const TransactionList = ({
   return (
     <>
       <Balance />
-      {isTransactions && Number(tabletScreen) <= 767 && (
-        <ul className={s.list}>
-          {transactions.map(item => {
-            return <TransactionItem items={item} key={item._id} />;
-          })}
-        </ul>
-      )}
-      {isTransactions && Number(tabletScreen) >= 768 ? (
+      {isTransactions ? (
         <>
-          <table className={s.list}>
-            <thead>
-              <tr className={s.raw}>
-                <td className={s.date}>Date</td>
-                <td className={s.type}>Type</td>
-                <td className={s.category}>Category</td>
-                <td className={s.comments}>Comments</td>
-                <td className={s.amount}>Amount</td>
-                <td className={s.balance}>Balance</td>
-              </tr>
-            </thead>
-            <tbody className={s.tbody}>
+          {Number(tabletScreen) <= 767 && (
+            <ul className={s.list}>
               {transactions.map(item => {
                 return <TransactionItem items={item} key={item._id} />;
               })}
-            </tbody>
-          </table>
-          <CurrencyTable />
+            </ul>
+          )}
+          {Number(tabletScreen) >= 768 && (
+            <>
+              <table className={s.list}>
+                <thead>
+                  <tr className={s.raw}>
+                    <td className={s.date}>Date</td>
+                    <td className={s.type}>Type</td>
+                    <td className={s.category}>Category</td>
+                    <td className={s.comments}>Comments</td>
+                    <td className={s.amount}>Amount</td>
+                    <td className={s.balance}>Balance</td>
+                  </tr>
+                </thead>
+                <tbody className={s.tbody}>
+                  {transactions.map(item => {
+                    return <TransactionItem items={item} key={item._id} />;
+                  })}
+                </tbody>
+              </table>
+              <CurrencyTable />
+            </>
+          )}
         </>
       ) : (
-        <div></div>
+        <>
+          <div className={s.emptyTransactionsList}>
+            <p className={s.emptyTransactionsListText}>
+              Create your first transaction!
+            </p>
+          </div>{' '}
+          <CurrencyTable />
+        </>
       )}
 
       {statusPage && (

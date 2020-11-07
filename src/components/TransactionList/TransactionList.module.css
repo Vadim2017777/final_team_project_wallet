@@ -11,12 +11,30 @@
     border: none;
     border-radius: 50% 50% 50% 50%;
     position: fixed;
-    bottom: 10px;
+    bottom: 25px;
     transform: translateX(-50%);
     font-size: 30px;
     cursor: pointer;
     color: #ffffff;
     outline: none;
+}
+
+.emptyTransactionsList {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #7e8c9e;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.emptyTransactionsListText {
+    color: #7e8c9e;
+    font-weight: 15px;
+    font-weight: bold;
 }
 
 @media screen and (min-width: 768px) {
@@ -48,6 +66,14 @@
 
     .btnAdd {
         right: 0px;
+    } 
+    .emptyTransactionsList {
+        margin-top: 35px;
+        margin-bottom: 100px;
+        width: 250px;
+    }
+    .emptyTransactionsListText {
+       font-size: 20px;
     }
 
 }
@@ -59,8 +85,23 @@
         position: relative;
         left: 0px;
     }
+
     .raw {
-       background-color: #ffffff;
+        background-color: #ffffff;
     }
+
+    .emptyTransactionsList {
+        margin-top: 45px;
+        width: 620px;
+        position: relative;
+        left: -432px;
+        top: -45px;
+    }
+
+    .emptyTransactionsListText {
+       font-size: 25px;
+       
+    }
+
 
 }
