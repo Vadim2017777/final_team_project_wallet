@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {getAddTransactionPage} from '../../redux/transactions/selectors';
-import {Navigation} from '../Navigation/Navigation';
+import Navigation from '../Navigation/Navigation';
 import AddTransactionForm from '../AddTransactionForm/AddTransactionForm';
 
 import s from './MainProfile.module.css';
@@ -26,14 +26,13 @@ const MainProfileInfo = ({isActive}) => {
           <Navigation />
         </div>
       )}
-      {!statusPage && Number(tabletScreen) && <AddTransactionForm/>}
-      </>
+      {!statusPage && Number(tabletScreen) && <AddTransactionForm />}
+    </>
   );
 };
 
 const mapStateToProps = state => ({
   isActive: getAddTransactionPage(state),
 });
-
 
 export default connect(mapStateToProps)(MainProfileInfo);
