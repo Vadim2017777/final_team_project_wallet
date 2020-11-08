@@ -14,7 +14,8 @@
   height: 60px;
   line-height: 60px;
   margin-bottom: 30px;
-  background-color: aqua;
+  background-color: #284060;
+  color: #ffff;
 }
 
 .StatisticsChart_wrapper {
@@ -68,7 +69,7 @@
 }
 .CategoryTable_select:focus {
   border-color: rgb(177, 204, 223);
-  box-shadow: 0 0 1px 2px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 1px 2px rgba(59, 152, 252, 0.702);
   outline: none;
 }
 
@@ -116,33 +117,33 @@
 }
 
 .Main_expenses::before {
-  background-color: rgb(236, 178, 42);
+  background-color: #ecb22a;
 }
 
 .Food::before {
-  background-color: rgb(226, 139, 32);
+  background-color: #e28b20;
 }
 
 .Car::before {
-  background-color: rgb(210, 89, 37);
+  background-color: #d25925;
 }
 .Self_Care::before {
-  background-color: rgb(103, 183, 208);
+  background-color: #67b7d0;
 }
 .Child_Care::before {
-  background-color: rgb(85, 147, 215);
+  background-color: #5593d7;
 }
 .House::before {
-  background-color: rgb(236, 178, 42);
+  background-color: #ecb22a;
 }
 .Education::before {
-  background-color: rgb(156, 194, 84);
+  background-color: #9cc254;
 }
 .Enterteinment::before {
-  background-color: rgb(115, 173, 87);
+  background-color: #73ad57;
 }
 .Others::before {
-  background-color: rgb(80, 124, 58);
+  background-color: #507c3a;
 }
 
 .CategoryTable_summ {

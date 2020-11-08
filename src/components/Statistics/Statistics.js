@@ -7,7 +7,7 @@ import isAuth from '../../redux/auth/authSelectors';
 
 import {getAllTransactions} from '../../redux/transactions/operations';
 
-import s from './CategoryTable.module.css';
+import s from './Statistics.module.css';
 import {connect} from 'react-redux';
 
 import Chart from './Chart';
@@ -16,7 +16,7 @@ import handleDataDisplay from './helpers/handleDataDisplay';
 import filtredCosts from './helpers/filtredCosts';
 import filtredIncome from './helpers/filterdIncome';
 
-const CategoryTable = ({transaction, getCurrentTransactions, token}) => {
+const Statistics = ({transaction, getCurrentTransactions, token}) => {
   const [inputMonth, setInputMonth] = useState('');
   const [inputYear, setInputYear] = useState('');
 
@@ -184,4 +184,4 @@ const mapDispatchToProps = {
   getCurrentTransactions: getAllTransactions,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CategoryTable);
+export default connect(mapStateToProps, mapDispatchToProps)(Statistics);

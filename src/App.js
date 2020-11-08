@@ -14,7 +14,7 @@ import LoginForm from './components/LoginForm/LoginForm';
 import TransactionList from './components/TransactionList/TransactionList';
 import CurrencyTable from './components/СurrencyTable/CurrencyTable';
 import Balance from './components/Balance/Balance';
-import CategoryTable from './components/CategoryTable/CategoryTable';
+import Statistics from './components/Statistics/Statistics';
 
 function App({isAuth, transactionPage, currentUser}) {
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
@@ -56,6 +56,7 @@ function App({isAuth, transactionPage, currentUser}) {
                     <Balance />
                     <Route path="/home" exact component={TransactionList} />
                     <CurrencyTable />
+                    <Route path="/statistics" exact component={Statistics} />
                   </>
                 )}
               </WrapperProfile>
@@ -63,7 +64,7 @@ function App({isAuth, transactionPage, currentUser}) {
                 <Route path="/currency" component={CurrencyTable} />
               )}
             </WrapperPage>
-            <Route path="/statistics" exact component={CategoryTable} />
+
             <Redirect to="/home" />
           </>
         ) : (
