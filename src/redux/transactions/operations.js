@@ -28,7 +28,7 @@ export const addTransaction = ({
         headers: {Authorization: `Bearer ${token}`},
       },
     );
-    console.log('operations', data);
+    
     dispatch(addTransactionSuccess(data));
   
   } catch (error) {
@@ -46,6 +46,7 @@ export const getAllTransactions = (token) => async dispatch => {
         headers: {Authorization: `Bearer ${token}`},
       },
     );
+  
     dispatch(getTransactionSuccess(data));
   } catch (error) {
     dispatch(getTransactionFailure(error));

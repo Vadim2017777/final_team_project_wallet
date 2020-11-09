@@ -130,15 +130,18 @@
   box-shadow: 0px 3px 3px 0px rgba(225, 131, 55, 0.25);
   margin-bottom: 32px;
   border-radius: 5px;
+  cursor: pointer;
+  outline: none;
 }
 
 .registerForm_button:hover {
   opacity: 0.9;
-  cursor: pointer;
 }
 
 .registerForm_linkSignUp {
   color: #707c82;
+  outline: none;
+  cursor: pointer;
 }
 
 .loginForm_passwordBarProgress {

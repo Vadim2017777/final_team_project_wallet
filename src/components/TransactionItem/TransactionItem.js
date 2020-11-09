@@ -4,7 +4,7 @@ import s from './TransactionItem.module.css';
 
 const TransactionItem = ({items}) => {
   const item = Object.entries(items);
-  const [category, balance, , date, type, comments, amount] = item;
+  const [category, , , date, type, comments, amount, globalBalance] = item;
 
   const newDate = date[1].split('-').reverse().join('.');
 
@@ -49,7 +49,7 @@ const TransactionItem = ({items}) => {
               </tr>
               <tr className={s.raw}>
                 <td className={s.point}>Balance</td>
-                <td>{balance[1]}</td>
+                <td>{globalBalance[1]}</td>
               </tr>
             </tbody>
           </table>
@@ -63,7 +63,7 @@ const TransactionItem = ({items}) => {
             <td>{category[1] || 'Regular income'}</td>
             <td>{comments[1]}</td>
             <td className={s[`${currentStyle}`]}>{amount[1]}</td>
-            <td className={s.balance}>{balance[1]}</td>
+            <td className={s.balance}>{globalBalance[1]}</td>
           </tr>
         </>
       )}

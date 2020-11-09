@@ -41,7 +41,6 @@ function App ({isAuth, transactionPage, currentUser}) {
             <WrapperPage>
               <WrapperProfile>
                 <MainProfileInfo />
-
                 {!transactionPage && Number(tabletScreen) <= 767 && (
                   <Route path='/home' exact component={TransactionList} />
                 )}
@@ -61,7 +60,6 @@ function App ({isAuth, transactionPage, currentUser}) {
                 <Route path='/currency' component={CurrencyTable} />
               )}
             </WrapperPage>
-
             <Redirect to='/home' />
           </>
         ) : (
