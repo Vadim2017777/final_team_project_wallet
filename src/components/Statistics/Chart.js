@@ -1,9 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Pie} from 'react-chartjs-2';
 
 import 'chartjs-plugin-labels';
-
-import s from './Chart.module.css';
 
 const ChartPie = ({chartData}) => {
   const {
