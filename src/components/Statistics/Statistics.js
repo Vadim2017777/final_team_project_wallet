@@ -16,6 +16,7 @@ import handleDataDisplay from './helpers/handleDataDisplay';
 import filtredCosts from './helpers/filtredCosts';
 import filtredIncome from './helpers/filterdIncome';
 import CategoryTable from './CategoryTable';
+import Balance from '../Balance/Balance';
 
 const Statistics = ({transaction, getCurrentTransactions, token}) => {
   const [inputMonth, setInputMonth] = useState('');
@@ -44,6 +45,8 @@ const Statistics = ({transaction, getCurrentTransactions, token}) => {
     setInputYear(e.target.value);
   };
   return (
+    <>
+    <Balance/>
     <div className={s.Statistics_wrapper}>
       <div className={s.Statistic_header}>
         <span>Statistics</span>
@@ -59,6 +62,7 @@ const Statistics = ({transaction, getCurrentTransactions, token}) => {
         />
       </div>
     </div>
+    </>
   );
 };
 

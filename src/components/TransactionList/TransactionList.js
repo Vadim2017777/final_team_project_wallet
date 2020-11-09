@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {
   getTransactions,
+  getLoading,
   getAddTransactionPage,
 } from '../../redux/transactions/selectors';
 import {changeTransactionPage} from '../../redux/transactions/transactionActions';
@@ -10,6 +11,7 @@ import isAuth from '../../redux/auth/authSelectors';
 import TransactionItem from '../TransactionItem/TransactionItem';
 import Balance from '../../components/Balance/Balance';
 import CurrencyTable from '../СurrencyTable/CurrencyTable';
+import Spiner from '../../components/Spinner/Spinner.js';
 
 import s from './TransactionList.module.css';
 
@@ -19,6 +21,7 @@ const TransactionList = ({
   transaction,
   getCurrentTransactions,
   token,
+  loading
 }) => {
   const statusPage = !isActive;
 
@@ -41,6 +44,7 @@ const TransactionList = ({
   return (
     <>
       <Balance />
+      {loading && <Spiner />}
       {isTransactions ? (
         <>
           {Number(tabletScreen) <= 767 && (
@@ -75,11 +79,11 @@ const TransactionList = ({
         </>
       ) : (
         <>
-          <div className={s.emptyTransactionsList}>
+          {/* <div className={s.emptyTransactionsList}>
             <p className={s.emptyTransactionsListText}>
               Create your first transaction!
             </p>
-          </div>{' '}
+          </div>{' '} */}
           <CurrencyTable />
         </>
       )}
@@ -97,6 +101,7 @@ const mapStateToProps = state => ({
   transaction: getTransactions(state),
   token: isAuth.isAuthenticated(state),
   isActive: getAddTransactionPage(state),
+  loading: getLoading(state),
 });
 
 const mapDispatchToProps = {
