@@ -5,16 +5,14 @@ import {Timeline} from '../Svg/Timeline';
 import {Money} from '../Svg/Money';
 import s from './Navigation.module.css';
 import {connect} from 'react-redux';
-
 import {getTransactions} from '../../redux/transactions/selectors';
+
 const Navigation = ({transaction}) => {
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
 
   const handleResize = () => {
     setTabletScreen(window.innerWidth);
   };
-
-  console.log('----------transaction----', transaction);
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);

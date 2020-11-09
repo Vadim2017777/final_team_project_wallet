@@ -31,6 +31,10 @@
   border-bottom: 1px solid #f8fbfe;
   font-size: 13px;
 }
+.CurrencyTable_container  {
+margin-top: 30px;
+padding-bottom: 25px;
+}
 
 @media screen and (max-width: 767px) {
   .CurrencyTable_form {
@@ -44,7 +48,7 @@
     height: 190px;
     width: 353px;
     background-image: none;
-    margin: 0 auto;
+    margin-left: 0px;
   }
 }
 

@@ -17,6 +17,7 @@
     cursor: pointer;
     color: #ffffff;
     outline: none;
+    z-index: 2;
 }
 
 .emptyTransactionsList {
@@ -42,7 +43,7 @@
         width: 705px;
         border-collapse: separate;
         border-spacing: 0px;
-        margin-bottom: 240px;
+        margin-bottom: 100px;
     }
 
     .raw td {
@@ -83,7 +84,7 @@
         width: 856px;
         margin-bottom: 10px;
         position: relative;
-        left: 0px;
+        left: 5px;
     }
 
     .raw {

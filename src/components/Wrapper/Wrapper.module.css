@@ -1,7 +1,23 @@
 .wrapper {
   margin: 0, auto;
   text-align: center;
-  padding-bottom: 50px;
+  padding-bottom: 45px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+  .profileWrapper {
+    position: relative;
+  }
+  .profileWrapper::after {
+    content:'';
+    width: 100%;
+    height: 54px;
+    background-color: #808080ad;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -17,9 +33,12 @@
     margin: 0 auto;
     position: relative;
   }
+
+
   body {
     background-color: #eef4ec;
   }
+
   .wrapperPage {
     width: 1192px;
     position: relative;

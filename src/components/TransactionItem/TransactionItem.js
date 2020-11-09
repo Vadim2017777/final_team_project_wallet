@@ -6,6 +6,8 @@ const TransactionItem = ({items}) => {
   const item = Object.entries(items);
   const [category, balance, , date, type, comments, amount] = item;
 
+  const newDate = date[1].split('-').reverse().join('.');
+
   let currentStyle ='amount';
   if (type[1] === '-'){currentStyle = 'amountMinus'};
 
@@ -27,7 +29,7 @@ const TransactionItem = ({items}) => {
             <tbody className={s.bodyTable}>
               <tr className={s.raw}>
                 <td className={s.point}>Date</td>
-                <td>{date[1]}</td>
+                <td>{newDate}</td>
               </tr>
               <tr className={s.raw}>
                 <td className={s.point}>Type</td>
@@ -35,7 +37,7 @@ const TransactionItem = ({items}) => {
               </tr>
               <tr className={s.raw}>
                 <td className={s.point}>Category</td>
-                <td>{category[1]}</td>
+                <td>{category[1] || 'Regular income'}</td>
               </tr>
               <tr className={s.raw}>
                 <td className={s.point}>Comments</td>
@@ -56,9 +58,9 @@ const TransactionItem = ({items}) => {
       {Number(tabletScreen) >= 768 && (
         <>
           <tr className={s.raw}>
-            <td>{date[1]}</td>
+            <td>{newDate}</td>
             <td className={s.type}>{type[1]}</td>
-            <td>{category[1]}</td>
+            <td>{category[1] || 'Regular income'}</td>
             <td>{comments[1]}</td>
             <td className={s[`${currentStyle}`]}>{amount[1]}</td>
             <td className={s.balance}>{balance[1]}</td>
