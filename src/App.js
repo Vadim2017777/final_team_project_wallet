@@ -35,6 +35,7 @@ function App({isAuth, transactionPage, currentUser}) {
 
   return (
     <Switch>
+      <Route path="/statistics" exact component={Statistics} />
       <Wrapper>
         {isAuth ? (
           <>
@@ -56,7 +57,6 @@ function App({isAuth, transactionPage, currentUser}) {
                     <Balance />
                     <Route path="/home" exact component={TransactionList} />
                     <CurrencyTable />
-                    <Route path="/statistics" exact component={Statistics} />
                   </>
                 )}
               </WrapperProfile>

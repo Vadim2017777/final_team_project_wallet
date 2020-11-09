@@ -1,23 +1,17 @@
-.CategoryTable {
+.CategoryTable_table {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
   margin: 0 auto;
-  height: 600px;
-  width: 375px;
-
   text-align: left;
-}
-
-.CategoryTable > table {
+  width: 370px;
   border-collapse: collapse;
   margin-bottom: 20px;
 }
 
 .CategoryTable_form {
   display: flex;
-  width: 370px;
+
   margin-bottom: 20px;
   justify-content: space-between;
 }
@@ -55,25 +49,31 @@
 }
 
 .CategoryTable_nameCategory {
-  width: 230px;
+  width: 266px;
   text-indent: 30px;
   text-align: left;
 }
 
-.CategoryTable_row {
+.CategoryTable_name > th:last-child {
+  width: 104px;
+}
+
+.CategoryTable_row > th {
+  width: 330px;
   height: 44px;
   border-bottom: 1px solid #f8fbfe;
   color: #2c353e;
   font-size: 13px;
 }
 
-.CategoryTable_row:last-of-type {
+.CategoryTable_row:last-of-type > th {
   height: 44px;
   border-bottom: 2px solid rgb(185, 201, 212);
 }
 
 .CategoryTable_row > th:nth-child(2n) {
-  padding-left: 40px;
+  padding-right: 20px;
+  text-align: end;
 }
 
 .CategoryTable_th {
@@ -123,8 +123,8 @@
 .CategoryTable_summ {
   display: flex;
   flex-direction: column;
-  padding-right: 52px;
-  padding-left: 32px;
+  padding-right: 24px;
+  padding-left: 40px;
 }
 
 .CategoryTable_summName {
@@ -140,7 +140,71 @@
 }
 
 @media screen and (max-width: 767px) {
+  .CategoryTable_table {
+    width: 320px;
+    padding: 0 10px;
+    border-bottom: 2px solid rgb(185, 201, 212);
+  }
+
+  .CategoryTable_form {
+    width: 320px;
+  }
+
+  .CategoryTable_table > thead {
+    display: none;
+  }
+
+  .CategoryTable_body {
+    width: 320px;
+  }
+
+  .CategoryTable_row:last-of-type > th {
+    border-bottom: none;
+  }
+
+  .CategoryTable_th {
+    padding-left: 36px;
+  }
+
+  .CategoryTable_th::before {
+    left: 0;
+  }
+
+  .CategoryTable_summ {
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 1279px) and (min-width: 768px) {
+  .CategoryTable_table {
+    width: 700px;
+    padding: 0 10px;
+    border-bottom: 2px solid rgb(185, 201, 212);
+  }
+
+  .CategoryTable_form {
+    width: 364px;
+    margin: 0 auto;
+    margin-bottom: 36px;
+  }
+
+  .CategoryTable_table > thead {
+    display: none;
+  }
+
+  .CategoryTable_body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 350px;
+    height: 200px;
+  }
+
+  .CategoryTable_row:last-of-type > th {
+    height: 44px;
+    border-bottom: none;
+  }
+  .CategoryTable_summ {
+    padding-left: 490px;
+  }
 }
