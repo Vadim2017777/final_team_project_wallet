@@ -1,9 +1,12 @@
 import React from 'react';
 import {useEffect} from 'react';
 import {connect} from 'react-redux';
+
 import {getCurrencyValue} from '../../redux/currency/currencyOperation';
 
 import {getCurrencyState} from '../../redux/currency/currencySelectors';
+
+import Skeleton from 'react-loading-skeleton';
 
 import s from './CurrencyTable.module.css';
 
@@ -28,18 +31,18 @@ const CurrencyTable = ({currency, getCurrency}) => {
           <tbody className={s.CurrencyTable_body}>
             <tr className={s.CurrencyTable_row}>
               <th>EUR</th>
-              <th>{currency.length ? EUR.purchaseRate : 0}</th>
-              <th>{currency.length ? EUR.saleRate : 0}</th>
+              <th>{currency.length ? EUR.purchaseRate : <Skeleton />}</th>
+              <th>{currency.length ? EUR.saleRate : <Skeleton />}</th>
             </tr>
             <tr className={s.CurrencyTable_row}>
               <th>RUR</th>
-              <th>{currency.length ? RUB.purchaseRate : 0}</th>
-              <th>{currency.length ? RUB.saleRate : 0}</th>
+              <th>{currency.length ? RUB.purchaseRate : <Skeleton />}</th>
+              <th>{currency.length ? RUB.saleRate : <Skeleton />}</th>
             </tr>
             <tr className={s.CurrencyTable_row}>
               <th>USD</th>
-              <th>{currency.length ? USD.purchaseRate : 0}</th>
-              <th>{currency.length ? USD.saleRate : 0}</th>
+              <th>{currency.length ? USD.purchaseRate : <Skeleton />}</th>
+              <th>{currency.length ? USD.saleRate : <Skeleton />}</th>
             </tr>
           </tbody>
         </table>
