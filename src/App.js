@@ -45,7 +45,7 @@ function App({isAuth, loading, transactionPage, currentUser}) {
             <WrapperPage>
               <WrapperProfile>
                 <MainProfileInfo />
-                <Spiner />
+                {loading && <Spiner />}
                 {!transactionPage && Number(tabletScreen) <= 767 && (
                   <>
                     <Route path="/home" exact component={TransactionList} />
