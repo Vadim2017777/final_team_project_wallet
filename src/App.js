@@ -17,6 +17,7 @@ import LoginForm from './components/LoginForm/LoginForm';
 import TransactionList from './components/TransactionList/TransactionList';
 import CurrencyTable from './components/СurrencyTable/CurrencyTable';
 import Statistics from './components/Statistics/Statistics';
+import Spiner from './components/Spinner/Spinner.js';
 
 function App({isAuth, loading, transactionPage, currentUser}) {
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
@@ -44,6 +45,7 @@ function App({isAuth, loading, transactionPage, currentUser}) {
             <WrapperPage>
               <WrapperProfile>
                 <MainProfileInfo />
+                <Spiner />
                 {!transactionPage && Number(tabletScreen) <= 767 && (
                   <>
                     <Route path="/home" exact component={TransactionList} />
