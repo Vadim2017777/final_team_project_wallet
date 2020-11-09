@@ -20,8 +20,9 @@
 
 .StatisticsChart_wrapper {
   display: block;
-  width: 428px;
-  height: 600px;
+  width: 336px;
+  height: 336px;
+  padding: 48px;
 }
 
 .CategoryTable {

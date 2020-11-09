@@ -1,98 +1,80 @@
 import React, {useEffect} from 'react';
-import Chart from 'chart.js';
+import {Pie} from 'react-chartjs-2';
 
 import 'chartjs-plugin-labels';
 
 import s from './Chart.module.css';
 
 const ChartPie = ({chartData}) => {
-  const chartRef = React.createRef();
-  console.log(chartData);
-  useEffect(() => {
-    const {
-      expenses,
-      food,
-      car,
-      selfcare,
-      childcare,
-      house,
-      education,
-      enterteinment,
-      others,
-    } = chartData;
+  const {
+    expenses,
+    food,
+    car,
+    selfcare,
+    childcare,
+    house,
+    education,
+    enterteinment,
+    others,
+  } = chartData;
 
-    const myChartRef = chartRef.current.getContext('2d');
-
-    const myChart = new Chart(myChartRef, {
-      type: 'pie',
-      data: {
-        datasets: [
-          {
-            label: 'Sales',
-            data: [
-              expenses,
-              food,
-              car,
-              selfcare,
-              childcare,
-              house,
-              education,
-              enterteinment,
-              others,
-            ],
-            backgroundColor: [
-              '#ecb22a',
-              '#e28b20',
-              '#d25925',
-              '#67b7d0',
-              '#5593d7',
-              '#ecb22a',
-              '#9cc254',
-              '#73ad57',
-              '#507c3a',
-            ],
-          },
+  const data = {
+    datasets: [
+      {
+        label: 'Sales',
+        data: [
+          expenses,
+          food,
+          car,
+          selfcare,
+          childcare,
+          house,
+          education,
+          enterteinment,
+          others,
         ],
-        labels: [
-          'Main expenses',
-          'Food',
-          'Car',
-          'Self care',
-          'Child care',
-          'Fouse',
-          'Education',
-          'Enterteinment',
-          'Others',
-          'Costs',
-          'Income',
+        backgroundColor: [
+          '#ecb22a',
+          '#e28b20',
+          '#d25925',
+          '#67b7d0',
+          '#5593d7',
+          '#ecb22a',
+          '#9cc254',
+          '#73ad57',
+          '#507c3a',
         ],
       },
+    ],
+    labels: [
+      'Main expenses',
+      'Food',
+      'Car',
+      'Self care',
+      'Child care',
+      'Fouse',
+      'Education',
+      'Enterteinment',
+      'Others',
+      'Costs',
+      'Income',
+    ],
+  };
 
-      options: {
-        animation: {
-          easing: 'easeInCirc',
-        },
-        legend: {
-          display: false,
-        },
-        plugins: {
-          labels: {
-            render: 'label',
-            fontColor: '#ffff',
-          },
-        },
+  const options = {
+    maintainAspectRatio: false,
+    legend: {
+      display: false,
+    },
+    plugins: {
+      labels: {
+        render: 'label',
+        fontColor: '#ffff',
+        fontSize: 13,
       },
-    });
-    return () => {
-      myChart.destroy();
-    };
-  }, [chartData, chartRef]);
-
-  return (
-    <div className={s.graphContainer}>
-      <canvas id="myChart" ref={chartRef} />
-    </div>
-  );
+    },
+  };
+  return <Pie data={data} options={options} />;
 };
 
 export default ChartPie;

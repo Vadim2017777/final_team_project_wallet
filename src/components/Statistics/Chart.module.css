@@ -1,9 +1,9 @@
-.graphContainer {
+.chart {
   position: relative;
-  top: 100px;
+  /* top: 100px;
   left: -126px;
   width: 675px;
-  height: 375px;
+  height: 375px; */
 }
 
 /* .graphContainer > canvas {
