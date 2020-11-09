@@ -161,8 +161,9 @@
 
   .loginForm_form {
     position: relative;
-    height: 568px;
-    width: 767px;
+    min-width: 320px;
+    max-width: 767px;
+    min-height: 568px;
     box-shadow: none;
   }
 
