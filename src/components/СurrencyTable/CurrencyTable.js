@@ -9,14 +9,14 @@ import s from './CurrencyTable.module.css';
 
 const CurrencyTable = ({currency, getCurrency}) => {
   console.log('----------->', currency);
-  // const [USD, EUR, RUB] = currency;
+  const [USD, EUR, RUB] = currency;
   useEffect(() => {
     getCurrency();
   }, [getCurrency]);
 
   return (
     <div className={s.CurrencyTable_container}>
-      {/* <div className={s.CurrencyTable_form}>
+      <div className={s.CurrencyTable_form}>
         <table className={s.CurrencyTable_table}>
           <thead className={s.CurrencyTable_head}>
             <tr className={s.CurrencyTable_name}>
@@ -43,7 +43,7 @@ const CurrencyTable = ({currency, getCurrency}) => {
             </tr>
           </tbody>
         </table>
-      </div> */}
+      </div>
     </div>
   );
 };
