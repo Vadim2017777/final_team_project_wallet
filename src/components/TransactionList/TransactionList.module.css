@@ -38,6 +38,19 @@
     font-weight: bold;
 }
 
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .list::after {
+        content: '';
+        width: 100%;
+        height: 54px;
+        background-color: #808080ad;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        z-index: 1;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .list {
         width: 705px;
@@ -68,14 +81,16 @@
 
     .btnAdd {
         right: 0px;
-    } 
+    }
+
     .emptyTransactionsList {
         margin-top: 35px;
         margin-bottom: 100px;
         width: 250px;
     }
+
     .emptyTransactionsListText {
-       font-size: 20px;
+        font-size: 20px;
     }
 
 }
@@ -101,8 +116,8 @@
     }
 
     .emptyTransactionsListText {
-       font-size: 25px;
-       
+        font-size: 25px;
+
     }
 
 

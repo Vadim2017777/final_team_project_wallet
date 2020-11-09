@@ -34,7 +34,6 @@ function App ({isAuth, transactionPage, currentUser}) {
 
   return (
     <Switch>
-      <Route path='/statistics' exact component={Statistics} />
       <Wrapper>
         {isAuth ? (
           <>
@@ -43,12 +42,17 @@ function App ({isAuth, transactionPage, currentUser}) {
               <WrapperProfile>
                 <MainProfileInfo />
                 {!transactionPage && Number(tabletScreen) <= 767 && (
-                  <Route path='/home' exact component={TransactionList} />
-                )}
-                {Number(tabletScreen) >= 768 &&
-                  Number(tabletScreen) <= 1279 && (
+                  <>
                     <Route path='/home' exact component={TransactionList} />
-                  )}
+                    <Route path='/statistics' exact component={Statistics} />
+                  </>
+                )}
+                {Number(tabletScreen) >= 768 && Number(tabletScreen) <= 1279 && (
+                  <>
+                    <Route path='/home' exact component={TransactionList} />
+                    <Route path='/statistics' exact component={Statistics} />
+                  </>
+                )}
                 {Number(tabletScreen) >= 1280 && (
                   <>
                     <Route path='/home' exact component={TransactionList} />
