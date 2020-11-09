@@ -82,7 +82,7 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) =
                   onChange={updateTypeOfTransiction}
                   required
                 />
-                income{' '}
+                <span>income</span>
               </label>{' '}
               <label className={s.labelBox}>
                 <input
@@ -93,7 +93,7 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) =
                   checked={typeOfTransaction === '-'}
                   onChange={updateTypeOfTransiction}
                 />
-                cost{' '}
+               <span>cost</span>
               </label>{' '}
               {typeOfTransaction === '-' && (
                 <label className={s.categoryBox}>

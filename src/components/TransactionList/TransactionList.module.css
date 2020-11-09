@@ -17,6 +17,7 @@
     cursor: pointer;
     color: #ffffff;
     outline: none;
+    z-index: 2;
 }
 
 .emptyTransactionsList {
@@ -42,7 +43,7 @@
         width: 705px;
         border-collapse: separate;
         border-spacing: 0px;
-        margin-bottom: 240px;
+        margin-bottom: 100px;
     }
 
     .raw td {
@@ -52,6 +53,7 @@
     .raw {
         text-align: start;
         height: 73px;
+        background-color: #ffffff;
     }
 
     .raw .amount,
@@ -83,7 +85,7 @@
         width: 856px;
         margin-bottom: 10px;
         position: relative;
-        left: 0px;
+        left: 5px;
     }
 
     .raw {
@@ -94,7 +96,7 @@
         margin-top: 45px;
         width: 620px;
         position: relative;
-        left: -432px;
+        left: -50px;
         top: -45px;
     }
 

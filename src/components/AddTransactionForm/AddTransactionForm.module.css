@@ -28,13 +28,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+}
+
+.labelBox span {
     color: #939393;
+}
+
+.inputRadio:checked+span {
+    color: #fc842c;
 }
 
 .inputRadio {
   margin-top: 0px;
   margin-bottom: 0px;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 .inputNumber,

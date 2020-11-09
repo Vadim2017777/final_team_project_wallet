@@ -13,7 +13,6 @@ import RegisterForm from './components/RegisterForm/RegisterForm';
 import LoginForm from './components/LoginForm/LoginForm';
 import TransactionList from './components/TransactionList/TransactionList';
 import CurrencyTable from './components/СurrencyTable/CurrencyTable';
-import Balance from './components/Balance/Balance';
 import Statistics from './components/Statistics/Statistics';
 
 function App({isAuth, transactionPage, currentUser}) {
@@ -40,7 +39,6 @@ function App({isAuth, transactionPage, currentUser}) {
         {isAuth ? (
           <>
             <HomePageTitle />
-
             <WrapperPage>
               <WrapperProfile>
                 <MainProfileInfo />
@@ -54,9 +52,9 @@ function App({isAuth, transactionPage, currentUser}) {
                   )}
                 {Number(tabletScreen) >= 1280 && (
                   <>
-                    <Balance />
                     <Route path="/home" exact component={TransactionList} />
                     <CurrencyTable />
+                    <Route path="/statistics" exact component={Statistics} />
                   </>
                 )}
               </WrapperProfile>
