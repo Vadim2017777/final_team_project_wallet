@@ -53,6 +53,7 @@
     .raw {
         text-align: start;
         height: 73px;
+        background-color: #ffffff;
     }
 
     .raw .amount,
@@ -95,7 +96,7 @@
         margin-top: 45px;
         width: 620px;
         position: relative;
-        left: -432px;
+        left: -50px;
         top: -45px;
     }
 

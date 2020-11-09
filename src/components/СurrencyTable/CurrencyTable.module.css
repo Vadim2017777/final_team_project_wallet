@@ -57,6 +57,9 @@ padding-bottom: 25px;
     width: 705px;
     margin: 0 auto;
   }
+  .CurrencyTable_form {
+    box-shadow: 10px 17.321px 40px 0px rgba(1, 1, 0, 0.15);
+  }
 }
 
 @media screen and (min-width: 1280px) {
