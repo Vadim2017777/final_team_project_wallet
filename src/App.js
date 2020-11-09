@@ -34,6 +34,7 @@ function App ({isAuth, transactionPage, currentUser}) {
 
   return (
     <Switch>
+      <Route path='/statistics' exact component={Statistics} />
       <Wrapper>
         {isAuth ? (
           <>

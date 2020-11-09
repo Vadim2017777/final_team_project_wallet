@@ -4,7 +4,7 @@ import s from './CategoryTable.module.css';
 
 const CategoryTable = ({hanleMonthUpdate, hanleYearUpdate, data}) => {
   return (
-    <div>
+    <>
       <div className={s.CategoryTable_form}>
         <select className={s.CategoryTable_select} onChange={hanleMonthUpdate}>
           <option selected disabled hidden>
@@ -115,7 +115,7 @@ const CategoryTable = ({hanleMonthUpdate, hanleYearUpdate, data}) => {
           Income <span>{data.income ? `${data.income} UAH` : `0 UAH`}</span>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
