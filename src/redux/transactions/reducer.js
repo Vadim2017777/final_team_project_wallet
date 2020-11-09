@@ -41,4 +41,5 @@ export default combineReducers({
   transactions,
   transactionPage,
   loading,
+  
 });

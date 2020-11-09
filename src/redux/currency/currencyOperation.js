@@ -12,7 +12,6 @@ export const getCurrencyValue = () => async dispatch => {
     dispatch(getCurrencyRequest());
 
     const {data} = await axios.get('/finance/apiprivat');
-
     dispatch(getCurrencySuccess(data));
   } catch (error) {
     dispatch(getCurrencyFailure(error.message));
