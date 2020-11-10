@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import s from './Balance.module.css';
-import {connect} from 'react-redux';
 
-import {getTransactions} from '../../redux/transactions/selectors';
-
-const Balance = ({transaction}) => {
+const Balance = ({balance}) => {
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
 
   const handleResize = () => {
@@ -15,12 +12,6 @@ const Balance = ({transaction}) => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [tabletScreen]);
-
-  const {transactions} = transaction;
-  const lastObj = transactions[transactions.length - 1];
-  let balance = null;
-  if (!lastObj) balance = 0;
-  else balance = lastObj.globalBalance;
 
   return (
     <div className={s.box}>
@@ -34,8 +25,5 @@ const Balance = ({transaction}) => {
   );
 };
 
-const mapStateToProps = state => ({
-  transaction: getTransactions(state),
-});
 
-export default connect(mapStateToProps)(Balance);
+export default Balance;

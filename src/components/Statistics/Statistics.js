@@ -37,6 +37,12 @@ const Statistics = ({transaction, getCurrentTransactions, token}) => {
 
   const dataToDisplay = handleDataDisplay(cost, income);
 
+  let minusTransactions = dataToDisplay.costs;
+
+  let plusTransactions =  dataToDisplay.income;
+  
+  let globalBalance = plusTransactions - minusTransactions;
+
   const updateInputMonth = e => {
     setInputMonth(e.target.value);
   };
@@ -46,7 +52,7 @@ const Statistics = ({transaction, getCurrentTransactions, token}) => {
   };
   return (
     <>
-      <Balance />
+      <Balance balance={globalBalance}/>
       <div className={s.wrapper}>
         <div className={s.header}>
           <span>Statistics</span>
