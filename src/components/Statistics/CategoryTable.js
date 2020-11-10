@@ -7,7 +7,7 @@ const CategoryTable = ({hanleMonthUpdate, hanleYearUpdate, data}) => {
     <>
       <div className={s.form}>
         <select className={s.select} onChange={hanleMonthUpdate}>
-          <option selected disabled hidden>
+          <option defaultValue="Month" hidden>
             Month
           </option>
           <option>January</option>
@@ -25,7 +25,7 @@ const CategoryTable = ({hanleMonthUpdate, hanleYearUpdate, data}) => {
         </select>
 
         <select className={s.select} onChange={hanleYearUpdate}>
-          <option selected disabled hidden>
+          <option defaultValue="Year" hidden>
             Year
           </option>
           <option>2020</option>
