@@ -36,18 +36,13 @@
 }
 
 .loginForm_form {
+  position: relative;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: 554px; */
+  width: 554px;
   height: 390px;
-}
-
-.loginForm_form {
-  position: relative;
-  box-sizing: border-box;
-  /* width: 553px; */
-  height: 391px;
   padding: 40px;
   box-shadow: 10px 17.321px 40px 0px rgba(112, 124, 130, 0.3);
 }
@@ -68,14 +63,13 @@
 }
 
 .loginForm_EmailInput {
-  /* width: 432px; */
+  width: 86%;
   height: 46px;
   border: 0;
   margin-bottom: 16px;
   border-radius: 5px;
   outline: none;
   background: url('./images/svg/baseline-email-24px.svg') no-repeat;
-
   padding-left: 60px;
   background-color: #f9fbfb;
   background-position-x: 15px;
@@ -88,7 +82,7 @@
 }
 
 .loginForm_passwordInput {
-  /* width: 432px; */
+  width: 86%;
   height: 46px;
   border: 0;
   margin-bottom: 36px;
@@ -170,16 +164,6 @@
     box-shadow: none;
   }
 
-  .loginForm_EmailInput {
-    width: 220px;
-    height: 40px;
-  }
-
-  .loginForm_passwordInput {
-    width: 220px;
-    height: 40px;
-  }
-
   .loginForm_logo {
     display: flex;
     flex-direction: column;
@@ -188,6 +172,11 @@
   .loginForm_svg {
     padding-left: 10px;
     margin-bottom: 20px;
+  }
+
+  .loginForm_EmailInput,
+  .loginForm_passwordInput {
+    width: 65%;
   }
 
   .loginForm_button {
@@ -207,7 +196,8 @@
   }
 }
 
-@media screen and (max-width: 1279px) and (min-width: 768px) {
+/*  */
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   .loginForm_container {
     background: url('./images/Rectangle.png') no-repeat;
     background-size: cover;
@@ -223,9 +213,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 557px;
-    max-width: 1279px;
-    height: 392px;
     background-color: #dbe1e6;
   }
 

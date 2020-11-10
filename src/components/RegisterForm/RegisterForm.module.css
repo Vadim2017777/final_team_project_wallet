@@ -40,7 +40,7 @@
 .registerForm_form {
   position: relative;
   box-sizing: border-box;
-  /* width: 553px; */
+  width: 553px;
   height: 538px;
   padding: 40px;
   box-shadow: 10px 17.321px 40px 0px rgba(112, 124, 130, 0.3);
@@ -60,7 +60,7 @@
 }
 
 .registerForm_EmailInput {
-  /* width: 432px; */
+  width: 80%;
   height: 46px;
   border: 0;
   margin-bottom: 26px;
@@ -79,7 +79,7 @@
 }
 
 .registerForm_passwordInput {
-  /* width: 432px; */
+  width: 80%;
   height: 46px;
   border: 0;
   margin-bottom: 26px;
@@ -98,7 +98,7 @@
 }
 
 .registerForm_nameInput {
-  /* width: 432px; */
+  width: 80%;
   height: 46px;
   border: 0;
   margin-bottom: 30px;
@@ -144,7 +144,7 @@
   display: block;
   position: relative;
   top: -7px;
-  /* width: 486px; */
+  width: 92%;
   height: 5px;
   background-color: #d68b4d;
   border-radius: 4px;
@@ -192,22 +192,22 @@
   }
 
   .registerForm_EmailInput {
-    width: 220px;
+    width: 65%;
     height: 40px;
   }
 
   .registerForm_passwordInput {
-    width: 220px;
+    width: 65%;
     height: 40px;
   }
 
   .registerForm_nameInput {
-    width: 220px;
+    width: 65%;
     height: 40px;
   }
 
   .loginForm_passwordBarProgress {
-    width: 260px;
+    width: 74%;
   }
 
   .registerForm_logo {
@@ -243,7 +243,7 @@
   .registerForm_container {
     background: url('./images/Rectangle_2.png') no-repeat;
     background-size: cover;
-    width: 1279px;
+    width: 100vw;
     height: 100vh;
   }
 
@@ -255,8 +255,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 557px;
-    height: 535px;
     background-color: #ffff;
   }
 }
