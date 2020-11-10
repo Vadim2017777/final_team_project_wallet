@@ -40,7 +40,7 @@
 .registerForm_form {
   position: relative;
   box-sizing: border-box;
-  width: 553px;
+  /* width: 553px; */
   height: 538px;
   padding: 40px;
   box-shadow: 10px 17.321px 40px 0px rgba(112, 124, 130, 0.3);
@@ -60,7 +60,7 @@
 }
 
 .registerForm_EmailInput {
-  width: 432px;
+  /* width: 432px; */
   height: 46px;
   border: 0;
   margin-bottom: 26px;
@@ -79,7 +79,7 @@
 }
 
 .registerForm_passwordInput {
-  width: 432px;
+  /* width: 432px; */
   height: 46px;
   border: 0;
   margin-bottom: 26px;
@@ -98,7 +98,7 @@
 }
 
 .registerForm_nameInput {
-  width: 432px;
+  /* width: 432px; */
   height: 46px;
   border: 0;
   margin-bottom: 30px;
@@ -144,7 +144,7 @@
   display: block;
   position: relative;
   top: -7px;
-  width: 486px;
+  /* width: 486px; */
   height: 5px;
   background-color: #d68b4d;
   border-radius: 4px;

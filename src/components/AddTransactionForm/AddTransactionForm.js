@@ -103,7 +103,7 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) =
                     onChange={updateCategory}
                     required
                   >
-                    <option hidden="">Select category...</option>
+                    <option value="" disabled selected>Select category...</option>
                     <option value="Main expenses">Main expenses</option>
                     <option value="Food">Food</option>
                     <option value="Car">Car</option>
