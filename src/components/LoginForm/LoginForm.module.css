@@ -141,15 +141,15 @@
 }
 
 .loginForm_ErrorStringEmail {
-  top: 150px;
+  top: 160px;
 }
 
 .loginForm_ErrorStringPassword {
-  top: 220px;
+  top: 228px;
 }
 
 .loginForm_ErrorStringError {
-  top: 298px;
+  top: 302px;
 }
 
 .registerForm_button:disabled {
@@ -194,15 +194,15 @@
   }
 
   .loginForm_ErrorStringEmail {
-    top: 192px;
+    top: 202px;
   }
 
   .loginForm_ErrorStringPassword {
-    top: 254px;
+    top: 262px;
   }
 
   .loginForm_ErrorStringError {
-    top: 330px;
+    top: 336px;
   }
 }
 
@@ -228,10 +228,14 @@
   }
 
   .loginForm_ErrorStringEmail {
-    top: 158px;
+    top: 163px;
   }
 
   .loginForm_ErrorStringPassword {
-    top: 228px;
+    top: 232px;
+  }
+
+  .loginForm_ErrorStringError {
+    top: 308px;
   }
 }
