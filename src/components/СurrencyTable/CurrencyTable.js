@@ -31,18 +31,54 @@ const CurrencyTable = ({currency, getCurrency}) => {
           <tbody className={s.CurrencyTable_body}>
             <tr className={s.CurrencyTable_row}>
               <th>EUR</th>
-              <th>{currency.length ? EUR.purchaseRate : <Skeleton />}</th>
-              <th>{currency.length ? EUR.saleRate : <Skeleton />}</th>
+              <th>
+                {currency.length && typeof currency === 'object' ? (
+                  EUR.purchaseRate
+                ) : (
+                  <Skeleton />
+                )}
+              </th>
+              <th>
+                {currency.length && typeof currency === 'object' ? (
+                  EUR.saleRate
+                ) : (
+                  <Skeleton />
+                )}
+              </th>
             </tr>
             <tr className={s.CurrencyTable_row}>
               <th>RUR</th>
-              <th>{currency.length ? RUB.purchaseRate : <Skeleton />}</th>
-              <th>{currency.length ? RUB.saleRate : <Skeleton />}</th>
+              <th>
+                {currency.length && typeof currency === 'object' ? (
+                  RUB.purchaseRate
+                ) : (
+                  <Skeleton />
+                )}
+              </th>
+              <th>
+                {currency.length && typeof currency === 'object' ? (
+                  RUB.saleRate
+                ) : (
+                  <Skeleton />
+                )}
+              </th>
             </tr>
             <tr className={s.CurrencyTable_row}>
               <th>USD</th>
-              <th>{currency.length ? USD.purchaseRate : <Skeleton />}</th>
-              <th>{currency.length ? USD.saleRate : <Skeleton />}</th>
+              <th>
+                {currency.length && typeof currency === 'object' ? (
+                  USD.purchaseRate
+                ) : (
+                  <Skeleton />
+                )}
+              </th>
+              <th>
+                {currency.length && typeof currency === 'object' ? (
+                  USD.saleRate
+                ) : (
+                  <Skeleton />
+                )}
+              </th>
             </tr>
           </tbody>
         </table>
