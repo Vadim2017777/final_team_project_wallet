@@ -23,7 +23,7 @@ const register = credentials => async dispatch => {
     token.set(data.token);
     dispatch(authActions.registerSuccess(data));
   } catch (error) {
-    console.log(error);
+    console.log('----->>>>>>', error);
     dispatch(authActions.registerError(error.message));
   }
 };

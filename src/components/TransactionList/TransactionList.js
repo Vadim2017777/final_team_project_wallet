@@ -21,7 +21,7 @@ const TransactionList = ({
   transaction,
   getCurrentTransactions,
   token,
-  loading
+  loading,
 }) => {
   const statusPage = !isActive;
 
