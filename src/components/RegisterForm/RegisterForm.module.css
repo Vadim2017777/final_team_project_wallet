@@ -173,7 +173,7 @@
 }
 
 .formRegister_ErrorStringConfirm {
-  top: 292px;
+  top: 302px;
 }
 .formRegister_ErrorStringName {
   top: 379px;
@@ -189,8 +189,9 @@
   }
 
   .registerForm_form {
-    height: 568px;
-    width: 767px;
+    min-width: 320px;
+    max-width: 767px;
+    min-height: 568px;
     box-shadow: none;
   }
 
