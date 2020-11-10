@@ -1,5 +1,6 @@
 import {createReducer} from '@reduxjs/toolkit';
 import {combineReducers} from 'redux';
+import * as authActions from '../auth/authActions';
 
 import {
   addTransactionRequest,
@@ -22,6 +23,7 @@ const onGetTransactions = (_, action) => action.payload;
 const transactions = createReducer([], {
   [addTransactionSuccess]: onAddTransaction,
   [getTransactionSuccess]: onGetTransactions,
+  [authActions.logoutSuccess]: () => [],
 });
 
 const transactionPage = createReducer(null, {

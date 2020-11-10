@@ -45,7 +45,7 @@ const TransactionList = ({
     <>
       <Balance />
       {loading && <Spiner />}
-      {isTransactions ? (
+      {isTransactions && (
         <>
           {Number(tabletScreen) <= 767 && (
             <ul className={s.list}>
@@ -77,13 +77,14 @@ const TransactionList = ({
             </>
           )}
         </>
-      ) : (
+      )} 
+      {!loading && !isTransactions && (
         <>
-          {/* <div className={s.emptyTransactionsList}>
+          <div className={s.emptyTransactionsList}>
             <p className={s.emptyTransactionsListText}>
               Create your first transaction!
             </p>
-          </div>{' '} */}
+          </div>{' '}
           <CurrencyTable />
         </>
       )}
