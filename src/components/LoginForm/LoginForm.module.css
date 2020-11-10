@@ -18,9 +18,9 @@
   height: 590px;
 }
 
-.loginForm_img {
+/* .loginForm_img {
   margin-bottom: 40px;
-}
+} */
 
 .loginForm_name {
   font-size: 24px;
@@ -166,6 +166,7 @@
     min-width: 320px;
     max-width: 767px;
     min-height: 568px;
+    padding-top: 100px;
     box-shadow: none;
   }
 
@@ -222,7 +223,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 557px;
+    min-width: 557px;
+    max-width: 1279px;
     height: 392px;
     background-color: #dbe1e6;
   }
