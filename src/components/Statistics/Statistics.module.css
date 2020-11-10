@@ -8,6 +8,7 @@
   align-content: baseline;
   background-color: #ffff;
   margin: 0 auto;
+  box-shadow: 10px 17.321px 40px 0px rgba(1, 1, 0, 0.15);
 }
 
 .Statistic_header {
