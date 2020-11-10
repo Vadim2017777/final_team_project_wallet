@@ -22,7 +22,7 @@ const HomePageTitle = ({name, onLogout}) => {
   return (
     <div className={s.wrapper}>
       <div className={s.container}>
-        <Link to="/" className={s.logoBox} style={{textDecoration: 'none'}}>
+        <Link to="/home" className={s.logoBox} style={{textDecoration: 'none'}}>
           <Logo s={s.logo} />
           <span className={s.logoName}>Wallet</span>
         </Link>
