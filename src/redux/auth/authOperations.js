@@ -58,7 +58,7 @@ const getCurrentUser = () => async (dispatch, getState) => {
 
     dispatch(authActions.getCurrentUserSuccess(data));
   } catch (error) {
-    dispatch(authActions.getCurrentUserError(error));
+    dispatch(authActions.getCurrentUserError(error.message));
   }
 };
 
@@ -69,7 +69,7 @@ const logOut = () => async dispatch => {
     token.unset();
     dispatch(authActions.logoutSuccess());
   } catch (error) {
-    dispatch(authActions.logoutError(error));
+    dispatch(authActions.logoutError(error.message));
   }
 };
 
