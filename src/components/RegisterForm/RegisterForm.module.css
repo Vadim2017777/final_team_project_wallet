@@ -1,8 +1,8 @@
-.registerForm_container {
+.container {
   display: flex;
 }
 
-.registerForm_ImgBGWrapper {
+.ImgBGWrapper {
   display: flex;
   flex-grow: 1;
   align-items: center;
@@ -12,18 +12,18 @@
   background-size: cover;
 }
 
-.registerForm_imgWrapper {
+.imgWrapper {
   text-align: center;
   width: 290px;
   height: 590px;
 }
 
-.registerForm_name {
+.name {
   font-size: 24px;
   color: #ffff;
 }
 
-.registerForm_formWrapper {
+.formWrapper {
   display: flex;
   flex-grow: 1;
   flex: 35%;
@@ -31,13 +31,10 @@
   justify-content: center;
 }
 
-.registerForm_form {
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.registerForm_form {
   position: relative;
   box-sizing: border-box;
   width: 553px;
@@ -46,20 +43,20 @@
   box-shadow: 10px 17.321px 40px 0px rgba(112, 124, 130, 0.3);
 }
 
-.registerForm_logo {
+.logo {
   display: flex;
   font-size: 24px;
   align-items: center;
   margin-bottom: 32px;
 }
 
-.registerForm_svg {
+.svg {
   width: 29px;
   height: 29px;
   margin-right: 14px;
 }
 
-.registerForm_EmailInput {
+.EmailInput {
   width: 80%;
   height: 46px;
   border: 0;
@@ -74,11 +71,11 @@
   font-size: 16px;
 }
 
-.registerForm_EmailInput::placeholder {
+.EmailInput::placeholder {
   color: #dbe1e6;
 }
 
-.registerForm_passwordInput {
+.passwordInput {
   width: 80%;
   height: 46px;
   border: 0;
@@ -93,11 +90,11 @@
   font-size: 16px;
 }
 
-.registerForm_passwordInput::placeholder {
+.passwordInput::placeholder {
   color: #dbe1e6;
 }
 
-.registerForm_nameInput {
+.nameInput {
   width: 80%;
   height: 46px;
   border: 0;
@@ -112,11 +109,11 @@
   font-size: 16px;
 }
 
-.registerForm_nameInput::placeholder {
+.nameInput::placeholder {
   color: #dbe1e6;
 }
 
-.registerForm_button {
+.button {
   width: 281px;
   height: 39px;
   color: #ffff;
@@ -130,11 +127,11 @@
   outline: none;
 }
 
-.registerForm_button:hover {
+.button:hover {
   opacity: 0.9;
 }
 
-.registerForm_linkSignUp {
+.linkSignUp {
   color: #707c82;
   outline: none;
   cursor: pointer;
@@ -175,33 +172,33 @@
   top: 379px;
 }
 
-.registerForm_button:disabled {
+.button:disabled {
   background-color: rgb(219, 191, 168);
 }
 
 @media screen and (max-width: 767px) {
-  .registerForm_ImgBGWrapper {
+  .ImgBGWrapper {
     display: none;
   }
 
-  .registerForm_form {
+  .form {
     min-width: 320px;
     max-width: 767px;
     min-height: 568px;
     box-shadow: none;
   }
 
-  .registerForm_EmailInput {
+  .EmailInput {
     width: 65%;
     height: 40px;
   }
 
-  .registerForm_passwordInput {
+  .passwordInput {
     width: 65%;
     height: 40px;
   }
 
-  .registerForm_nameInput {
+  .nameInput {
     width: 65%;
     height: 40px;
   }
@@ -210,17 +207,17 @@
     width: 74%;
   }
 
-  .registerForm_logo {
+  .logo {
     display: flex;
     flex-direction: column;
   }
 
-  .registerForm_svg {
+  .svg {
     padding-left: 10px;
     margin-bottom: 20px;
   }
 
-  .registerForm_button {
+  .button {
     width: 240px;
   }
 
@@ -240,18 +237,18 @@
 }
 
 @media screen and (max-width: 1279px) and (min-width: 768px) {
-  .registerForm_container {
+  .container {
     background: url('./images/Rectangle_2.png') no-repeat;
     background-size: cover;
     width: 100vw;
     height: 100vh;
   }
 
-  .registerForm_ImgBGWrapper {
+  .ImgBGWrapper {
     display: none;
   }
 
-  .registerForm_form {
+  .form {
     display: flex;
     align-items: center;
     justify-content: center;

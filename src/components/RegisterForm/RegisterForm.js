@@ -41,22 +41,18 @@ const RegisterForm = ({onRegister, authError}) => {
     onRegister(data);
   };
   return (
-    <div className={s.registerForm_container}>
-      <div className={s.registerForm_ImgBGWrapper}>
-        <div className={s.registerForm_imgWrapper}>
-          <img
-            src={iphoneImg}
-            alt="iphoneImage"
-            className={s.registerForm_img}
-          />
-          <span className={s.registerForm_name}>Finance App</span>
+    <div className={s.container}>
+      <div className={s.ImgBGWrapper}>
+        <div className={s.imgWrapper}>
+          <img src={iphoneImg} alt="iphoneImage" className={s.img} />
+          <span className={s.name}>Finance App</span>
         </div>
       </div>
 
-      <div className={s.registerForm_formWrapper}>
-        <form onSubmit={handleSubmit} className={s.registerForm_form}>
-          <span className={s.registerForm_logo}>
-            <img src={Logo} alt="Logo" className={s.registerForm_svg} />
+      <div className={s.formWrapper}>
+        <form onSubmit={handleSubmit} className={s.form}>
+          <span className={s.logo}>
+            <img src={Logo} alt="Logo" className={s.svg} />
             Wallet
           </span>
 
@@ -67,7 +63,7 @@ const RegisterForm = ({onRegister, authError}) => {
             onChange={e => email.onChange(e)}
             onBlur={e => email.onBlur(e)}
             value={email.value}
-            className={s.registerForm_EmailInput}
+            className={s.EmailInput}
           />
           {email.isDirty && email.minLength && (
             <span className={s.formRegister_ErrorStringEmail}>
@@ -87,7 +83,7 @@ const RegisterForm = ({onRegister, authError}) => {
             onBlur={e => password.onBlur(e)}
             value={password.value}
             autoComplete="off"
-            className={s.registerForm_passwordInput}
+            className={s.passwordInput}
           />
           {password.isDirty && password.minLength && (
             <span className={s.formRegister_ErrorStringPassword}>
@@ -102,7 +98,7 @@ const RegisterForm = ({onRegister, authError}) => {
             onBlur={e => passwordConfirm.onBlur(e)}
             value={passwordConfirm.value}
             autoComplete="off"
-            className={s.registerForm_passwordInput}
+            className={s.passwordInput}
           />
 
           {mathchPass && passwordConfirm.isDirty && (
@@ -121,7 +117,7 @@ const RegisterForm = ({onRegister, authError}) => {
             onChange={e => name.onChange(e)}
             onBlur={e => name.onBlur(e)}
             value={name.value}
-            className={s.registerForm_nameInput}
+            className={s.nameInput}
           />
           {name.isDirty && name.minLength && (
             <span className={s.formRegister_ErrorStringName}>
@@ -132,11 +128,11 @@ const RegisterForm = ({onRegister, authError}) => {
           <button
             disabled={!email.inputValid || !password.inputValid || mathchPass}
             type="submit"
-            className={s.registerForm_button}
+            className={s.button}
           >
             Sign up
           </button>
-          <Link to="/" className={s.registerForm_linkSignUp}>
+          <Link to="/" className={s.linkSignUp}>
             Sign in
           </Link>
         </form>

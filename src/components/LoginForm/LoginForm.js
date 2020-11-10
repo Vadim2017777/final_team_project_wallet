@@ -25,18 +25,18 @@ const LoginForm = ({onLogin, authError}) => {
     console.log(data);
   };
   return (
-    <div className={s.loginForm_container}>
-      <div className={s.loginForm_ImgBGWrapper}>
-        <div className={s.loginForm_imgWrapper}>
-          <img src={iphoneImg} alt="iphoneImage" className={s.loginForm_img} />
-          <span className={s.loginForm_name}>Finance App</span>
+    <div className={s.container}>
+      <div className={s.ImgBGWrapper}>
+        <div className={s.imgWrapper}>
+          <img src={iphoneImg} alt="iphoneImage" className={s.img} />
+          <span className={s.name}>Finance App</span>
         </div>
       </div>
 
-      <div className={s.loginForm_formWrapper}>
-        <form onSubmit={handleSubmit} className={s.loginForm_form}>
-          <span className={s.loginForm_logo}>
-            <img src={Logo} alt="Logo" className={s.loginForm_svg} />
+      <div className={s.formWrapper}>
+        <form onSubmit={handleSubmit} className={s.form}>
+          <span className={s.logo}>
+            <img src={Logo} alt="Logo" className={s.svg} />
             Wallet
           </span>
 
@@ -47,13 +47,11 @@ const LoginForm = ({onLogin, authError}) => {
             onChange={e => email.onChange(e)}
             onBlur={e => email.onBlur(e)}
             value={email.value}
-            className={s.loginForm_EmailInput}
+            className={s.EmailInput}
           />
 
           {email.isDirty && email.minLength && (
-            <span className={s.loginForm_ErrorStringEmail}>
-              EMAIL IS REQUIRED
-            </span>
+            <span className={s.ErrorStringEmail}>EMAIL IS REQUIRED</span>
           )}
 
           <input
@@ -64,22 +62,20 @@ const LoginForm = ({onLogin, authError}) => {
             onBlur={e => password.onBlur(e)}
             value={password.value}
             autoComplete="off"
-            className={s.loginForm_passwordInput}
+            className={s.passwordInput}
           />
           {password.isDirty && password.minLength && (
-            <span className={s.loginForm_ErrorStringPassword}>
-              PASSWORD IS REQUIRED
-            </span>
+            <span className={s.ErrorStringPassword}>PASSWORD IS REQUIRED</span>
           )}
           {authError && (
-            <span className={s.loginForm_ErrorStringError}>
+            <span className={s.ErrorStringError}>
               INCORRECT EMAIL OR PASSWORD
             </span>
           )}
-          <button type="submit" className={s.loginForm_button}>
+          <button type="submit" className={s.button}>
             Login
           </button>
-          <Link to="/signup" className={s.loginForm_linkSignUp}>
+          <Link to="/signup" className={s.linkSignUp}>
             Sign up
           </Link>
         </form>

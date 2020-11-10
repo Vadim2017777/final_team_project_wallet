@@ -1,4 +1,4 @@
-.CurrencyTable_form {
+.form {
   display: flex;
   margin: 0 auto;
   height: 380px;
@@ -8,43 +8,43 @@
   background-position-y: 20%;
 }
 
-.CurrencyTable_table {
+.table {
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
   color: #2c353e;
 }
 
-.CurrencyTable_name {
+.name {
   height: 64px;
   text-transform: uppercase;
   background-color: #f8fbfe;
   font-size: 15px;
 }
 
-.CurrencyTable_name > th:first-child {
+.name > th:first-child {
   padding-left: 16px;
 }
 
-.CurrencyTable_row {
+.row {
   height: 40px;
   border-bottom: 1px solid #f8fbfe;
   font-size: 13px;
 }
-.CurrencyTable_container  {
-margin-top: 30px;
-padding-bottom: 25px;
+.container {
+  margin-top: 30px;
+  padding-bottom: 25px;
 }
 
 @media screen and (max-width: 767px) {
-  .CurrencyTable_form {
+  .form {
     height: 100vh;
     background-image: none;
   }
 }
 
 @media screen and (max-width: 1279px) and (min-width: 768px) {
-  .CurrencyTable_form {
+  .form {
     height: 190px;
     width: 353px;
     background-image: none;
@@ -53,23 +53,23 @@ padding-bottom: 25px;
 }
 
 @media screen and (min-width: 768px) {
-  .CurrencyTable_container {
+  .container {
     width: 705px;
     margin: 0 auto;
   }
-  .CurrencyTable_form {
+  .form {
     box-shadow: 10px 17.321px 40px 0px rgba(1, 1, 0, 0.15);
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .CurrencyTable_container {
+  .container {
     width: 309px;
     position: absolute;
     top: 295px;
   }
 
-  .CurrencyTable_form {
+  .form {
     left: 0px;
   }
 }

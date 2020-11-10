@@ -1,4 +1,4 @@
-.CategoryTable_table {
+.table {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -9,14 +9,14 @@
   margin-bottom: 20px;
 }
 
-.CategoryTable_form {
+.form {
   display: flex;
 
   margin-bottom: 20px;
   justify-content: space-between;
 }
 
-.CategoryTable_select {
+.select {
   width: 180px;
   margin: 5px;
   height: 34px;
@@ -32,33 +32,33 @@
   cursor: pointer;
 }
 
-.CategoryTable_select:hover {
+.select:hover {
   border-color: rgb(177, 204, 223);
 }
-.CategoryTable_select:focus {
+.select:focus {
   border-color: rgb(177, 204, 223);
   box-shadow: 0 0 1px 2px rgba(59, 152, 252, 0.702);
   outline: none;
 }
 
-.CategoryTable_name {
+.name {
   height: 60px;
   text-align: center;
   border-radius: 4px;
   background-color: #f3f6f6;
 }
 
-.CategoryTable_nameCategory {
+.nameCategory {
   width: 266px;
   text-indent: 30px;
   text-align: left;
 }
 
-.CategoryTable_name > th:last-child {
+.name > th:last-child {
   width: 104px;
 }
 
-.CategoryTable_row > th {
+.row > th {
   width: 330px;
   height: 44px;
   border-bottom: 1px solid #f8fbfe;
@@ -66,22 +66,22 @@
   font-size: 13px;
 }
 
-.CategoryTable_row:last-of-type > th {
+.row:last-of-type > th {
   height: 44px;
   border-bottom: 2px solid rgb(185, 201, 212);
 }
 
-.CategoryTable_row > th:nth-child(2n) {
+.row > th:nth-child(2n) {
   padding-right: 20px;
   text-align: end;
 }
 
-.CategoryTable_th {
+.th {
   padding-left: 60px;
   position: relative;
 }
 
-.CategoryTable_th::before {
+.th::before {
   position: absolute;
   left: 30px;
   display: block;
@@ -120,14 +120,14 @@
   background-color: #507c3a;
 }
 
-.CategoryTable_summ {
+.summ {
   display: flex;
   flex-direction: column;
   padding-right: 24px;
   padding-left: 40px;
 }
 
-.CategoryTable_summName {
+.summName {
   display: flex;
   justify-content: space-between;
   font-size: 15px;
@@ -140,59 +140,59 @@
 }
 
 @media screen and (max-width: 767px) {
-  .CategoryTable_table {
+  .table {
     width: 320px;
     padding: 0 10px;
     border-bottom: 2px solid rgb(185, 201, 212);
   }
 
-  .CategoryTable_form {
+  .form {
     width: 320px;
   }
 
-  .CategoryTable_table > thead {
+  .table > thead {
     display: none;
   }
 
-  .CategoryTable_body {
+  .body {
     width: 320px;
   }
 
-  .CategoryTable_row:last-of-type > th {
+  .row:last-of-type > th {
     border-bottom: none;
   }
 
-  .CategoryTable_th {
+  .th {
     padding-left: 36px;
   }
 
-  .CategoryTable_th::before {
+  .th::before {
     left: 0;
   }
 
-  .CategoryTable_summ {
+  .summ {
     padding: 0;
   }
 }
 
 @media screen and (max-width: 1279px) and (min-width: 768px) {
-  .CategoryTable_table {
+  .table {
     width: 700px;
     padding: 0 10px;
     border-bottom: 2px solid rgb(185, 201, 212);
   }
 
-  .CategoryTable_form {
+  .form {
     width: 364px;
     margin: 0 auto;
     margin-bottom: 36px;
   }
 
-  .CategoryTable_table > thead {
+  .table > thead {
     display: none;
   }
 
-  .CategoryTable_body {
+  .body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -200,11 +200,11 @@
     height: 200px;
   }
 
-  .CategoryTable_row:last-of-type > th {
+  .row:last-of-type > th {
     height: 44px;
     border-bottom: none;
   }
-  .CategoryTable_summ {
+  .summ {
     padding-left: 490px;
   }
 }

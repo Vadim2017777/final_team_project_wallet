@@ -18,18 +18,18 @@ const CurrencyTable = ({currency, getCurrency}) => {
   }, [getCurrency]);
 
   return (
-    <div className={s.CurrencyTable_container}>
-      <div className={s.CurrencyTable_form}>
-        <table className={s.CurrencyTable_table}>
-          <thead className={s.CurrencyTable_head}>
-            <tr className={s.CurrencyTable_name}>
+    <div className={s.container}>
+      <div className={s.form}>
+        <table className={s.table}>
+          <thead className={s.head}>
+            <tr className={s.name}>
               <th>Currency</th>
               <th>Buy</th>
               <th>Sale</th>
             </tr>
           </thead>
-          <tbody className={s.CurrencyTable_body}>
-            <tr className={s.CurrencyTable_row}>
+          <tbody className={s.body}>
+            <tr className={s.row}>
               <th>EUR</th>
               <th>
                 {currency.length && typeof currency === 'object' ? (
@@ -46,7 +46,7 @@ const CurrencyTable = ({currency, getCurrency}) => {
                 )}
               </th>
             </tr>
-            <tr className={s.CurrencyTable_row}>
+            <tr className={s.row}>
               <th>RUR</th>
               <th>
                 {currency.length && typeof currency === 'object' ? (
@@ -63,7 +63,7 @@ const CurrencyTable = ({currency, getCurrency}) => {
                 )}
               </th>
             </tr>
-            <tr className={s.CurrencyTable_row}>
+            <tr className={s.row}>
               <th>USD</th>
               <th>
                 {currency.length && typeof currency === 'object' ? (

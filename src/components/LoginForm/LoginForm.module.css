@@ -1,8 +1,8 @@
-.loginForm_container {
+.container {
   display: flex;
 }
 
-.loginForm_ImgBGWrapper {
+.ImgBGWrapper {
   display: flex;
   flex-grow: 1;
   align-items: center;
@@ -12,22 +12,22 @@
   background-size: cover;
 }
 
-.loginForm_imgWrapper {
+.imgWrapper {
   text-align: center;
   width: 290px;
   height: 590px;
 }
 
-/* .loginForm_img {
+/* .img {
   margin-bottom: 40px;
 } */
 
-.loginForm_name {
+.name {
   font-size: 24px;
   color: #ffff;
 }
 
-.loginForm_formWrapper {
+.formWrapper {
   display: flex;
   flex-grow: 1;
   flex: 35%;
@@ -35,7 +35,7 @@
   justify-content: center;
 }
 
-.loginForm_form {
+.form {
   position: relative;
   box-sizing: border-box;
   display: flex;
@@ -47,7 +47,7 @@
   box-shadow: 10px 17.321px 40px 0px rgba(112, 124, 130, 0.3);
 }
 
-.loginForm_logo {
+.logo {
   display: flex;
   font-size: 24px;
   align-items: center;
@@ -56,13 +56,13 @@
   font-weight: 900;
 }
 
-.loginForm_svg {
+.svg {
   width: 29px;
   height: 29px;
   margin-right: 14px;
 }
 
-.loginForm_EmailInput {
+.EmailInput {
   width: 86%;
   height: 46px;
   border: 0;
@@ -77,11 +77,11 @@
   font-size: 16px;
 }
 
-.loginForm_EmailInput::placeholder {
+.EmailInput::placeholder {
   color: #dbe1e6;
 }
 
-.loginForm_passwordInput {
+.passwordInput {
   width: 86%;
   height: 46px;
   border: 0;
@@ -96,11 +96,11 @@
   font-size: 16px;
 }
 
-.loginForm_passwordInput::placeholder {
+.passwordInput::placeholder {
   color: #dbe1e6;
 }
 
-.loginForm_button {
+.button {
   width: 281px;
   height: 39px;
   color: #ffff;
@@ -114,35 +114,35 @@
   outline: none;
 }
 
-.loginForm_button:hover {
+.button:hover {
   opacity: 0.9;
   cursor: pointer;
 }
 
-.loginForm_linkSignUp {
+.linkSignUp {
   color: #707c82;
   cursor: pointer;
   outline: none;
 }
 
-.loginForm_ErrorStringEmail,
-.loginForm_ErrorStringPassword,
-.loginForm_ErrorStringError {
+.ErrorStringEmail,
+.ErrorStringPassword,
+.ErrorStringError {
   position: absolute;
   margin: 0;
   font-size: 11px;
   color: red;
 }
 
-.loginForm_ErrorStringEmail {
+.ErrorStringEmail {
   top: 160px;
 }
 
-.loginForm_ErrorStringPassword {
+.ErrorStringPassword {
   top: 228px;
 }
 
-.loginForm_ErrorStringError {
+.ErrorStringError {
   top: 302px;
 }
 
@@ -151,11 +151,11 @@
 }
 
 @media screen and (max-width: 767px) {
-  .loginForm_ImgBGWrapper {
+  .ImgBGWrapper {
     display: none;
   }
 
-  .loginForm_form {
+  .form {
     position: relative;
     min-width: 320px;
     max-width: 767px;
@@ -164,67 +164,67 @@
     box-shadow: none;
   }
 
-  .loginForm_logo {
+  .logo {
     display: flex;
     flex-direction: column;
   }
 
-  .loginForm_svg {
+  .svg {
     padding-left: 10px;
     margin-bottom: 20px;
   }
 
-  .loginForm_EmailInput,
-  .loginForm_passwordInput {
+  .EmailInput,
+  .passwordInput {
     width: 65%;
   }
 
-  .loginForm_button {
+  .button {
     width: 240px;
   }
 
-  .loginForm_ErrorStringEmail {
+  .ErrorStringEmail {
     top: 202px;
   }
 
-  .loginForm_ErrorStringPassword {
+  .ErrorStringPassword {
     top: 262px;
   }
 
-  .loginForm_ErrorStringError {
+  .ErrorStringError {
     top: 336px;
   }
 }
 
 /*  */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .loginForm_container {
+  .container {
     background: url('./images/Rectangle.png') no-repeat;
     background-size: cover;
     width: 100%;
     height: 100vh;
   }
 
-  .loginForm_ImgBGWrapper {
+  .ImgBGWrapper {
     display: none;
   }
 
-  .loginForm_form {
+  .form {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #dbe1e6;
   }
 
-  .loginForm_ErrorStringEmail {
+  .ErrorStringEmail {
     top: 163px;
   }
 
-  .loginForm_ErrorStringPassword {
+  .ErrorStringPassword {
     top: 232px;
   }
 
-  .loginForm_ErrorStringError {
+  .ErrorStringError {
     top: 308px;
   }
 }

@@ -5,6 +5,7 @@ import {Logo} from '../Svg/Logo';
 import {Exit} from '../Svg/Exit';
 import getName from '../../redux/auth/authSelectors';
 import {authOperations} from '../../redux/auth';
+import {Link} from 'react-router-dom';
 
 const HomePageTitle = ({name, onLogout}) => {
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
@@ -21,14 +22,17 @@ const HomePageTitle = ({name, onLogout}) => {
   return (
     <div className={s.wrapper}>
       <div className={s.container}>
-        <div className={s.logoBox}>
-          <Logo s={s.logo}/>
+        <Link to="/" className={s.logoBox} style={{textDecoration: 'none'}}>
+          <Logo s={s.logo} />
           <span className={s.logoName}>Wallet</span>
-        </div>
+        </Link>
         <div className={s.userInfo}>
           <span className={s.userName}>{name}</span>
           <button className={s.logout} onClick={onLogout}>
-            <Exit s={s.logoutSvg} />{Number(tabletScreen) >= 768 && <span className={s.exit}>Exit</span>}
+            <Exit s={s.logoutSvg} />
+            {Number(tabletScreen) >= 768 && (
+              <span className={s.exit}>Exit</span>
+            )}
           </button>
         </div>
       </div>
@@ -37,12 +41,11 @@ const HomePageTitle = ({name, onLogout}) => {
 };
 
 const mapStateToProps = state => ({
- name: getName.getUserName(state)
+  name: getName.getUserName(state),
 });
 
 const mapDispatchToProps = {
-  onLogout: authOperations.logOut
+  onLogout: authOperations.logOut,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePageTitle);
-

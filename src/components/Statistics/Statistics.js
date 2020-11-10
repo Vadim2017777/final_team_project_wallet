@@ -46,22 +46,22 @@ const Statistics = ({transaction, getCurrentTransactions, token}) => {
   };
   return (
     <>
-    <Balance/>
-    <div className={s.Statistics_wrapper}>
-      <div className={s.Statistic_header}>
-        <span>Statistics</span>
+      <Balance />
+      <div className={s.wrapper}>
+        <div className={s.header}>
+          <span>Statistics</span>
+        </div>
+        <div className={s.StatisticsChart_wrapper}>
+          <Chart chartData={dataToDisplay} />
+        </div>
+        <div className={s.CategoryTable}>
+          <CategoryTable
+            hanleMonthUpdate={updateInputMonth}
+            hanleYearUpdate={updateInputYear}
+            data={dataToDisplay}
+          />
+        </div>
       </div>
-      <div className={s.StatisticsChart_wrapper}>
-        <Chart chartData={dataToDisplay} />
-      </div>
-      <div className={s.CategoryTable}>
-        <CategoryTable
-          hanleMonthUpdate={updateInputMonth}
-          hanleYearUpdate={updateInputYear}
-          data={dataToDisplay}
-        />
-      </div>
-    </div>
     </>
   );
 };
