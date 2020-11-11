@@ -154,12 +154,14 @@
   .ImgBGWrapper {
     display: none;
   }
+  .formWrapper {
+    flex: 1;
+  }
 
   .form {
     position: relative;
-    min-width: 320px;
-    max-width: 767px;
-    min-height: 568px;
+    width: 80%;
+    height: 100%;
     padding-top: 100px;
     box-shadow: none;
   }
@@ -176,19 +178,19 @@
 
   .EmailInput,
   .passwordInput {
-    width: 65%;
+    width: 75%;
   }
 
   .button {
-    width: 240px;
+    width: 60%;
   }
 
   .ErrorStringEmail {
-    top: 202px;
+    top: 267px;
   }
 
   .ErrorStringPassword {
-    top: 262px;
+    top: 340px;
   }
 
   .ErrorStringError {
