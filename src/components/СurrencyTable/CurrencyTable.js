@@ -11,7 +11,6 @@ import Skeleton from 'react-loading-skeleton';
 import s from './CurrencyTable.module.css';
 
 const CurrencyTable = ({currency, getCurrency}) => {
-  console.log('----------->', typeof currency);
   const [USD, EUR, RUB] = currency;
   useEffect(() => {
     getCurrency();
