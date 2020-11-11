@@ -181,30 +181,35 @@
     display: none;
   }
 
+  .formWrapper {
+    flex: 1;
+  }
+
   .form {
-    min-width: 320px;
-    max-width: 767px;
-    min-height: 568px;
+    position: relative;
+    width: 80%;
+    height: 100%;
+    padding-top: 100px;
     box-shadow: none;
   }
 
   .EmailInput {
-    width: 65%;
+    width: 75%;
     height: 40px;
   }
 
   .passwordInput {
-    width: 65%;
+    width: 75%;
     height: 40px;
   }
 
   .nameInput {
-    width: 65%;
+    width: 75%;
     height: 40px;
   }
 
   .loginForm_passwordBarProgress {
-    width: 74%;
+    width: 96%;
   }
 
   .logo {
@@ -218,21 +223,21 @@
   }
 
   .button {
-    width: 240px;
+    width: 60%;
   }
 
   .formRegister_ErrorStringEmail {
-    top: 197px;
+    top: 258px;
   }
 
   .formRegister_ErrorStringPassword {
-    top: 265px;
+    top: 326px;
   }
   .formRegister_ErrorStringConfirm {
-    top: 325px;
+    top: 390px;
   }
   .formRegister_ErrorStringName {
-    top: 404px;
+    top: 460px;
   }
 }
 
