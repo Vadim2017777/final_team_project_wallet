@@ -18,7 +18,7 @@ const Balance = ({balance}) => {
       {(Number(tabletScreen) < 768 || Number(tabletScreen) > 1279) && (
         <div className={s.balance}>
           <span className={s.text}>Balance</span>
-          <span className={s.amount}>{balance} грн</span>
+          <span className={s.amount}>{balance} UAH</span>
         </div>
       )}
     </div>

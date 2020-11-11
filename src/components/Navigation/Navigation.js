@@ -5,6 +5,9 @@ import {Timeline} from '../Svg/Timeline';
 import {Money} from '../Svg/Money';
 import s from './Navigation.module.css';
 import {connect} from 'react-redux';
+import handleDataDisplay from '../Statistics/helpers/handleDataDisplay';
+import filtredCosts from '../Statistics/helpers/filtredCosts';
+import filtredIncome from '../Statistics/helpers/filterdIncome';
 import {getTransactions} from '../../redux/transactions/selectors';
 
 const Navigation = ({transaction}) => {
@@ -19,12 +22,27 @@ const Navigation = ({transaction}) => {
     return () => window.removeEventListener('resize', handleResize);
   }, [tabletScreen]);
 
-  const {transactions} = transaction;
-  const lastObj = transactions[transactions.length - 1];
-  let balance = null;
-  if (!lastObj) balance = 0;
-  else balance = lastObj.globalBalance;
+  const [inputMonth] = useState('');
+  const [inputYear] = useState('');
 
+  const {transactions} = transaction;
+
+  const filteredCost = transactions.filter(({type}) => type === '-');
+
+  const filteredIncome = transactions.filter(({type}) => type === '+');
+
+  const cost = filtredCosts(filteredCost, inputMonth, inputYear);
+
+  const income = filtredIncome(filteredIncome, inputMonth, inputYear);
+
+  const dataToDisplay = handleDataDisplay(cost, income);
+
+  let minusTransactions = dataToDisplay.costs;
+
+  let plusTransactions =  dataToDisplay.income;
+  
+  let globalBalance = plusTransactions - minusTransactions;
+ 
   return (
     <>
       <nav className={s.nav}>
@@ -62,7 +80,7 @@ const Navigation = ({transaction}) => {
         {Number(tabletScreen) >= 768 && Number(tabletScreen) < 1279 && (
           <div className={[s.btnBox, s.balance, s.link].join(' ')}>
             <span className={s.text}>Balance:</span>{' '}
-            <span className={s.amount}> {balance} грн</span>
+            <span className={s.amount}> {globalBalance} UAH</span>
           </div>
         )}
       </nav>

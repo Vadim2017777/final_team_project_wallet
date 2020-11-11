@@ -3,7 +3,6 @@ import {Redirect, Route, Switch} from 'react-router-dom';
 import isAuth from './redux/auth/authSelectors';
 import {connect} from 'react-redux';
 import {
-  // getLoading,
   getAddTransactionPage,
 } from './redux/transactions/selectors';
 import {getCurrentUser} from './redux/auth/authOperations';
@@ -17,7 +16,6 @@ import LoginForm from './components/LoginForm/LoginForm';
 import TransactionList from './components/TransactionList/TransactionList';
 import CurrencyTable from './components/СurrencyTable/CurrencyTable';
 import Statistics from './components/Statistics/Statistics';
-// import Spiner from './components/Spinner/Spinner.js';
 
 function App({isAuth, loading, transactionPage, currentUser}) {
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
@@ -39,7 +37,6 @@ function App({isAuth, loading, transactionPage, currentUser}) {
   return (
     <Switch>
       <Wrapper>
-      {/* {loading && <Spiner />} */}
         {isAuth ? (
           <>
             <HomePageTitle />

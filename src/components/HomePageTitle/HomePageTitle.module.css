@@ -30,6 +30,7 @@
   margin-right: 15px;
   padding-right: 15px;
   border-right: 1px solid;
+  text-transform: capitalize;
 }
 .exit {
   color: #8390a2;
