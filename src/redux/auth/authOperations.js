@@ -23,14 +23,16 @@ const register = credentials => async dispatch => {
     token.set(data.token);
     dispatch(authActions.registerSuccess(data));
   } catch (error) {
-    console.log('----->>>>>>', error);
+    if (error.response.status === 409) {
+      error.message = 'EMAIL ALREADY EXISTS';
+    }
     dispatch(authActions.registerError(error.message));
   }
 };
 
 const logIn = credentials => async dispatch => {
   dispatch(authActions.loginRequest());
-  dispatch(authActions.registerError(null));
+  dispatch(authActions.loginError(null));
   try {
     const {data} = await axios.post('/users/signin', credentials);
     console.log(credentials);
@@ -38,6 +40,9 @@ const logIn = credentials => async dispatch => {
     token.set(data.token);
     dispatch(authActions.loginSuccess(data));
   } catch (error) {
+    if (error.response.status === 400 || 401) {
+      error.message = 'INCORRECT EMAIL OR PASSWORD';
+    }
     dispatch(authActions.loginError(error.message));
   }
 };
