@@ -17,12 +17,11 @@ import TransactionList from './components/TransactionList/TransactionList';
 import CurrencyTable from './components/СurrencyTable/CurrencyTable';
 import Statistics from './components/Statistics/Statistics';
 
-function App({isAuth, loading, transactionPage, currentUser}) {
+function App({isAuth, transactionPage, currentUser}) {
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
   const handleResize = () => {
     setTabletScreen(window.innerWidth);
   };
-  console.log('loadingAuth---------->', loading);
   useEffect(() => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
