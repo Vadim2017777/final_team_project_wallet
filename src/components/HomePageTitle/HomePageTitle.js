@@ -1,4 +1,3 @@
-import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import style from './HomePageTitle.module.css';
 import {Logo} from '../Svg/Logo';
@@ -6,18 +5,10 @@ import {Exit} from '../Svg/Exit';
 import getName from '../../redux/auth/authSelectors';
 import {authOperations} from '../../redux/auth';
 import {Link} from 'react-router-dom';
+import useTableScreen from '../../hooks/UseTableScreen';
 
 const HomePageTitle = ({name, onLogout}) => {
-  const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
-
-  const handleResize = () => {
-    setTabletScreen(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [tabletScreen]);
+  const tableScreen = useTableScreen();
 
   return (
     <div className={style.wrapper}>
@@ -34,7 +25,7 @@ const HomePageTitle = ({name, onLogout}) => {
           <span className={style.userName}>{name}</span>
           <button className={style.logout} onClick={onLogout}>
             <Exit s={style.logoutSvg} />
-            {Number(tabletScreen) >= 768 && (
+            {Number(tableScreen) >= 768 && (
               <span className={style.exit}>Exit</span>
             )}
           </button>

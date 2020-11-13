@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import {Home} from '../Svg/Home';
 import {Timeline} from '../Svg/Timeline';
@@ -9,18 +9,10 @@ import handleDataDisplay from '../helpers/handleDataDisplay';
 import filtredCosts from '../helpers/filtredCosts';
 import filtredIncome from '../helpers/filterdIncome';
 import {getTransactions} from '../../redux/transactions/selectors';
+import useTableScreen from '../../hooks/UseTableScreen';
 
 const Navigation = ({transaction}) => {
-  const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
-
-  const handleResize = () => {
-    setTabletScreen(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [tabletScreen]);
+  const tableScreen = useTableScreen();
 
   const [inputMonth] = useState('');
   const [inputYear] = useState('');
@@ -52,7 +44,7 @@ const Navigation = ({transaction}) => {
           to="/home"
         >
           <button className={style.button}>
-            {Number(tabletScreen) <= 767 ? (
+            {Number(tableScreen) <= 767 ? (
               <Home s={style.svg} />
             ) : (
               <div className={style.btnBox}>
@@ -68,7 +60,7 @@ const Navigation = ({transaction}) => {
           to="/statistics"
         >
           <button className={style.button}>
-            {Number(tabletScreen) <= 767 ? (
+            {Number(tableScreen) <= 767 ? (
               <Timeline s={style.svg} />
             ) : (
               <div className={style.btnBox}>
@@ -78,7 +70,7 @@ const Navigation = ({transaction}) => {
             )}
           </button>
         </NavLink>
-        {Number(tabletScreen) <= 767 && (
+        {Number(tableScreen) <= 767 && (
           <NavLink
             className={style.link}
             activeClassName={style.active}
@@ -89,7 +81,7 @@ const Navigation = ({transaction}) => {
             </button>
           </NavLink>
         )}
-        {Number(tabletScreen) >= 768 && Number(tabletScreen) < 1279 && (
+        {Number(tableScreen) >= 768 && Number(tableScreen) < 1279 && (
           <div className={[style.btnBox, style.balance, style.link].join(' ')}>
             <span className={style.text}>Balance:</span>{' '}
             <span className={style.amount}> {globalBalance} UAH</span>

@@ -1,27 +1,19 @@
-import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {getAddTransactionPage} from '../../redux/transactions/selectors';
 import Navigation from '../Navigation/Navigation';
 import AddTransactionForm from '../AddTransactionForm/AddTransactionForm';
+import useTableScreen from '../../hooks/UseTableScreen';
 
 import style from './MainProfile.module.css';
 
 const MainProfileInfo = ({isActive}) => {
   const statusPage = !isActive;
 
-  const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
-  const handleResize = () => {
-    setTabletScreen(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [tabletScreen]);
+  const tableScreen = useTableScreen();
 
   return (
     <>
-      {(statusPage || Number(tabletScreen) >= 768) && (
+      {(statusPage || Number(tableScreen) >= 768) && (
         <div className={style.box}>
           <Navigation />
         </div>

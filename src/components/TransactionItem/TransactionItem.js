@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import useTableScreen from '../../hooks/UseTableScreen';
 
 import style from './TransactionItem.module.css';
 
@@ -13,19 +14,11 @@ const TransactionItem = ({items}) => {
     currentStyle = 'amountMinus';
   }
 
-  const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
-  const handleResize = () => {
-    setTabletScreen(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [tabletScreen]);
+  const tableScreen = useTableScreen();
 
   return (
     <>
-      {Number(tabletScreen) <= 767 && (
+      {Number(tableScreen) <= 767 && (
         <li className={style.item}>
           <table className={style.table}>
             <tbody className={style.bodyTable}>
@@ -57,7 +50,7 @@ const TransactionItem = ({items}) => {
           </table>
         </li>
       )}
-      {Number(tabletScreen) >= 768 && (
+      {Number(tableScreen) >= 768 && (
         <>
           <tr className={style.raw}>
             <td>{newDate}</td>
