@@ -13,7 +13,7 @@ import style from './CurrencyTable.module.css';
 const CurrencyTable = () => {
   const currency = useSelector(state => getCurrencyState(state));
   const getCurrency = useDispatch();
-  console.log(typeof currency);
+
   useEffect(() => {
     getCurrency(getCurrencyValue());
   }, [getCurrency]);
@@ -31,15 +31,15 @@ const CurrencyTable = () => {
           </thead>
 
           {currency.length && typeof currency === 'object' ? (
-            currency.map(item => (
-              <tbody className={style.body}>
-                <tr className={style.row}>
+            <tbody className={style.body}>
+              {currency.map(item => (
+                <tr key={item.currency} className={style.row}>
                   <th>{item.currency}</th>
                   <th>{item.purchaseRate}</th>
                   <th>{item.saleRate} </th>
                 </tr>
-              </tbody>
-            ))
+              ))}
+            </tbody>
           ) : (
             <tbody className={style.body}>
               <tr className={style.row}>

@@ -8,11 +8,7 @@ import {
 import {changeTransactionPage} from '../../redux/transactions/transactionActions';
 import {getAllTransactions} from '../../redux/transactions/operations';
 import isAuth from '../../redux/auth/authSelectors';
-import handleDataDisplay from '../helpers/handleDataDisplay';
-import filtredCosts from '../helpers/filtredCosts';
-import filtredIncome from '../helpers/filterdIncome';
 import TransactionItem from '../TransactionItem/TransactionItem';
-import Balance from '../../components/Balance/Balance';
 import CurrencyTable from '../СurrencyTable/CurrencyTable';
 import Spiner from '../../components/Spinner/Spinner.js';
 
@@ -27,30 +23,11 @@ const TransactionList = ({
   loading,
 }) => {
   const statusPage = !isActive;
-  const [inputMonth] = useState('');
-  const [inputYear] = useState('');
-
   const {transactions} = transaction;
   const isTransactions = transactions.length > 0;
   useEffect(() => {
     getCurrentTransactions(token);
   }, [getCurrentTransactions, token]);
-
-  const filteredCost = transactions.filter(({type}) => type === '-');
-
-  const filteredIncome = transactions.filter(({type}) => type === '+');
-
-  const cost = filtredCosts(filteredCost, inputMonth, inputYear);
-
-  const income = filtredIncome(filteredIncome, inputMonth, inputYear);
-
-  const dataToDisplay = handleDataDisplay(cost, income);
-
-  let minusTransactions = dataToDisplay.costs;
-
-  let plusTransactions = dataToDisplay.income;
-
-  let globalBalance = plusTransactions - minusTransactions;
 
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
   const handleResize = () => {
@@ -64,7 +41,6 @@ const TransactionList = ({
 
   return (
     <>
-      <Balance balance={globalBalance} />
       {loading && <Spiner />}
       {isTransactions && (
         <>

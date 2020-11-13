@@ -1,4 +1,4 @@
-const filtredIncome = (filteredCost, inputMonth, inputYear) =>
+const filtredIncome = (filteredCost, inputMonth = '', inputYear = '') =>
   filteredCost.filter(item => {
     if (inputMonth && inputYear) {
       return item.month === inputMonth && item.year === inputYear;

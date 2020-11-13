@@ -42,6 +42,8 @@ const handleDataDisplay = (filteredCost, filteredIn) => {
   const others = filteredCost.filter(item => item.category === 'Others');
   const otherssumm = others.reduce((acc = 0, {amount}) => acc + amount, 0);
 
+  const globalBalance = income - costs;
+
   const renderObg = {
     expenses: expensessumm,
     food: foodsumm,
@@ -54,6 +56,7 @@ const handleDataDisplay = (filteredCost, filteredIn) => {
     others: otherssumm,
     costs,
     income,
+    globalBalance,
   };
   return renderObg;
 };

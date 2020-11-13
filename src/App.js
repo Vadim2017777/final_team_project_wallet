@@ -2,9 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom';
 import isAuth from './redux/auth/authSelectors';
 import {connect} from 'react-redux';
-import {
-  getAddTransactionPage,
-} from './redux/transactions/selectors';
+import {getAddTransactionPage} from './redux/transactions/selectors';
 import {getCurrentUser} from './redux/auth/authOperations';
 import {Wrapper} from './components/Wrapper/Wrapper';
 import {WrapperPage} from './components/Wrapper/WrapperPage';
@@ -16,6 +14,7 @@ import LoginForm from './components/LoginForm/LoginForm';
 import TransactionList from './components/TransactionList/TransactionList';
 import CurrencyTable from './components/СurrencyTable/CurrencyTable';
 import Statistics from './components/Statistics/Statistics';
+import Balance from './components/Balance/Balance';
 
 function App({isAuth, transactionPage, currentUser}) {
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
@@ -40,6 +39,7 @@ function App({isAuth, transactionPage, currentUser}) {
           <>
             <HomePageTitle />
             <WrapperPage>
+              <Balance />
               <WrapperProfile>
                 <MainProfileInfo />
                 {!transactionPage && Number(tabletScreen) <= 767 && (

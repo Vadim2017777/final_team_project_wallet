@@ -1,47 +1,38 @@
-import React from 'react';
-import {useEffect} from 'react';
-import {useState} from 'react';
-
-import {getTransactions} from '../../redux/transactions/selectors';
-import isAuth from '../../redux/auth/authSelectors';
-
+import React, {useEffect, useState} from 'react';
 import {getAllTransactions} from '../../redux/transactions/operations';
-
-import style from './Statistics.module.css';
-import {connect} from 'react-redux';
-
+import {useDispatch, useSelector} from 'react-redux';
 import Chart from './Chart';
-
-import handleDataDisplay from '../helpers/handleDataDisplay.js';
+import {
+  filteredTypeMinus,
+  filteredTypePlus,
+} from '../../redux/statistics/statisticsSelectors';
+import isAuth from '../../redux/auth/authSelectors';
+import {getTransactions} from '../../redux/transactions/selectors';
 import filtredCosts from '../helpers/filtredCosts.js';
 import filtredIncome from '../helpers/filterdIncome.js';
+import handleDataDisplay from '../helpers/handleDataDisplay.js';
 import CategoryTable from './CategoryTable';
-import Balance from '../Balance/Balance';
+import style from './Statistics.module.css';
 
-const Statistics = ({transaction, getCurrentTransactions, token}) => {
+const Statistics = () => {
   const [inputMonth, setInputMonth] = useState('');
   const [inputYear, setInputYear] = useState('');
 
+  const transaction = useSelector(state => getTransactions(state));
+  const token = useSelector(state => isAuth.isAuthenticated(state));
+
+  const getCurrentTransactions = useDispatch();
+
   useEffect(() => {
-    getCurrentTransactions(token);
+    getCurrentTransactions(getAllTransactions(token));
   }, [getCurrentTransactions, token]);
   const {transactions} = transaction;
 
-  const filteredCost = transactions.filter(({type}) => type === '-');
-
-  const filteredIncome = transactions.filter(({type}) => type === '+');
-
+  const filteredCost = filteredTypeMinus(transactions);
+  const filteredIncome = filteredTypePlus(transactions);
   const cost = filtredCosts(filteredCost, inputMonth, inputYear);
-
   const income = filtredIncome(filteredIncome, inputMonth, inputYear);
-
   const dataToDisplay = handleDataDisplay(cost, income);
-
-  let minusTransactions = dataToDisplay.costs;
-
-  let plusTransactions = dataToDisplay.income;
-
-  let globalBalance = plusTransactions - minusTransactions;
 
   const updateInputMonth = e => {
     setInputMonth(e.target.value);
@@ -52,7 +43,6 @@ const Statistics = ({transaction, getCurrentTransactions, token}) => {
   };
   return (
     <>
-      <Balance balance={globalBalance} />
       <div className={style.wrapper}>
         <div className={style.header}>
           <span>Statistics</span>
@@ -72,13 +62,4 @@ const Statistics = ({transaction, getCurrentTransactions, token}) => {
   );
 };
 
-const mapStateToProps = state => ({
-  transaction: getTransactions(state),
-  token: isAuth.isAuthenticated(state),
-});
-
-const mapDispatchToProps = {
-  getCurrentTransactions: getAllTransactions,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Statistics);
+export default Statistics;
