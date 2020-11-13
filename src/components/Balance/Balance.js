@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import s from './Balance.module.css';
+import style from './Balance.module.css';
 
 const Balance = ({balance}) => {
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
@@ -14,16 +14,15 @@ const Balance = ({balance}) => {
   }, [tabletScreen]);
 
   return (
-    <div className={s.box}>
+    <div className={style.box}>
       {(Number(tabletScreen) < 768 || Number(tabletScreen) > 1279) && (
-        <div className={s.balance}>
-          <span className={s.text}>Balance</span>
-          <span className={s.amount}>{balance} UAH</span>
+        <div className={style.balance}>
+          <span className={style.text}>Balance</span>
+          <span className={style.amount}>{balance} UAH</span>
         </div>
       )}
     </div>
   );
 };
-
 
 export default Balance;

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
-import s from './HomePageTitle.module.css';
+import style from './HomePageTitle.module.css';
 import {Logo} from '../Svg/Logo';
 import {Exit} from '../Svg/Exit';
 import getName from '../../redux/auth/authSelectors';
@@ -20,18 +20,22 @@ const HomePageTitle = ({name, onLogout}) => {
   }, [tabletScreen]);
 
   return (
-    <div className={s.wrapper}>
-      <div className={s.container}>
-        <Link to="/home" className={s.logoBox} style={{textDecoration: 'none'}}>
-          <Logo s={s.logo} />
-          <span className={s.logoName}>Wallet</span>
+    <div className={style.wrapper}>
+      <div className={style.container}>
+        <Link
+          to="/home"
+          className={style.logoBox}
+          style={{textDecoration: 'none'}}
+        >
+          <Logo s={style.logo} />
+          <span className={style.logoName}>Wallet</span>
         </Link>
-        <div className={s.userInfo}>
-          <span className={s.userName}>{name}</span>
-          <button className={s.logout} onClick={onLogout}>
-            <Exit s={s.logoutSvg} />
+        <div className={style.userInfo}>
+          <span className={style.userName}>{name}</span>
+          <button className={style.logout} onClick={onLogout}>
+            <Exit s={style.logoutSvg} />
             {Number(tabletScreen) >= 768 && (
-              <span className={s.exit}>Exit</span>
+              <span className={style.exit}>Exit</span>
             )}
           </button>
         </div>

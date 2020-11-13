@@ -16,7 +16,7 @@ import Balance from '../../components/Balance/Balance';
 import CurrencyTable from '../СurrencyTable/CurrencyTable';
 import Spiner from '../../components/Spinner/Spinner.js';
 
-import s from './TransactionList.module.css';
+import style from './TransactionList.module.css';
 
 const TransactionList = ({
   isActive,
@@ -69,7 +69,7 @@ const TransactionList = ({
       {isTransactions && (
         <>
           {Number(tabletScreen) <= 767 && (
-            <ul className={s.list}>
+            <ul className={style.list}>
               {transactions.map(item => {
                 return <TransactionItem items={item} key={item._id} />;
               })}
@@ -77,18 +77,18 @@ const TransactionList = ({
           )}
           {Number(tabletScreen) >= 768 && (
             <>
-              <table className={s.list}>
+              <table className={style.list}>
                 <thead>
-                  <tr className={s.raw}>
-                    <td className={s.date}>Date</td>
-                    <td className={s.type}>Type</td>
-                    <td className={s.category}>Category</td>
-                    <td className={s.comments}>Comments</td>
-                    <td className={s.amount}>Amount</td>
-                    <td className={s.balance}>Balance</td>
+                  <tr className={style.raw}>
+                    <td className={style.date}>Date</td>
+                    <td className={style.type}>Type</td>
+                    <td className={style.category}>Category</td>
+                    <td className={style.comments}>Comments</td>
+                    <td className={style.amount}>Amount</td>
+                    <td className={style.balance}>Balance</td>
                   </tr>
                 </thead>
-                <tbody className={s.tbody}>
+                <tbody className={style.tbody}>
                   {transactions.map(item => {
                     return <TransactionItem items={item} key={item._id} />;
                   })}
@@ -101,8 +101,8 @@ const TransactionList = ({
       )}
       {!loading && !isTransactions && (
         <>
-          <div className={s.emptyTransactionsList}>
-            <p className={s.emptyTransactionsListText}>
+          <div className={style.emptyTransactionsList}>
+            <p className={style.emptyTransactionsListText}>
               Create your first transaction!
             </p>
           </div>{' '}
@@ -111,7 +111,10 @@ const TransactionList = ({
       )}
 
       {statusPage && (
-        <button className={s.btnAdd} onClick={() => updateStatus(statusPage)}>
+        <button
+          className={style.btnAdd}
+          onClick={() => updateStatus(statusPage)}
+        >
           &#43;
         </button>
       )}

@@ -7,7 +7,7 @@ import isAuth from '../../redux/auth/authSelectors';
 
 import {getAllTransactions} from '../../redux/transactions/operations';
 
-import s from './Statistics.module.css';
+import style from './Statistics.module.css';
 import {connect} from 'react-redux';
 
 import Chart from './Chart';
@@ -53,14 +53,14 @@ const Statistics = ({transaction, getCurrentTransactions, token}) => {
   return (
     <>
       <Balance balance={globalBalance} />
-      <div className={s.wrapper}>
-        <div className={s.header}>
+      <div className={style.wrapper}>
+        <div className={style.header}>
           <span>Statistics</span>
         </div>
-        <div className={s.StatisticsChart_wrapper}>
+        <div className={style.StatisticsChart_wrapper}>
           <Chart chartData={dataToDisplay} />
         </div>
-        <div className={s.CategoryTable}>
+        <div className={style.CategoryTable}>
           <CategoryTable
             hanleMonthUpdate={updateInputMonth}
             hanleYearUpdate={updateInputYear}

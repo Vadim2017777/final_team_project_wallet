@@ -4,10 +4,15 @@ import {addTransaction} from '../../redux/transactions/operations';
 import isAuth from '../../redux/auth/authSelectors';
 import {getAddTransactionPage} from '../../redux/transactions/selectors';
 import {changeTransactionPage} from '../../redux/transactions/transactionActions';
-import s from './AddTransactionForm.module.css';
+import style from './AddTransactionForm.module.css';
 import TitleOfForm from './TitleOfForm';
 
-const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) => {
+const AddTransactionForm = ({
+  token,
+  onAddTransaction,
+  updateStatus,
+  isActive,
+}) => {
   const pageStatus = !isActive;
   const [typeOfTransaction, setTypeOfTransiction] = useState('');
   const updateTypeOfTransiction = e => {
@@ -49,32 +54,32 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) =
       date,
       type: typeOfTransaction,
       category,
-      comments, 
+      comments,
       amount,
-      token
+      token,
     };
-    
-   onAddTransaction(formData);
-   updateStatus(pageStatus);
+
+    onAddTransaction(formData);
+    updateStatus(pageStatus);
   };
 
-  const handleClick =(e)=> {
-    if(e.target.className === s.modal) {
+  const handleClick = e => {
+    if (e.target.className === style.modal) {
       updateStatus(pageStatus);
     }
-  }
+  };
 
   return (
-    <div className={s.modal} onClick={handleClick}>
-      <div className={s.container}>
-        <TitleOfForm/>
-        <div className={s.box}>
-          <form className={s.form} onSubmit={handleSubmit}>
-            <div className={s.formBox}>
+    <div className={style.modal} onClick={handleClick}>
+      <div className={style.container}>
+        <TitleOfForm />
+        <div className={style.box}>
+          <form className={style.form} onSubmit={handleSubmit}>
+            <div className={style.formBox}>
               {' '}
-              <label className={s.labelBox}>
-                <input 
-                  className={s.inputRadio}
+              <label className={style.labelBox}>
+                <input
+                  className={style.inputRadio}
                   type="radio"
                   value="+"
                   name="typeOfTransiction"
@@ -84,26 +89,28 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) =
                 />
                 <span>income</span>
               </label>{' '}
-              <label className={s.labelBox}>
+              <label className={style.labelBox}>
                 <input
-                  className={s.inputRadio}
+                  className={style.inputRadio}
                   type="radio"
                   value="-"
                   name="typeOfTransiction"
                   checked={typeOfTransaction === '-'}
                   onChange={updateTypeOfTransiction}
                 />
-               <span>cost</span>
+                <span>cost</span>
               </label>{' '}
               {typeOfTransaction === '-' && (
-                <label className={s.categoryBox}>
+                <label className={style.categoryBox}>
                   <select
-                    className={s.inputCategory}
+                    className={style.inputCategory}
                     value={category}
                     onChange={updateCategory}
                     required
                   >
-                    <option value="" disabled selected>Select category...</option>
+                    <option value="" disabled selected>
+                      Select category...
+                    </option>
                     <option value="Main expenses">Main expenses</option>
                     <option value="Food">Food</option>
                     <option value="Car">Car</option>
@@ -117,60 +124,60 @@ const AddTransactionForm = ({token, onAddTransaction, updateStatus, isActive}) =
                 </label>
               )}
               <input
-                className={s.inputNumber}
+                className={style.inputNumber}
                 type="number"
                 placeholder="0.00"
                 name="amount"
                 value={amount}
                 onChange={updateAnmount}
-                min='1'
+                min="1"
                 pattern="\d+"
-                maxLength='12'
+                maxLength="12"
                 required
               />
               <input
-                className={s.inputDate}
+                className={style.inputDate}
                 type="date"
                 name="date"
                 value={date}
                 onChange={updateDate}
                 required
               />
-              <label className={s.textareaBox}>
-                <p className={s.commentNote}>Comment</p>
+              <label className={style.textareaBox}>
+                <p className={style.commentNote}>Comment</p>
                 <textarea
-                  className={s.textarea}
+                  className={style.textarea}
                   type="text"
                   name="comment"
                   value={comments}
                   onChange={updateComment}
-                  maxLength='30'
+                  maxLength="30"
                   required
                 >
                   Lorem impsut lorem{' '}
                 </textarea>{' '}
               </label>{' '}
             </div>
-            <div className={s.btnBox}>
-              <button className={s.button} type="submit">
+            <div className={style.btnBox}>
+              <button className={style.button} type="submit">
                 Add transaction
               </button>{' '}
             </div>
           </form>{' '}
         </div>
       </div>
-      </div>
+    </div>
   );
-}
+};
 
 const mapStateToProps = state => ({
   isActive: getAddTransactionPage(state),
-  token: isAuth.isAuthenticated(state)
+  token: isAuth.isAuthenticated(state),
 });
 
 const mapDispatchToProps = {
   onAddTransaction: addTransaction,
-  updateStatus: changeTransactionPage
+  updateStatus: changeTransactionPage,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTransactionForm);

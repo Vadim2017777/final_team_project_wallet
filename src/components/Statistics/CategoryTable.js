@@ -1,13 +1,13 @@
 import React from 'react';
 import {months, years} from '../helpers/constants.js';
 
-import s from './CategoryTable.module.css';
+import style from './CategoryTable.module.css';
 
 const CategoryTable = ({hanleMonthUpdate, hanleYearUpdate, data}) => {
   return (
     <>
-      <div className={s.form}>
-        <select className={s.select} onChange={hanleMonthUpdate}>
+      <div className={style.form}>
+        <select className={style.select} onChange={hanleMonthUpdate}>
           <option defaultValue="Month" hidden>
             Month
           </option>
@@ -16,7 +16,7 @@ const CategoryTable = ({hanleMonthUpdate, hanleYearUpdate, data}) => {
           ))}
         </select>
 
-        <select className={s.select} onChange={hanleYearUpdate}>
+        <select className={style.select} onChange={hanleYearUpdate}>
           <option defaultValue="Year" hidden>
             Year
           </option>
@@ -25,76 +25,80 @@ const CategoryTable = ({hanleMonthUpdate, hanleYearUpdate, data}) => {
           ))}
         </select>
       </div>
-      <table className={s.table}>
-        <thead className={s.head}>
-          <tr className={s.name}>
-            <th className={s.nameCategory}>Category</th>
+      <table className={style.table}>
+        <thead className={style.head}>
+          <tr className={style.name}>
+            <th className={style.nameCategory}>Category</th>
             <th>Amount</th>
           </tr>
         </thead>
-        <tbody className={s.body}>
+        <tbody className={style.body}>
           {data.expenses ? (
-            <tr className={s.row}>
-              <th className={`${s.th} ${s.Main_expenses}`}>Main expenses</th>
+            <tr className={style.row}>
+              <th className={`${style.th} ${style.Main_expenses}`}>
+                Main expenses
+              </th>
               <th>{data.expenses}</th>
             </tr>
           ) : null}
           {data.food ? (
-            <tr className={s.row}>
-              <th className={`${s.th} ${s.Food}`}>Food</th>
+            <tr className={style.row}>
+              <th className={`${style.th} ${style.Food}`}>Food</th>
               <th>{data.food}</th>
             </tr>
           ) : null}
           {data.car ? (
-            <tr className={s.row}>
-              <th className={`${s.th} ${s.Car}`}>Car</th>
+            <tr className={style.row}>
+              <th className={`${style.th} ${style.Car}`}>Car</th>
               <th>{data.car}</th>
             </tr>
           ) : null}
           {data.selfcare ? (
-            <tr className={s.row}>
-              <th className={`${s.th} ${s.Self_Care}`}>Self Care</th>
+            <tr className={style.row}>
+              <th className={`${style.th} ${style.Self_Care}`}>Self Care</th>
               <th>{data.selfcare}</th>
             </tr>
           ) : null}
           {data.childcare ? (
-            <tr className={s.row}>
-              <th className={`${s.th} ${s.Child_Care}`}>Child Care</th>
+            <tr className={style.row}>
+              <th className={`${style.th} ${style.Child_Care}`}>Child Care</th>
               <th>{data.childcare}</th>
             </tr>
           ) : null}
           {data.house ? (
-            <tr className={s.row}>
-              <th className={`${s.th} ${s.House}`}>House</th>
+            <tr className={style.row}>
+              <th className={`${style.th} ${style.House}`}>House</th>
               <th>{data.house}</th>
             </tr>
           ) : null}
           {data.education ? (
-            <tr className={s.row}>
-              <th className={`${s.th} ${s.Education}`}>Education</th>
+            <tr className={style.row}>
+              <th className={`${style.th} ${style.Education}`}>Education</th>
               <th>{data.education}</th>
             </tr>
           ) : null}
           {data.enterteinment ? (
-            <tr className={s.row}>
-              <th className={`${s.th} ${s.Enterteinment}`}>Enterteinment</th>
+            <tr className={style.row}>
+              <th className={`${style.th} ${style.Enterteinment}`}>
+                Enterteinment
+              </th>
               <th>{data.enterteinment}</th>
             </tr>
           ) : null}
           {data.others ? (
-            <tr className={s.row}>
-              <th className={`${s.th} ${s.Others}`}>Others</th>
+            <tr className={style.row}>
+              <th className={`${style.th} ${style.Others}`}>Others</th>
               <th>{data.others}</th>
             </tr>
           ) : null}
         </tbody>
       </table>
-      <div className={s.summ}>
-        <div className={`${s.summName} ${s.orangeColor}`}>
+      <div className={style.summ}>
+        <div className={`${style.summName} ${style.orangeColor}`}>
           Cost <span>{data.costs ? `${data.costs} UAH` : `0 UAH`}</span>
         </div>
 
-        <div className={s.summName}>
+        <div className={style.summName}>
           Income <span>{data.income ? `${data.income} UAH` : `0 UAH`}</span>
         </div>
       </div>

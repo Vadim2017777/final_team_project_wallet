@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 
 import useInput from '../hooks/UseInput.js';
 
-import s from './LoginForm.module.css';
+import style from './LoginForm.module.css';
 import iphoneImg from './images/iPhone_6.png';
 import Logo from './images/svg/logo.svg';
 
@@ -25,18 +25,18 @@ const LoginForm = ({onLogin, authError}) => {
     console.log(data);
   };
   return (
-    <div className={s.container}>
-      <div className={s.ImgBGWrapper}>
-        <div className={s.imgWrapper}>
-          <img src={iphoneImg} alt="iphoneImage" className={s.img} />
-          <span className={s.name}>Finance App</span>
+    <div className={style.container}>
+      <div className={style.ImgBGWrapper}>
+        <div className={style.imgWrapper}>
+          <img src={iphoneImg} alt="iphoneImage" className={style.img} />
+          <span className={style.name}>Finance App</span>
         </div>
       </div>
 
-      <div className={s.formWrapper}>
-        <form onSubmit={handleSubmit} className={s.form}>
-          <span className={s.logo}>
-            <img src={Logo} alt="Logo" className={s.svg} />
+      <div className={style.formWrapper}>
+        <form onSubmit={handleSubmit} className={style.form}>
+          <span className={style.logo}>
+            <img src={Logo} alt="Logo" className={style.svg} />
             Wallet
           </span>
 
@@ -47,11 +47,11 @@ const LoginForm = ({onLogin, authError}) => {
             onChange={e => email.onChange(e)}
             onBlur={e => email.onBlur(e)}
             value={email.value}
-            className={s.EmailInput}
+            className={style.EmailInput}
           />
 
           {email.isDirty && email.minLength && (
-            <span className={s.ErrorStringEmail}>EMAIL IS REQUIRED</span>
+            <span className={style.ErrorStringEmail}>EMAIL IS REQUIRED</span>
           )}
 
           <input
@@ -62,16 +62,20 @@ const LoginForm = ({onLogin, authError}) => {
             onBlur={e => password.onBlur(e)}
             value={password.value}
             autoComplete="off"
-            className={s.passwordInput}
+            className={style.passwordInput}
           />
           {password.isDirty && password.minLength && (
-            <span className={s.ErrorStringPassword}>PASSWORD IS REQUIRED</span>
+            <span className={style.ErrorStringPassword}>
+              PASSWORD IS REQUIRED
+            </span>
           )}
-          {authError && <span className={s.ErrorStringError}>{authError}</span>}
-          <button type="submit" className={s.button}>
+          {authError && (
+            <span className={style.ErrorStringError}>{authError}</span>
+          )}
+          <button type="submit" className={style.button}>
             Login
           </button>
-          <Link to="/signup" className={s.linkSignUp}>
+          <Link to="/signup" className={style.linkSignUp}>
             Sign up
           </Link>
         </form>

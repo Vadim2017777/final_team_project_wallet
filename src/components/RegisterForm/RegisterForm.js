@@ -8,7 +8,7 @@ import ProgressValidationBar from './ProgressValidationBar';
 
 import useInput from '../hooks/UseInput.js';
 
-import s from './RegisterForm.module.css';
+import style from './RegisterForm.module.css';
 import iphoneImg from './images/iPhone_6_2.png';
 import Logo from './images/svg/logo.svg';
 import {useEffect} from 'react';
@@ -41,18 +41,18 @@ const RegisterForm = ({onRegister, authError}) => {
     onRegister(data);
   };
   return (
-    <div className={s.container}>
-      <div className={s.ImgBGWrapper}>
-        <div className={s.imgWrapper}>
-          <img src={iphoneImg} alt="iphoneImage" className={s.img} />
-          <span className={s.name}>Finance App</span>
+    <div className={style.container}>
+      <div className={style.ImgBGWrapper}>
+        <div className={style.imgWrapper}>
+          <img src={iphoneImg} alt="iphoneImage" className={style.img} />
+          <span className={style.name}>Finance App</span>
         </div>
       </div>
 
-      <div className={s.formWrapper}>
-        <form onSubmit={handleSubmit} className={s.form}>
-          <span className={s.logo}>
-            <img src={Logo} alt="Logo" className={s.svg} />
+      <div className={style.formWrapper}>
+        <form onSubmit={handleSubmit} className={style.form}>
+          <span className={style.logo}>
+            <img src={Logo} alt="Logo" className={style.svg} />
             Wallet
           </span>
 
@@ -63,15 +63,15 @@ const RegisterForm = ({onRegister, authError}) => {
             onChange={e => email.onChange(e)}
             onBlur={e => email.onBlur(e)}
             value={email.value}
-            className={s.EmailInput}
+            className={style.EmailInput}
           />
           {email.isDirty && email.minLength && (
-            <span className={s.formRegister_ErrorStringEmail}>
+            <span className={style.formRegister_ErrorStringEmail}>
               EMAIL IS REQUIRED
             </span>
           )}
           {authError && (
-            <span className={s.formRegister_ErrorStringEmail}>
+            <span className={style.formRegister_ErrorStringEmail}>
               EMAIL ALREADY EXISTS
             </span>
           )}
@@ -83,10 +83,10 @@ const RegisterForm = ({onRegister, authError}) => {
             onBlur={e => password.onBlur(e)}
             value={password.value}
             autoComplete="off"
-            className={s.passwordInput}
+            className={style.passwordInput}
           />
           {password.isDirty && password.minLength && (
-            <span className={s.formRegister_ErrorStringPassword}>
+            <span className={style.formRegister_ErrorStringPassword}>
               PASSWORD MUST BE AT LEAST 6 CHARACTERS
             </span>
           )}
@@ -98,16 +98,16 @@ const RegisterForm = ({onRegister, authError}) => {
             onBlur={e => passwordConfirm.onBlur(e)}
             value={passwordConfirm.value}
             autoComplete="off"
-            className={s.passwordInput}
+            className={style.passwordInput}
           />
 
           {mathchPass && passwordConfirm.isDirty && (
-            <span className={s.formRegister_ErrorStringConfirm}>
+            <span className={style.formRegister_ErrorStringConfirm}>
               PASSWORDS MUST MATCH
             </span>
           )}
           <ProgressValidationBar
-            style={s.loginForm_passwordBarProgress}
+            style={style.loginForm_passwordBarProgress}
             password={password.value}
           />
           <input
@@ -117,10 +117,10 @@ const RegisterForm = ({onRegister, authError}) => {
             onChange={e => name.onChange(e)}
             onBlur={e => name.onBlur(e)}
             value={name.value}
-            className={s.nameInput}
+            className={style.nameInput}
           />
           {name.isDirty && name.minLength && (
-            <span className={s.formRegister_ErrorStringName}>
+            <span className={style.formRegister_ErrorStringName}>
               NAME IS REQUIRED
             </span>
           )}
@@ -128,11 +128,11 @@ const RegisterForm = ({onRegister, authError}) => {
           <button
             disabled={!email.inputValid || !password.inputValid || mathchPass}
             type="submit"
-            className={s.button}
+            className={style.button}
           >
             Sign up
           </button>
-          <Link to="/" className={s.linkSignUp}>
+          <Link to="/" className={style.linkSignUp}>
             Sign in
           </Link>
         </form>

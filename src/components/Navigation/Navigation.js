@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 import {Home} from '../Svg/Home';
 import {Timeline} from '../Svg/Timeline';
 import {Money} from '../Svg/Money';
-import s from './Navigation.module.css';
+import style from './Navigation.module.css';
 import {connect} from 'react-redux';
 import handleDataDisplay from '../helpers/handleDataDisplay';
 import filtredCosts from '../helpers/filtredCosts';
@@ -45,42 +45,54 @@ const Navigation = ({transaction}) => {
 
   return (
     <>
-      <nav className={s.nav}>
-        <NavLink className={s.link} activeClassName={s.active} to="/home">
-          <button className={s.button}>
+      <nav className={style.nav}>
+        <NavLink
+          className={style.link}
+          activeClassName={style.active}
+          to="/home"
+        >
+          <button className={style.button}>
             {Number(tabletScreen) <= 767 ? (
-              <Home s={s.svg} />
+              <Home s={style.svg} />
             ) : (
-              <div className={s.btnBox}>
-                <Home s={s.svg} />
-                <span className={s.text}>Home</span>
+              <div className={style.btnBox}>
+                <Home s={style.svg} />
+                <span className={style.text}>Home</span>
               </div>
             )}
           </button>
         </NavLink>
-        <NavLink className={s.link} activeClassName={s.active} to="/statistics">
-          <button className={s.button}>
+        <NavLink
+          className={style.link}
+          activeClassName={style.active}
+          to="/statistics"
+        >
+          <button className={style.button}>
             {Number(tabletScreen) <= 767 ? (
-              <Timeline s={s.svg} />
+              <Timeline s={style.svg} />
             ) : (
-              <div className={s.btnBox}>
-                <Timeline s={s.svg} />
-                <span className={s.text}>Statistics</span>
+              <div className={style.btnBox}>
+                <Timeline s={style.svg} />
+                <span className={style.text}>Statistics</span>
               </div>
             )}
           </button>
         </NavLink>
         {Number(tabletScreen) <= 767 && (
-          <NavLink className={s.link} activeClassName={s.active} to="/currency">
-            <button className={s.button}>
-              <Money s={s.svg} />
+          <NavLink
+            className={style.link}
+            activeClassName={style.active}
+            to="/currency"
+          >
+            <button className={style.button}>
+              <Money s={style.svg} />
             </button>
           </NavLink>
         )}
         {Number(tabletScreen) >= 768 && Number(tabletScreen) < 1279 && (
-          <div className={[s.btnBox, s.balance, s.link].join(' ')}>
-            <span className={s.text}>Balance:</span>{' '}
-            <span className={s.amount}> {globalBalance} UAH</span>
+          <div className={[style.btnBox, style.balance, style.link].join(' ')}>
+            <span className={style.text}>Balance:</span>{' '}
+            <span className={style.amount}> {globalBalance} UAH</span>
           </div>
         )}
       </nav>

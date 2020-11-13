@@ -1,8 +1,8 @@
 import {useState} from 'react';
 import useValidation from './UseValidation.js';
 
-const useInput = (intialValue, validations) => {
-  const [value, setValue] = useState(intialValue);
+const useInput = (initialValue, validations) => {
+  const [value, setValue] = useState(initialValue);
   const [isDirty, setDirty] = useState(false);
   const valid = useValidation(value, validations);
 

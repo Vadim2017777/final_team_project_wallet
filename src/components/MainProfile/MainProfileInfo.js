@@ -4,7 +4,7 @@ import {getAddTransactionPage} from '../../redux/transactions/selectors';
 import Navigation from '../Navigation/Navigation';
 import AddTransactionForm from '../AddTransactionForm/AddTransactionForm';
 
-import s from './MainProfile.module.css';
+import style from './MainProfile.module.css';
 
 const MainProfileInfo = ({isActive}) => {
   const statusPage = !isActive;
@@ -22,7 +22,7 @@ const MainProfileInfo = ({isActive}) => {
   return (
     <>
       {(statusPage || Number(tabletScreen) >= 768) && (
-        <div className={s.box}>
+        <div className={style.box}>
           <Navigation />
         </div>
       )}
