@@ -1,8 +1,5 @@
 import React, {useEffect} from 'react';
-<<<<<<< HEAD
 import {useDispatch, useSelector} from 'react-redux';
-=======
->>>>>>> 61e6a3d7d156533035cb9490fb0f0eff661b8e5f
 import {
   getTransactions,
   getLoading,
