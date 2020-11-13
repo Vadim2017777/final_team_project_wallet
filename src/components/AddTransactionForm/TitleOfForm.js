@@ -1,11 +1,14 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {getAddTransactionPage} from '../../redux/transactions/selectors';
 import {changeTransactionPage} from '../../redux/transactions/transactionActions';
 import style from './TitleOfForm.module.css';
 
-const TitleOfForm = ({isActive, updateStatus}) => {
+const TitleOfForm = () => {
+  const dispatch = useDispatch();
+  const isActive = useSelector(state => getAddTransactionPage(state));
+  const updateStatus = (pageStatus) => dispatch(changeTransactionPage(pageStatus));
   const pageStatus = !isActive;
   return (
     <div className={style.wrapper}>
@@ -24,12 +27,4 @@ const TitleOfForm = ({isActive, updateStatus}) => {
   );
 };
 
-const mapStateToProps = state => ({
-  isActive: getAddTransactionPage(state),
-});
-
-const mapDispatchToProps = {
-  updateStatus: changeTransactionPage,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TitleOfForm);
+export default TitleOfForm;
