@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {
   getTransactions,
   getLoading,
@@ -11,6 +12,7 @@ import TransactionItem from '../TransactionItem/TransactionItem';
 import CurrencyTable from '../СurrencyTable/CurrencyTable';
 import Spiner from '../../components/Spinner/Spinner.js';
 import useTableScreen from '../../hooks/UseTableScreen';
+import NotTransactions from '../NotTransactions/NotTransactions'
 
 import style from './TransactionList.module.css';
 
@@ -70,11 +72,7 @@ const TransactionList = () => {
       )}
       {!loading && !isTransactions && (
         <>
-          <div className={style.emptyTransactionsList}>
-            <p className={style.emptyTransactionsListText}>
-              Create your first transaction!
-            </p>
-          </div>{' '}
+         <NotTransactions/>
           <CurrencyTable />
         </>
       )}
