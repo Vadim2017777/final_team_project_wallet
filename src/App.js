@@ -16,6 +16,8 @@ import CurrencyTable from './components/СurrencyTable/CurrencyTable';
 import Statistics from './components/Statistics/Statistics';
 import Balance from './components/Balance/Balance';
 
+import MainHeaderPage from './views/MainHeaderPage';
+
 function App({isAuth, transactionPage, currentUser}) {
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
   const handleResize = () => {
@@ -37,7 +39,8 @@ function App({isAuth, transactionPage, currentUser}) {
       <Wrapper>
         {isAuth ? (
           <>
-            <HomePageTitle />
+          <Route path='' component={MainHeaderPage}/>
+            {/* <HomePageTitle />
             <WrapperPage>
               <Balance />
               <WrapperProfile>
@@ -64,7 +67,7 @@ function App({isAuth, transactionPage, currentUser}) {
                 <Route path="/currency" component={CurrencyTable} />
               )}
             </WrapperPage>
-            <Redirect to="/home" />
+            <Redirect to="/home" /> */}
           </>
         ) : (
           <>
