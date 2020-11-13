@@ -15,6 +15,4 @@ const months = [
 
 const years = ['2020', '2021'];
 
-const currency = ['EUR', 'RUR', 'USD'];
-
-export {months, years, currency};
+export {months, years};

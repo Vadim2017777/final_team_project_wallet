@@ -8,12 +8,9 @@ import {getCurrencyState} from '../../redux/currency/currencySelectors';
 
 import Skeleton from 'react-loading-skeleton';
 
-import {currency} from '../helpers/constants.js';
-
 import s from './CurrencyTable.module.css';
 
 const CurrencyTable = ({currency, getCurrency}) => {
-  const [USD, EUR, RUB] = currency;
   useEffect(() => {
     getCurrency();
   }, [getCurrency]);
@@ -29,59 +26,27 @@ const CurrencyTable = ({currency, getCurrency}) => {
               <th>Sale</th>
             </tr>
           </thead>
-          <tbody className={s.body}>
-            <tr className={s.row}>
-              <th>EUR</th>
-              <th>
-                {currency.length && typeof currency === 'object' ? (
-                  EUR.purchaseRate
-                ) : (
-                  <Skeleton />
-                )}
-              </th>
-              <th>
-                {currency.length && typeof currency === 'object' ? (
-                  EUR.saleRate
-                ) : (
-                  <Skeleton />
-                )}
-              </th>
-            </tr>
-            <tr className={s.row}>
-              <th>RUR</th>
-              <th>
-                {currency.length && typeof currency === 'object' ? (
-                  RUB.purchaseRate
-                ) : (
-                  <Skeleton />
-                )}
-              </th>
-              <th>
-                {currency.length && typeof currency === 'object' ? (
-                  RUB.saleRate
-                ) : (
-                  <Skeleton />
-                )}
-              </th>
-            </tr>
-            <tr className={s.row}>
-              <th>USD</th>
-              <th>
-                {currency.length && typeof currency === 'object' ? (
-                  USD.purchaseRate
-                ) : (
-                  <Skeleton />
-                )}
-              </th>
-              <th>
-                {currency.length && typeof currency === 'object' ? (
-                  USD.saleRate
-                ) : (
-                  <Skeleton />
-                )}
-              </th>
-            </tr>
-          </tbody>
+          {currency.map(item => (
+            <tbody className={s.body}>
+              <tr className={s.row}>
+                <th>{item.currency}</th>
+                <th>
+                  {currency.length && typeof currency === 'object' ? (
+                    item.purchaseRate
+                  ) : (
+                    <Skeleton />
+                  )}
+                </th>
+                <th>
+                  {currency.length && typeof currency === 'object' ? (
+                    item.saleRate
+                  ) : (
+                    <Skeleton />
+                  )}
+                </th>
+              </tr>
+            </tbody>
+          ))}
         </table>
       </div>
     </div>
