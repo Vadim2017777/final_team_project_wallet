@@ -67,11 +67,7 @@ const LoginForm = ({onLogin, authError}) => {
           {password.isDirty && password.minLength && (
             <span className={s.ErrorStringPassword}>PASSWORD IS REQUIRED</span>
           )}
-          {authError && (
-            <span className={s.ErrorStringError}>
-              INCORRECT EMAIL OR PASSWORD
-            </span>
-          )}
+          {authError && <span className={s.ErrorStringError}>{authError}</span>}
           <button type="submit" className={s.button}>
             Login
           </button>
