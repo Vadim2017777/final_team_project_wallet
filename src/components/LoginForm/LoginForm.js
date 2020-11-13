@@ -22,7 +22,6 @@ const LoginForm = ({onLogin, authError}) => {
       password: password.value,
     };
     onLogin(data);
-    console.log(data);
   };
   return (
     <div className={style.container}>
