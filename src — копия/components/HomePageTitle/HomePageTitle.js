@@ -2,8 +2,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import style from './HomePageTitle.module.css';
 import {Logo} from '../Svg/Logo';
 import {Exit} from '../Svg/Exit';
-import {authOperations} from '../../redux/auth';
 import getName from '../../redux/auth/authSelectors';
+import {authOperations} from '../../redux/auth';
 import {Link} from 'react-router-dom';
 import useTableScreen from '../../hooks/UseTableScreen';
 

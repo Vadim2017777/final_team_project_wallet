@@ -1,0 +1,79 @@
+.table {
+    display: table;
+    box-shadow: 0 6px 4px -4px rgba(0, 0, 0, .2);
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0px;
+}
+
+.item {
+    border-left: 8px solid #7e8c9e;
+    margin-bottom: 17px;
+    list-style: none;
+}
+
+.item:hover {
+    border-color: #df8a1f;
+}
+
+.raw td {
+    font-size: 13px;
+    text-align: start;
+}
+
+.bodyTable .raw:nth-child(2n + 1) {
+    background-color: #f3f6f6;
+}
+
+.bodyTable .raw td {
+    padding-left: 15px;
+    padding-right: 5px;
+}
+
+.point {
+    padding-left: 0px;
+    width: 120px;
+    text-transform: capitalize;
+}
+
+.raw {
+    height: 45px;
+}
+
+.amount {
+    font-weight: bold;
+}
+
+.raw .type {
+    font-size: 20px;
+}
+
+.raw .amountMinus {
+    color: #f3713f;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+    .raw {
+        height: 60px;
+        width: 100%;
+    }
+    .raw .amount {
+        text-align: end;
+        padding-right: 23px;
+      
+    }
+
+    .raw .amountMinus {
+        padding-right: 23px;
+        text-align: end;
+    }
+
+    .raw .balance {
+        text-align: end;
+        padding-right: 23px;
+    }
+    .raw td {
+        padding-left: 23px;
+    }
+}

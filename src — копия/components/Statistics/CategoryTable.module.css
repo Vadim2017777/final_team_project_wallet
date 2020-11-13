@@ -1,0 +1,210 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 auto;
+  text-align: left;
+  width: 370px;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+.select {
+  width: 180px;
+  margin: 5px;
+  height: 34px;
+  padding: 0.6em 1.4em 0.5em 0.8em;
+  font-size: 13px;
+  font-weight: bold;
+  color: #2c353e;
+  border-width: 2px;
+  border-color: rgb(185, 201, 212);
+  border-style: solid;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.select:hover {
+  border-color: rgb(177, 204, 223);
+}
+.select:focus {
+  border-color: rgb(177, 204, 223);
+  box-shadow: 0 0 1px 2px rgba(59, 152, 252, 0.702);
+  outline: none;
+}
+
+.name {
+  height: 60px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #f3f6f6;
+}
+
+.nameCategory {
+  width: 266px;
+  text-indent: 30px;
+  text-align: left;
+}
+
+.name > th:last-child {
+  width: 104px;
+}
+
+.row > th {
+  width: 330px;
+  height: 44px;
+  border-bottom: 1px solid #f8fbfe;
+  color: #2c353e;
+  font-size: 13px;
+}
+
+.row:last-of-type > th {
+  height: 44px;
+  border-bottom: 2px solid rgb(185, 201, 212);
+}
+
+.row > th:nth-child(2n) {
+  padding-right: 20px;
+  text-align: end;
+}
+
+.th {
+  padding-left: 60px;
+  position: relative;
+}
+
+.th::before {
+  position: absolute;
+  left: 30px;
+  display: block;
+  content: '';
+  width: 16px;
+  height: 16px;
+}
+
+.Main_expenses::before {
+  background-color: #ecb22a;
+}
+
+.Food::before {
+  background-color: #e28b20;
+}
+
+.Car::before {
+  background-color: #d25925;
+}
+.Self_Care::before {
+  background-color: #67b7d0;
+}
+.Child_Care::before {
+  background-color: #5593d7;
+}
+.House::before {
+  background-color: #ecb22a;
+}
+.Education::before {
+  background-color: #9cc254;
+}
+.Enterteinment::before {
+  background-color: #73ad57;
+}
+.Others::before {
+  background-color: #507c3a;
+}
+
+.summ {
+  display: flex;
+  flex-direction: column;
+  padding-right: 24px;
+  padding-left: 40px;
+}
+
+.summName {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 2;
+}
+
+.orangeColor {
+  color: #ff6c00;
+}
+
+@media screen and (max-width: 767px) {
+  .table {
+    width: 320px;
+    padding: 0 10px;
+    border-bottom: 2px solid rgb(185, 201, 212);
+  }
+
+  .form {
+    width: 320px;
+  }
+
+  .table > thead {
+    display: none;
+  }
+
+  .body {
+    width: 320px;
+  }
+
+  .row:last-of-type > th {
+    border-bottom: none;
+  }
+
+  .th {
+    padding-left: 36px;
+  }
+
+  .th::before {
+    left: 0;
+  }
+
+  .summ {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 1279px) and (min-width: 768px) {
+  .table {
+    width: 700px;
+    padding: 0 10px;
+    border-bottom: 2px solid rgb(185, 201, 212);
+  }
+
+  .form {
+    width: 364px;
+    margin: 0 auto;
+    margin-bottom: 36px;
+  }
+
+  .table > thead {
+    display: none;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 350px;
+    height: 200px;
+  }
+
+  .row:last-of-type > th {
+    height: 44px;
+    border-bottom: none;
+  }
+  .summ {
+    padding-left: 490px;
+  }
+}

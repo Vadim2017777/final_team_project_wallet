@@ -16,3 +16,5 @@ function useTableScreen() {
 }
 
 export default useTableScreen;
+
+// const tableScreen = useTableScreen();
