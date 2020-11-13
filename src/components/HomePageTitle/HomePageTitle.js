@@ -23,7 +23,10 @@ const HomePageTitle = ({name, onLogout}) => {
         </Link>
         <div className={style.userInfo}>
           <span className={style.userName}>{name}</span>
-          <button className={style.logout} onClick={onLogout}>
+          <button
+            className={style.logout}
+            onClick={e => onLogout(authOperations.logOut())}
+          >
             <Exit s={style.logoutSvg} />
             {Number(tableScreen) >= 768 && (
               <span className={style.exit}>Exit</span>
@@ -35,12 +38,4 @@ const HomePageTitle = ({name, onLogout}) => {
   );
 };
 
-const mapStateToProps = state => ({
-  name: getName.getUserName(state),
-});
-
-const mapDispatchToProps = {
-  onLogout: authOperations.logOut,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePageTitle);
+export default HomePageTitle;
