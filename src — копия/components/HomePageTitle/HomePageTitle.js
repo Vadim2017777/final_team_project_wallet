@@ -2,8 +2,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import style from './HomePageTitle.module.css';
 import {Logo} from '../Svg/Logo';
 import {Exit} from '../Svg/Exit';
-import {authOperations} from '../../redux/auth';
 import getName from '../../redux/auth/authSelectors';
+import {authOperations} from '../../redux/auth';
+import {Link} from 'react-router-dom';
 import useTableScreen from '../../hooks/UseTableScreen';
 
 const HomePageTitle = () => {
@@ -14,10 +15,14 @@ const HomePageTitle = () => {
   return (
     <div className={style.wrapper}>
       <div className={style.container}>
-        <div className={style.logoBox}>
+        <Link
+          to="/home"
+          className={style.logoBox}
+          style={{textDecoration: 'none'}}
+        >
           <Logo s={style.logo} />
           <span className={style.logoName}>Wallet</span>
-        </div>
+        </Link>
         <div className={style.userInfo}>
           <span className={style.userName}>{name}</span>
           <button
