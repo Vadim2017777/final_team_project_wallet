@@ -6,7 +6,7 @@ import {authOperations} from '../../redux/auth';
 import {Link} from 'react-router-dom';
 import ProgressValidationBar from './ProgressValidationBar';
 
-import useInput from '../hooks/UseInput.js';
+import useInput from '../../hooks/UseInput.js';
 
 import style from './RegisterForm.module.css';
 import iphoneImg from './images/iPhone_6_2.png';
