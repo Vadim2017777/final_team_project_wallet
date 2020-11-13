@@ -1,4 +1,4 @@
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import style from './HomePageTitle.module.css';
 import {Logo} from '../Svg/Logo';
 import {Exit} from '../Svg/Exit';
@@ -7,7 +7,9 @@ import {authOperations} from '../../redux/auth';
 import {Link} from 'react-router-dom';
 import useTableScreen from '../../hooks/UseTableScreen';
 
-const HomePageTitle = ({name, onLogout}) => {
+const HomePageTitle = () => {
+  const name = useSelector(state => getName.getUserName(state));
+  const onLogout = useDispatch();
   const tableScreen = useTableScreen();
 
   return (
