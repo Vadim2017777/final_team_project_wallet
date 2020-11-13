@@ -26,7 +26,7 @@ const MainProfileInfo = ({isActive}) => {
           <Navigation />
         </div>
       )}
-      {!statusPage && Number(tabletScreen) && <AddTransactionForm />}
+      {!statusPage && <AddTransactionForm />}
     </>
   );
 };

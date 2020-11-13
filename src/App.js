@@ -42,14 +42,13 @@ function App({isAuth, transactionPage, currentUser}) {
             <WrapperPage>
               <WrapperProfile>
                 <MainProfileInfo />
-               
                 {!transactionPage && Number(tabletScreen) <= 767 && (
                   <>
                     <Route path="/home" exact component={TransactionList} />
                     <Route path="/statistics" exact component={Statistics} />
                   </>
                 )}
-                {Number(tabletScreen) >= 768 && Number(tabletScreen) <= 1279 && (
+                {Number(tabletScreen) >= 768 && (
                   <>
                     <Route path="/home" exact component={TransactionList} />
                     <Route path="/statistics" exact component={Statistics} />
@@ -57,9 +56,7 @@ function App({isAuth, transactionPage, currentUser}) {
                 )}
                 {Number(tabletScreen) >= 1280 && (
                   <>
-                    <Route path="/home" exact component={TransactionList} />
                     <CurrencyTable />
-                    <Route path="/statistics" exact component={Statistics} />
                   </>
                 )}
               </WrapperProfile>
