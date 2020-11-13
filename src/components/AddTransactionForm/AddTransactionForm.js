@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {addTransaction} from '../../redux/transactions/operations';
 import isAuth from '../../redux/auth/authSelectors';
 import {getAddTransactionPage} from '../../redux/transactions/selectors';
@@ -7,12 +7,13 @@ import {changeTransactionPage} from '../../redux/transactions/transactionActions
 import style from './AddTransactionForm.module.css';
 import TitleOfForm from './TitleOfForm';
 
-const AddTransactionForm = ({
-  token,
-  onAddTransaction,
-  updateStatus,
-  isActive,
-}) => {
+const AddTransactionForm = () => {
+  const isActive = useSelector(state=>getAddTransactionPage(state));
+  const token = useSelector(state=>isAuth.isAuthenticated(state));
+  const dispatch = useDispatch();
+  const updateStatus = (pageStatus) => dispatch(changeTransactionPage(pageStatus));
+  const onAddTransaction = (data)=> dispatch(addTransaction(data));
+
   const pageStatus = !isActive;
   const [typeOfTransaction, setTypeOfTransiction] = useState('');
   const updateTypeOfTransiction = e => {
@@ -58,7 +59,6 @@ const AddTransactionForm = ({
       amount,
       token,
     };
-
     onAddTransaction(formData);
     updateStatus(pageStatus);
   };
@@ -170,14 +170,4 @@ const AddTransactionForm = ({
   );
 };
 
-const mapStateToProps = state => ({
-  isActive: getAddTransactionPage(state),
-  token: isAuth.isAuthenticated(state),
-});
-
-const mapDispatchToProps = {
-  onAddTransaction: addTransaction,
-  updateStatus: changeTransactionPage,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddTransactionForm);
+export default AddTransactionForm;
