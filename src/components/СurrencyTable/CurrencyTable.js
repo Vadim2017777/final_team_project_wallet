@@ -8,6 +8,8 @@ import {getCurrencyState} from '../../redux/currency/currencySelectors';
 
 import Skeleton from 'react-loading-skeleton';
 
+import {currency} from '../helpers/constants.js';
+
 import s from './CurrencyTable.module.css';
 
 const CurrencyTable = ({currency, getCurrency}) => {

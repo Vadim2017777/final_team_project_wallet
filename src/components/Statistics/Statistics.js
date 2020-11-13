@@ -12,9 +12,9 @@ import {connect} from 'react-redux';
 
 import Chart from './Chart';
 
-import handleDataDisplay from './helpers/handleDataDisplay';
-import filtredCosts from './helpers/filtredCosts';
-import filtredIncome from './helpers/filterdIncome';
+import handleDataDisplay from '../helpers/handleDataDisplay.js';
+import filtredCosts from '../helpers/filtredCosts.js';
+import filtredIncome from '../helpers/filterdIncome.js';
 import CategoryTable from './CategoryTable';
 import Balance from '../Balance/Balance';
 
@@ -39,8 +39,8 @@ const Statistics = ({transaction, getCurrentTransactions, token}) => {
 
   let minusTransactions = dataToDisplay.costs;
 
-  let plusTransactions =  dataToDisplay.income;
-  
+  let plusTransactions = dataToDisplay.income;
+
   let globalBalance = plusTransactions - minusTransactions;
 
   const updateInputMonth = e => {
@@ -52,7 +52,7 @@ const Statistics = ({transaction, getCurrentTransactions, token}) => {
   };
   return (
     <>
-      <Balance balance={globalBalance}/>
+      <Balance balance={globalBalance} />
       <div className={s.wrapper}>
         <div className={s.header}>
           <span>Statistics</span>

@@ -8,9 +8,9 @@ import {
 import {changeTransactionPage} from '../../redux/transactions/transactionActions';
 import {getAllTransactions} from '../../redux/transactions/operations';
 import isAuth from '../../redux/auth/authSelectors';
-import handleDataDisplay from '../Statistics/helpers/handleDataDisplay';
-import filtredCosts from '../Statistics/helpers/filtredCosts';
-import filtredIncome from '../Statistics/helpers/filterdIncome';
+import handleDataDisplay from '../helpers/handleDataDisplay';
+import filtredCosts from '../helpers/filtredCosts';
+import filtredIncome from '../helpers/filterdIncome';
 import TransactionItem from '../TransactionItem/TransactionItem';
 import Balance from '../../components/Balance/Balance';
 import CurrencyTable from '../СurrencyTable/CurrencyTable';
@@ -48,8 +48,8 @@ const TransactionList = ({
 
   let minusTransactions = dataToDisplay.costs;
 
-  let plusTransactions =  dataToDisplay.income;
-  
+  let plusTransactions = dataToDisplay.income;
+
   let globalBalance = plusTransactions - minusTransactions;
 
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
@@ -64,7 +64,7 @@ const TransactionList = ({
 
   return (
     <>
-      <Balance balance={globalBalance}/>
+      <Balance balance={globalBalance} />
       {loading && <Spiner />}
       {isTransactions && (
         <>
@@ -98,7 +98,7 @@ const TransactionList = ({
             </>
           )}
         </>
-      )} 
+      )}
       {!loading && !isTransactions && (
         <>
           <div className={s.emptyTransactionsList}>

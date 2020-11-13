@@ -5,9 +5,9 @@ import {Timeline} from '../Svg/Timeline';
 import {Money} from '../Svg/Money';
 import s from './Navigation.module.css';
 import {connect} from 'react-redux';
-import handleDataDisplay from '../Statistics/helpers/handleDataDisplay';
-import filtredCosts from '../Statistics/helpers/filtredCosts';
-import filtredIncome from '../Statistics/helpers/filterdIncome';
+import handleDataDisplay from '../helpers/handleDataDisplay';
+import filtredCosts from '../helpers/filtredCosts';
+import filtredIncome from '../helpers/filterdIncome';
 import {getTransactions} from '../../redux/transactions/selectors';
 
 const Navigation = ({transaction}) => {
@@ -39,10 +39,10 @@ const Navigation = ({transaction}) => {
 
   let minusTransactions = dataToDisplay.costs;
 
-  let plusTransactions =  dataToDisplay.income;
-  
+  let plusTransactions = dataToDisplay.income;
+
   let globalBalance = plusTransactions - minusTransactions;
- 
+
   return (
     <>
       <nav className={s.nav}>
