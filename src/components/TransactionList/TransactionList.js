@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {
   getTransactions,
   getLoading,
@@ -14,19 +14,20 @@ import Spiner from '../../components/Spinner/Spinner.js';
 
 import style from './TransactionList.module.css';
 
-const TransactionList = ({
-  isActive,
-  updateStatus,
-  transaction,
-  getCurrentTransactions,
-  token,
-  loading,
-}) => {
+const TransactionList = () => {
+  const transaction = useSelector(state => getTransactions(state));
+  const token = useSelector(state => isAuth.isAuthenticated(state));
+  const isActive = useSelector(state => getAddTransactionPage(state));
+  const loading = useSelector(state => getLoading(state));
+
+  const getCurrentTransactions = useDispatch();
+  const updateStatus = useDispatch();
+
   const statusPage = !isActive;
   const {transactions} = transaction;
   const isTransactions = transactions.length > 0;
   useEffect(() => {
-    getCurrentTransactions(token);
+    getCurrentTransactions(getAllTransactions(token));
   }, [getCurrentTransactions, token]);
 
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
@@ -89,7 +90,7 @@ const TransactionList = ({
       {statusPage && (
         <button
           className={style.btnAdd}
-          onClick={() => updateStatus(statusPage)}
+          onClick={() => updateStatus(changeTransactionPage(statusPage))}
         >
           &#43;
         </button>
@@ -98,16 +99,4 @@ const TransactionList = ({
   );
 };
 
-const mapStateToProps = state => ({
-  transaction: getTransactions(state),
-  token: isAuth.isAuthenticated(state),
-  isActive: getAddTransactionPage(state),
-  loading: getLoading(state),
-});
-
-const mapDispatchToProps = {
-  getCurrentTransactions: getAllTransactions,
-  updateStatus: changeTransactionPage,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionList);
+export default TransactionList;

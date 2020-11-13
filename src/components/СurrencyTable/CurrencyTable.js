@@ -1,13 +1,8 @@
-import React from 'react';
-import {useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-
 import {getCurrencyValue} from '../../redux/currency/currencyOperation';
-
 import {getCurrencyState} from '../../redux/currency/currencySelectors';
-
 import Skeleton from 'react-loading-skeleton';
-
 import style from './CurrencyTable.module.css';
 
 const CurrencyTable = () => {

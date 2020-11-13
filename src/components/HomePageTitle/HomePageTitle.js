@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import style from './HomePageTitle.module.css';
 import {Logo} from '../Svg/Logo';
 import {Exit} from '../Svg/Exit';
@@ -7,7 +7,10 @@ import getName from '../../redux/auth/authSelectors';
 import {authOperations} from '../../redux/auth';
 import {Link} from 'react-router-dom';
 
-const HomePageTitle = ({name, onLogout}) => {
+const HomePageTitle = () => {
+  const name = useSelector(state => getName.getUserName(state));
+  const onLogout = useDispatch();
+
   const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
 
   const handleResize = () => {
@@ -32,7 +35,10 @@ const HomePageTitle = ({name, onLogout}) => {
         </Link>
         <div className={style.userInfo}>
           <span className={style.userName}>{name}</span>
-          <button className={style.logout} onClick={onLogout}>
+          <button
+            className={style.logout}
+            onClick={e => onLogout(authOperations.logOut())}
+          >
             <Exit s={style.logoutSvg} />
             {Number(tabletScreen) >= 768 && (
               <span className={style.exit}>Exit</span>
@@ -44,12 +50,4 @@ const HomePageTitle = ({name, onLogout}) => {
   );
 };
 
-const mapStateToProps = state => ({
-  name: getName.getUserName(state),
-});
-
-const mapDispatchToProps = {
-  onLogout: authOperations.logOut,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePageTitle);
+export default HomePageTitle;

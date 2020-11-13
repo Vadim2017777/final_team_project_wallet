@@ -108,7 +108,7 @@ const AddTransactionForm = ({
                     onChange={updateCategory}
                     required
                   >
-                    <option value="" disabled selected>
+                    <option defaultValue="" disabled selected>
                       Select category...
                     </option>
                     <option value="Main expenses">Main expenses</option>
