@@ -8,11 +8,12 @@ import style from './AddTransactionForm.module.css';
 import TitleOfForm from './TitleOfForm';
 
 const AddTransactionForm = () => {
-  const isActive = useSelector(state=>getAddTransactionPage(state));
-  const token = useSelector(state=>isAuth.isAuthenticated(state));
+  const isActive = useSelector(state => getAddTransactionPage(state));
+  const token = useSelector(state => isAuth.isAuthenticated(state));
   const dispatch = useDispatch();
-  const updateStatus = (pageStatus) => dispatch(changeTransactionPage(pageStatus));
-  const onAddTransaction = (data)=> dispatch(addTransaction(data));
+  const updateStatus = pageStatus =>
+    dispatch(changeTransactionPage(pageStatus));
+  const onAddTransaction = data => dispatch(addTransaction(data));
 
   const pageStatus = !isActive;
   const [typeOfTransaction, setTypeOfTransiction] = useState('');
@@ -108,7 +109,7 @@ const AddTransactionForm = () => {
                     onChange={updateCategory}
                     required
                   >
-                    <option defaultValue="" disabled selected>
+                    <option defaultValue="Select category">
                       Select category...
                     </option>
                     <option value="Main expenses">Main expenses</option>

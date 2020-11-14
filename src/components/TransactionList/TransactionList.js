@@ -1,5 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import useTableScreen from '../../hooks/UseTableScreen';
 import {
   getTransactions,
   getLoading,
@@ -10,29 +11,34 @@ import {getAllTransactions} from '../../redux/transactions/operations';
 import isAuth from '../../redux/auth/authSelectors';
 import TransactionItem from '../TransactionItem/TransactionItem';
 import CurrencyTable from '../СurrencyTable/CurrencyTable';
+import NotTransactions from '../NotTransactions/NotTransactions';
 import Spiner from '../../components/Spinner/Spinner.js';
-import useTableScreen from '../../hooks/UseTableScreen';
-import NotTransactions from '../NotTransactions/NotTransactions'
-
 import style from './TransactionList.module.css';
 
 const TransactionList = () => {
+  const tableScreen = useTableScreen();
   const transaction = useSelector(state => getTransactions(state));
   const token = useSelector(state => isAuth.isAuthenticated(state));
   const isActive = useSelector(state => getAddTransactionPage(state));
   const loading = useSelector(state => getLoading(state));
+  const dispatch = useDispatch();
 
-  const getCurrentTransactions = useDispatch();
-  const updateStatus = useDispatch();
+  const updateStatus = pageStatus =>
+    dispatch(changeTransactionPage(pageStatus));
 
+  const getCurrentTransactions = useCallback(
+    token => {
+      dispatch(getAllTransactions(token));
+    },
+    [dispatch],
+  );
   const statusPage = !isActive;
   const {transactions} = transaction;
   const isTransactions = transactions.length > 0;
-  useEffect(() => {
-    getCurrentTransactions(getAllTransactions(token));
-  }, [getCurrentTransactions, token]);
 
-  const tableScreen = useTableScreen();
+  useEffect(() => {
+    getCurrentTransactions(token);
+  }, [getCurrentTransactions, token]);
 
   return (
     <>
@@ -72,7 +78,7 @@ const TransactionList = () => {
       )}
       {!loading && !isTransactions && (
         <>
-         <NotTransactions/>
+          <NotTransactions />
           <CurrencyTable />
         </>
       )}
@@ -80,7 +86,7 @@ const TransactionList = () => {
       {statusPage && (
         <button
           className={style.btnAdd}
-          onClick={() => updateStatus(changeTransactionPage(statusPage))}
+          onClick={e => updateStatus(statusPage)}
         >
           &#43;
         </button>

@@ -1,24 +1,24 @@
-import React, {useState} from 'react';
-import {connect} from 'react-redux';
-
-import {authOperations} from '../../redux/auth';
-
-import {Link} from 'react-router-dom';
-import ProgressValidationBar from './ProgressValidationBar';
-
+import React, {useState, useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import useInput from '../../hooks/UseInput.js';
-
-import style from './RegisterForm.module.css';
-import iphoneImg from './images/iPhone_6_2.png';
+import {authOperations} from '../../redux/auth';
+import ProgressValidationBar from './ProgressValidationBar';
+import {Link} from 'react-router-dom';
 import Logo from './images/svg/logo.svg';
-import {useEffect} from 'react';
+import iphoneImg from './images/iPhone_6_2.png';
+import style from './RegisterForm.module.css';
 
-const RegisterForm = ({onRegister, authError}) => {
+const RegisterForm = () => {
   const email = useInput('', {isEmpty: true, minLength: 3});
   const password = useInput('', {isEmpty: true, minLength: 6});
   const passwordConfirm = useInput('', {isEmpty: true});
   const name = useInput('', {isEmpty: true, minLength: 3});
   const [mathchPass, setmatchPass] = useState(true);
+
+  const authError = useSelector(({auth}) => auth.error);
+
+  const dispatch = useDispatch();
+  const onRegister = data => dispatch(authOperations.register(data));
 
   useEffect(() => {
     if (passwordConfirm.value !== password.value) {
@@ -141,8 +141,4 @@ const RegisterForm = ({onRegister, authError}) => {
   );
 };
 
-const mSTP = ({auth}) => ({authError: auth.error});
-
-export default connect(mSTP, {onRegister: authOperations.register})(
-  RegisterForm,
-);
+export default RegisterForm;

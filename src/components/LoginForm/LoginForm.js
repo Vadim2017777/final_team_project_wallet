@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import {connect, useDispatch, useSelector} from 'react-redux';
 
 import {authOperations} from '../../redux/auth';
 
@@ -11,9 +11,12 @@ import style from './LoginForm.module.css';
 import iphoneImg from './images/iPhone_6.png';
 import Logo from './images/svg/logo.svg';
 
-const LoginForm = ({onLogin, authError}) => {
+const LoginForm = () => {
   const email = useInput('', {isEmpty: true, minLength: 1});
   const password = useInput('', {isEmpty: true, minLength: 1});
+  const authError = useSelector(({auth}) => auth.error);
+  const dispatch = useDispatch();
+  const onLogin = data => dispatch(authOperations.logIn(data));
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -83,5 +86,4 @@ const LoginForm = ({onLogin, authError}) => {
   );
 };
 
-const mSTP = ({auth}) => ({authError: auth.error});
-export default connect(mSTP, {onLogin: authOperations.logIn})(LoginForm);
+export default LoginForm;
