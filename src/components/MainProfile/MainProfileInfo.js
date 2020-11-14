@@ -1,4 +1,4 @@
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {getAddTransactionPage} from '../../redux/transactions/selectors';
 import Navigation from '../Navigation/Navigation';
 import AddTransactionForm from '../AddTransactionForm/AddTransactionForm';
@@ -6,7 +6,8 @@ import useTableScreen from '../../hooks/UseTableScreen';
 
 import style from './MainProfile.module.css';
 
-const MainProfileInfo = ({isActive}) => {
+const MainProfileInfo = () => {
+  const isActive = useSelector(state => getAddTransactionPage(state));
   const statusPage = !isActive;
 
   const tableScreen = useTableScreen();
@@ -23,8 +24,4 @@ const MainProfileInfo = ({isActive}) => {
   );
 };
 
-const mapStateToProps = state => ({
-  isActive: getAddTransactionPage(state),
-});
-
-export default connect(mapStateToProps)(MainProfileInfo);
+export default MainProfileInfo;
