@@ -6,9 +6,8 @@ import {changeTransactionPage} from '../../redux/transactions/transactionActions
 import style from './TitleOfForm.module.css';
 
 const TitleOfForm = () => {
-  const dispatch = useDispatch();
   const isActive = useSelector(state => getAddTransactionPage(state));
-  const updateStatus = (pageStatus) => dispatch(changeTransactionPage(pageStatus));
+  const updateStatus = useDispatch();
   const pageStatus = !isActive;
   return (
     <div className={style.wrapper}>
@@ -16,7 +15,7 @@ const TitleOfForm = () => {
         <Link to="/home">
           <button
             className={style.btn}
-            onClick={() => updateStatus(pageStatus)}
+            onClick={() => updateStatus(changeTransactionPage(pageStatus))}
           >
             &lArr;
           </button>

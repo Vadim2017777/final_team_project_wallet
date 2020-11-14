@@ -9,11 +9,9 @@ import {changeTransactionPage} from '../../redux/transactions/transactionActions
 import {getAllTransactions} from '../../redux/transactions/operations';
 import isAuth from '../../redux/auth/authSelectors';
 import TransactionItem from '../TransactionItem/TransactionItem';
-import CurrencyTable from '../СurrencyTable/CurrencyTable';
 import Spiner from '../../components/Spinner/Spinner.js';
 import useTableScreen from '../../hooks/UseTableScreen';
-import NotTransactions from '../NotTransactions/NotTransactions'
-
+import NotTransactions from '../NotTransactions/NotTransactions';
 import style from './TransactionList.module.css';
 
 const TransactionList = () => {
@@ -37,16 +35,16 @@ const TransactionList = () => {
   return (
     <>
       {loading && <Spiner />}
-      {isTransactions && (
+      {isTransactions && !loading && (
         <>
-          {Number(tableScreen) <= 767 && (
+          {tableScreen <= 767 && (
             <ul className={style.list}>
               {transactions.map(item => {
                 return <TransactionItem items={item} key={item._id} />;
               })}
             </ul>
           )}
-          {Number(tableScreen) >= 768 && (
+          {tableScreen >= 768 && (
             <>
               <table className={style.list}>
                 <thead>
@@ -65,18 +63,13 @@ const TransactionList = () => {
                   })}
                 </tbody>
               </table>
-              <CurrencyTable />
             </>
           )}
         </>
       )}
       {!loading && !isTransactions && (
-        <>
          <NotTransactions/>
-          <CurrencyTable />
-        </>
       )}
-
       {statusPage && (
         <button
           className={style.btnAdd}

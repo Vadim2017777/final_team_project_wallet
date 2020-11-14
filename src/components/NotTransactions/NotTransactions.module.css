@@ -14,6 +14,7 @@
     color: #7e8c9e;
     font-weight: 15px;
     font-weight: bold;
+    text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -34,12 +35,11 @@
         margin-top: 45px;
         width: 620px;
         position: relative;
-        left: -50px;
-        top: -45px;
+        left: 50px;
+        top: -299px;
     }
 
     .emptyTransactionsListText {
         font-size: 25px;
-
     }
 }

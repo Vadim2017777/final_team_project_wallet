@@ -1,94 +1,44 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom';
-import isAuth from './redux/auth/authSelectors';
-import {connect} from 'react-redux';
-import {getAddTransactionPage} from './redux/transactions/selectors';
+import {useSelector, useDispatch} from 'react-redux';
+import tokenSelector from './redux/auth/authSelectors';
 import {getCurrentUser} from './redux/auth/authOperations';
-import {Wrapper} from './components/Wrapper/Wrapper';
-import {WrapperPage} from './components/Wrapper/WrapperPage';
-import {WrapperProfile} from './components/Wrapper/WrapperProfile';
-import HomePageTitle from './components/HomePageTitle/HomePageTitle';
-import MainProfileInfo from './components/MainProfile/MainProfileInfo';
-import RegisterForm from './components/RegisterForm/RegisterForm';
-import LoginForm from './components/LoginForm/LoginForm';
-import TransactionList from './components/TransactionList/TransactionList';
 import CurrencyTable from './components/СurrencyTable/CurrencyTable';
-import Statistics from './components/Statistics/Statistics';
-import Balance from './components/Balance/Balance';
-
 import MainHeaderPage from './views/MainHeaderPage';
+import HomePage from './views/HomePage';
+import StatisticPage from './views/StatisticPage';
+import LoginPage from './views/LoginPage';
+import RegisterPage from './views/RegisterPage';
 
-function App({isAuth, transactionPage, currentUser}) {
-  const [tabletScreen, setTabletScreen] = useState(window.innerWidth);
-  const handleResize = () => {
-    setTabletScreen(window.innerWidth);
-  };
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [tabletScreen, isAuth, transactionPage]);
+function App() {
+  const isAuth = useSelector((state) => tokenSelector.isAuthenticated(state));
+  const currentUser = useDispatch();
 
   useEffect(() => {
     if (isAuth) {
-      currentUser();
+      currentUser(getCurrentUser());
     }
   }, [currentUser, isAuth]);
 
   return (
     <Switch>
-      <Wrapper>
         {isAuth ? (
           <>
-          <Route path='' component={MainHeaderPage}/>
-            {/* <HomePageTitle />
-            <WrapperPage>
-              <Balance />
-              <WrapperProfile>
-                <MainProfileInfo />
-                {!transactionPage && Number(tabletScreen) <= 767 && (
-                  <>
-                    <Route path="/home" exact component={TransactionList} />
-                    <Route path="/statistics" exact component={Statistics} />
-                  </>
-                )}
-                {Number(tabletScreen) >= 768 && (
-                  <>
-                    <Route path="/home" exact component={TransactionList} />
-                    <Route path="/statistics" exact component={Statistics} />
-                  </>
-                )}
-                {Number(tabletScreen) >= 1280 && (
-                  <>
-                    <CurrencyTable />
-                  </>
-                )}
-              </WrapperProfile>
-              {Number(tabletScreen) <= 767 && (
-                <Route path="/currency" component={CurrencyTable} />
-              )}
-            </WrapperPage>
-            <Redirect to="/home" /> */}
+          <Route path='/' component={MainHeaderPage}/>
+          <Route path='/home' component={HomePage}/>
+          <Route path='/currency' component={CurrencyTable}/>
+          <Route path='/statistics' component={StatisticPage}/>
+          <Redirect to='/home'/>
           </>
         ) : (
           <>
-            <Route path="/" exact component={LoginForm} />
-            <Route path="/signup" exact component={RegisterForm} />
+            <Route path="/" exact component={LoginPage} />
+            <Route path="/signup" exact component={RegisterPage} />
             <Redirect to="/" />
           </>
         )}
-      </Wrapper>
     </Switch>
   );
 }
 
-const mapStateToProps = state => ({
-  isAuth: isAuth.isAuthenticated(state),
-  // loading: getLoading(state),
-  transactionPage: getAddTransactionPage(state),
-});
-
-const mapDispatchToProps = {
-  currentUser: getCurrentUser,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

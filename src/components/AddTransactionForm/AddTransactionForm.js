@@ -10,9 +10,8 @@ import TitleOfForm from './TitleOfForm';
 const AddTransactionForm = () => {
   const isActive = useSelector(state=>getAddTransactionPage(state));
   const token = useSelector(state=>isAuth.isAuthenticated(state));
-  const dispatch = useDispatch();
-  const updateStatus = (pageStatus) => dispatch(changeTransactionPage(pageStatus));
-  const onAddTransaction = (data)=> dispatch(addTransaction(data));
+  const updateStatus = useDispatch();
+  const onAddTransaction = useDispatch();
 
   const pageStatus = !isActive;
   const [typeOfTransaction, setTypeOfTransiction] = useState('');
@@ -59,13 +58,13 @@ const AddTransactionForm = () => {
       amount,
       token,
     };
-    onAddTransaction(formData);
-    updateStatus(pageStatus);
+    onAddTransaction(addTransaction(formData));
+    updateStatus(changeTransactionPage(pageStatus));
   };
 
   const handleClick = e => {
     if (e.target.className === style.modal) {
-      updateStatus(pageStatus);
+      updateStatus(changeTransactionPage(pageStatus));
     }
   };
 
