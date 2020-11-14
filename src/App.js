@@ -1,8 +1,6 @@
-import React, {useEffect} from 'react';
-import {Redirect, Route, Switch} from 'react-router-dom';
-import {useSelector, useDispatch} from 'react-redux';
-import tokenSelector from './redux/auth/authSelectors';
-import {getCurrentUser} from './redux/auth/authOperations';
+import React from 'react';
+import {Switch} from 'react-router-dom';
+
 import CurrencyTable from './components/СurrencyTable/CurrencyTable';
 import MainHeaderPage from './views/MainHeaderPage';
 import HomePage from './views/HomePage';
