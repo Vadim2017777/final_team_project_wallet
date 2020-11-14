@@ -1,17 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import {getAllTransactions} from '../../redux/transactions/operations';
+import handleDataDisplay from '../helpers/handleDataDisplay.js';
+import filtredCosts from '../helpers/filtredCosts.js';
+import filtredIncome from '../helpers/filterdIncome.js';
 import {useDispatch, useSelector} from 'react-redux';
-import Chart from './Chart';
 import {
   filteredTypeMinus,
   filteredTypePlus,
 } from '../../redux/statistics/statisticsSelectors';
 import isAuth from '../../redux/auth/authSelectors';
 import {getTransactions} from '../../redux/transactions/selectors';
-import filtredCosts from '../helpers/filtredCosts.js';
-import filtredIncome from '../helpers/filterdIncome.js';
-import handleDataDisplay from '../helpers/handleDataDisplay.js';
+import {getAllTransactions} from '../../redux/transactions/operations';
 import CategoryTable from './CategoryTable';
+import Chart from './Chart';
+
 import style from './Statistics.module.css';
 
 const Statistics = () => {

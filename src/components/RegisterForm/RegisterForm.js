@@ -6,6 +6,7 @@ import ProgressValidationBar from './ProgressValidationBar';
 import {Link} from 'react-router-dom';
 import Logo from './images/svg/logo.svg';
 import iphoneImg from './images/iPhone_6_2.png';
+
 import style from './RegisterForm.module.css';
 
 const RegisterForm = () => {

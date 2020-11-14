@@ -1,8 +1,8 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {Link} from 'react-router-dom';
 import {getAddTransactionPage} from '../../redux/transactions/selectors';
 import {changeTransactionPage} from '../../redux/transactions/transactionActions';
+import {Link} from 'react-router-dom';
 import style from './TitleOfForm.module.css';
 
 const TitleOfForm = () => {

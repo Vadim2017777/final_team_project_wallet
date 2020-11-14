@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
+import filtredIncome from '../helpers/filterdIncome';
+import filtredCosts from '../helpers/filtredCosts';
+import handleDataDisplay from '../helpers/handleDataDisplay';
+import useTableScreen from '../../hooks/UseTableScreen';
+import {getTransactions} from '../../redux/transactions/selectors';
 import {useSelector} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import {Home} from '../Svg/Home';
 import {Timeline} from '../Svg/Timeline';
 import {Money} from '../Svg/Money';
+
 import style from './Navigation.module.css';
-import handleDataDisplay from '../helpers/handleDataDisplay';
-import filtredCosts from '../helpers/filtredCosts';
-import filtredIncome from '../helpers/filterdIncome';
-import {getTransactions} from '../../redux/transactions/selectors';
-import useTableScreen from '../../hooks/UseTableScreen';
 
 const Navigation = () => {
   const transaction = useSelector(state => getTransactions(state));

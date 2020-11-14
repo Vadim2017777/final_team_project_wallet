@@ -12,6 +12,7 @@ import isAuth from '../../redux/auth/authSelectors';
 import TransactionItem from '../TransactionItem/TransactionItem';
 import NotTransactions from '../NotTransactions/NotTransactions';
 import Spiner from '../../components/Spinner/Spinner.js';
+
 import style from './TransactionList.module.css';
 
 const TransactionList = () => {

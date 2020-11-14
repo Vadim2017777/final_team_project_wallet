@@ -1,15 +1,15 @@
 import {useSelector} from 'react-redux';
-import {getTransactions} from '../../redux/transactions/selectors';
-
+import filtredCosts from '../helpers/filtredCosts.js';
 import {
   filteredTypeMinus,
   filteredTypePlus,
 } from '../../redux/statistics/statisticsSelectors';
-import filtredCosts from '../helpers/filtredCosts.js';
 import filtredIncome from '../helpers/filterdIncome.js';
 import handleDataDisplay from '../helpers/handleDataDisplay.js';
-import style from './Balance.module.css';
 import useTableScreen from '../../hooks/UseTableScreen';
+import {getTransactions} from '../../redux/transactions/selectors';
+
+import style from './Balance.module.css';
 
 const Balance = () => {
   const transaction = useSelector(state => getTransactions(state));
