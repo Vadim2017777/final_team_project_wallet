@@ -1,17 +1,19 @@
 import React, {useState} from 'react';
+import {useSelector} from 'react-redux';
+
 import {NavLink} from 'react-router-dom';
 import {Home} from '../Svg/Home';
 import {Timeline} from '../Svg/Timeline';
 import {Money} from '../Svg/Money';
 import style from './Navigation.module.css';
-import {connect} from 'react-redux';
 import handleDataDisplay from '../helpers/handleDataDisplay';
 import filtredCosts from '../helpers/filtredCosts';
 import filtredIncome from '../helpers/filterdIncome';
 import {getTransactions} from '../../redux/transactions/selectors';
 import useTableScreen from '../../hooks/UseTableScreen';
 
-const Navigation = ({transaction}) => {
+const Navigation = () => {
+  const transaction = useSelector(state => getTransactions(state));
   const tableScreen = useTableScreen();
 
   const [inputMonth] = useState('');
@@ -92,8 +94,4 @@ const Navigation = ({transaction}) => {
   );
 };
 
-const mapStateToProps = state => ({
-  transaction: getTransactions(state),
-});
-
-export default connect(mapStateToProps)(Navigation);
+export default Navigation;
