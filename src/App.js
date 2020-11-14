@@ -9,35 +9,21 @@ import HomePage from './views/HomePage';
 import StatisticPage from './views/StatisticPage';
 import LoginPage from './views/LoginPage';
 import RegisterPage from './views/RegisterPage';
+import PublicRoute from './PublicRoute.js';
+import PrivateRoute from './PrivateRoute.js';
 
 function App() {
-  const isAuth = useSelector((state) => tokenSelector.isAuthenticated(state));
-  const currentUser = useDispatch();
-
-  useEffect(() => {
-    if (isAuth) {
-      currentUser(getCurrentUser());
-    }
-  }, [currentUser, isAuth]);
-
   return (
-    <Switch>
-        {isAuth ? (
-          <>
-          <Route path='/' component={MainHeaderPage}/>
-          <Route path='/home' component={HomePage}/>
-          <Route path='/currency' component={CurrencyTable}/>
-          <Route path='/statistics' component={StatisticPage}/>
-          <Redirect to='/home'/>
-          </>
-        ) : (
-          <>
-            <Route path="/" exact component={LoginPage} />
-            <Route path="/signup" exact component={RegisterPage} />
-            <Redirect to="/" />
-          </>
-        )}
-    </Switch>
+    <>
+      <PrivateRoute path="/" component={MainHeaderPage} />
+      <PrivateRoute path="/home" component={HomePage} />
+      <PrivateRoute path="/currency" component={CurrencyTable} />
+      <Switch>
+        <PrivateRoute path="/statistics" component={StatisticPage} />
+        <PublicRoute path="/" exact component={LoginPage} />
+        <PublicRoute path="/signup" exact isAuth component={RegisterPage} />
+      </Switch>
+    </>
   );
 }
 
