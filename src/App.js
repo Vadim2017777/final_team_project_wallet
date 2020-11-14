@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <PrivateRoute path="/" component={MainHeaderPage} />
-      <PrivateRoute path="/home" component={HomePage} />
+      <PrivateRoute path="/" component={HomePage} />
       <PrivateRoute path="/currency" component={CurrencyTable} />
       <Switch>
         <PrivateRoute path="/statistics" component={StatisticPage} />
