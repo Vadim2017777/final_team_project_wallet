@@ -6,21 +6,21 @@ import {getAddTransactionPage} from '../redux/transactions/selectors';
 import useTableScreen from '../hooks/UseTableScreen';
 import CurrencyTable from '../components/СurrencyTable/CurrencyTable';
 import AddTransactionForm from '../components/AddTransactionForm/AddTransactionForm';
-import { Wrapper } from '../components/Wrapper/Wrapper';
+import BaseLayout from '../layouts/BaseLayout';
 
 const HomePage = () => {
-  const isActive = useSelector(state => getAddTransactionPage(state));
-  const statusPage = isActive;
+  const isActive = useSelector(getAddTransactionPage);
   const tableScreen = useTableScreen();
+
   return (
-    <Wrapper>
-    {Number(tableScreen) <= 767 &&!statusPage && <Balance/>}
-    {Number(tableScreen) >= 1280 && <Balance/>}
-    {Number(tableScreen) <= 767 && !statusPage && <TransactionList/>}
-    {Number(tableScreen) >= 768 && <TransactionList/>}
-    {Number(tableScreen) >= 768 && <CurrencyTable/>}
-    {statusPage && <AddTransactionForm/>}
-    </Wrapper>
+    <BaseLayout>
+      {(Number(tableScreen) <= 767 && !isActive) || (Number(tableScreen) >= 1280) && <Balance/>}
+      {/*{Number(tableScreen) >= 1280 && <Balance/>}*/}
+      {Number(tableScreen) <= 767 && !isActive && <TransactionList/>}
+      {Number(tableScreen) >= 768 && <TransactionList/>}
+      {Number(tableScreen) >= 768 && <CurrencyTable/>}
+      {isActive && <AddTransactionForm/>}
+    </BaseLayout>
   );
 };
 

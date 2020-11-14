@@ -6,7 +6,7 @@ import Skeleton from 'react-loading-skeleton';
 import style from './CurrencyTable.module.css';
 
 const CurrencyTable = () => {
-  const currency = useSelector(state => getCurrencyState(state));
+  const currency = useSelector(getCurrencyState);
   const dispatch = useDispatch();
 
   const getCurrency = useCallback(() => {

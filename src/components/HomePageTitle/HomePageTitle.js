@@ -9,7 +9,7 @@ import style from './HomePageTitle.module.css';
 
 const HomePageTitle = () => {
   const name = useSelector(state => getName.getUserName(state));
-  const onLogout = useDispatch();
+  const dispatch = useDispatch();
   const tableScreen = useTableScreen();
 
   return (
@@ -30,7 +30,7 @@ const HomePageTitle = () => {
 
           <button
             className={style.logout}
-            onClick={e => onLogout(authOperations.logOut())}
+            onClick={e => dispatch(authOperations.logOut())}
           >
             <Exit s={style.logoutSvg} />
             {Number(tableScreen) >= 768 && (

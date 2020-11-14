@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import filtredIncome from '../helpers/filterdIncome';
-import filtredCosts from '../helpers/filtredCosts';
-import handleDataDisplay from '../helpers/handleDataDisplay';
+import filtredIncome from '../../helpers/filterdIncome';
+import filtredCosts from '../../helpers/filtredCosts';
+import handleDataDisplay from '../../helpers/handleDataDisplay';
 import useTableScreen from '../../hooks/UseTableScreen';
 import {getTransactions} from '../../redux/transactions/selectors';
 import {useSelector} from 'react-redux';
