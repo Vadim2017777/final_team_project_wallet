@@ -1,0 +1,45 @@
+.emptyTransactionsList {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #7e8c9e;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.emptyTransactionsListText {
+    color: #7e8c9e;
+    font-weight: 15px;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+    .emptyTransactionsList {
+        margin-top: 35px;
+        margin-bottom: 100px;
+        width: 250px;
+    }
+
+    .emptyTransactionsListText {
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (min-width: 1280px) {
+     .emptyTransactionsList {
+        margin-top: 45px;
+        width: 620px;
+        position: relative;
+        left: -50px;
+        top: -45px;
+    }
+
+    .emptyTransactionsListText {
+        font-size: 25px;
+
+    }
+}

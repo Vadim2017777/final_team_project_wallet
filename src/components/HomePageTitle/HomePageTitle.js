@@ -4,7 +4,6 @@ import {Logo} from '../Svg/Logo';
 import {Exit} from '../Svg/Exit';
 import {authOperations} from '../../redux/auth';
 import getName from '../../redux/auth/authSelectors';
-import {Link} from 'react-router-dom';
 import useTableScreen from '../../hooks/UseTableScreen';
 
 const HomePageTitle = () => {
@@ -15,14 +14,10 @@ const HomePageTitle = () => {
   return (
     <div className={style.wrapper}>
       <div className={style.container}>
-        <Link
-          to="/home"
-          className={style.logoBox}
-          style={{textDecoration: 'none'}}
-        >
+        <div className={style.logoBox}>
           <Logo s={style.logo} />
           <span className={style.logoName}>Wallet</span>
-        </Link>
+        </div>
         <div className={style.userInfo}>
           <span className={style.userName}>{name}</span>
           <button
