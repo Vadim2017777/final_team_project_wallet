@@ -1,12 +1,8 @@
 import React from 'react';
-import {connect, useDispatch, useSelector} from 'react-redux';
-
+import {useDispatch, useSelector} from 'react-redux';
 import {authOperations} from '../../redux/auth';
-
 import {Link} from 'react-router-dom';
-
 import useInput from '../../hooks/UseInput.js';
-
 import style from './LoginForm.module.css';
 import iphoneImg from './images/iPhone_6.png';
 import Logo from './images/svg/logo.svg';

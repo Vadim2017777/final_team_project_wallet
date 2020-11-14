@@ -12,7 +12,7 @@ function useTableScreen() {
     return () => window.removeEventListener('resize', handleResize);
   }, [tableScreen]);
 
-  return tableScreen;
+  return Number(tableScreen);
 }
 
 export default useTableScreen;

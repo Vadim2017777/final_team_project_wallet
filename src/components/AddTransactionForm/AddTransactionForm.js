@@ -10,10 +10,11 @@ import TitleOfForm from './TitleOfForm';
 const AddTransactionForm = () => {
   const isActive = useSelector(state => getAddTransactionPage(state));
   const token = useSelector(state => isAuth.isAuthenticated(state));
+
   const dispatch = useDispatch();
   const updateStatus = pageStatus =>
     dispatch(changeTransactionPage(pageStatus));
-  const onAddTransaction = data => dispatch(addTransaction(data));
+  const onAddTransaction = formData => dispatch(addTransaction(formData));
 
   const pageStatus = !isActive;
   const [typeOfTransaction, setTypeOfTransiction] = useState('');

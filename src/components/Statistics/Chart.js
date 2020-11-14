@@ -50,7 +50,7 @@ const ChartPie = ({chartData}) => {
       'Car',
       'Self care',
       'Child care',
-      'Fouse',
+      'House',
       'Education',
       'Enterteinment',
       'Others',

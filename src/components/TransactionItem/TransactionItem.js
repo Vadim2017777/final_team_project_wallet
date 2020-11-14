@@ -18,7 +18,7 @@ const TransactionItem = ({items}) => {
 
   return (
     <>
-      {Number(tableScreen) <= 767 && (
+      {tableScreen <= 767 && (
         <li className={style.item}>
           <table className={style.table}>
             <tbody className={style.bodyTable}>
@@ -50,7 +50,7 @@ const TransactionItem = ({items}) => {
           </table>
         </li>
       )}
-      {Number(tableScreen) >= 768 && (
+      {tableScreen >= 768 && (
         <>
           <tr className={style.raw}>
             <td>{newDate}</td>
