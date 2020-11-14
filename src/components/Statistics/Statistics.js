@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import handleDataDisplay from '../helpers/handleDataDisplay.js';
-import filtredCosts from '../helpers/filtredCosts.js';
-import filtredIncome from '../helpers/filterdIncome.js';
+import handleDataDisplay from '../../helpers/handleDataDisplay.js';
+import filtredCosts from '../../helpers/filtredCosts.js';
+import filtredIncome from '../../helpers/filterdIncome.js';
 import {useDispatch, useSelector} from 'react-redux';
 import {
   filteredTypeMinus,

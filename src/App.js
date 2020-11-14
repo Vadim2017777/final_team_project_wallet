@@ -1,29 +1,28 @@
-import React, {useEffect} from 'react';
-import {Redirect, Route, Switch} from 'react-router-dom';
-import {useSelector, useDispatch} from 'react-redux';
-import tokenSelector from './redux/auth/authSelectors';
-import {getCurrentUser} from './redux/auth/authOperations';
-import CurrencyTable from './components/СurrencyTable/CurrencyTable';
-import MainHeaderPage from './views/MainHeaderPage';
+import React from 'react';
+import {Route, Redirect, Switch} from 'react-router-dom';
+import CurrencyPage from './views/CurrencyPage';
 import HomePage from './views/HomePage';
 import StatisticPage from './views/StatisticPage';
 import LoginPage from './views/LoginPage';
 import RegisterPage from './views/RegisterPage';
 import PublicRoute from './PublicRoute.js';
 import PrivateRoute from './PrivateRoute.js';
+import { HOME_ROUTE, SINGIN_ROUTE } from './helpers/routerConfig';
 
 function App() {
   return (
-    <>
-      <PrivateRoute path="/" component={MainHeaderPage} />
-      <PrivateRoute path="/home" component={HomePage} />
-      <PrivateRoute path="/currency" component={CurrencyTable} />
-      <Switch>
-        <PrivateRoute path="/statistics" component={StatisticPage} />
-        <PublicRoute path="/" exact component={LoginPage} />
-        <PublicRoute path="/signup" exact isAuth component={RegisterPage} />
-      </Switch>
-    </>
+    <Switch>
+      <Route exact path="/">
+        <Redirect to={HOME_ROUTE} />
+      </Route>
+
+      <PrivateRoute exact path={HOME_ROUTE} component={HomePage} />
+      <PrivateRoute exact path="/statistics" component={StatisticPage} />
+      <PrivateRoute exact path="/currency" component={CurrencyPage} />
+
+      <PublicRoute exact isAuth path={SINGIN_ROUTE} component={LoginPage} />
+      <PublicRoute exact isAuth path="/signup" component={RegisterPage} />
+    </Switch>
   );
 }
 

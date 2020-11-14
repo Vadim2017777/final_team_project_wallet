@@ -1,11 +1,12 @@
+import React from 'react';
 import {useSelector} from 'react-redux';
-import filtredCosts from '../helpers/filtredCosts.js';
+import filtredCosts from '../../helpers/filtredCosts.js';
 import {
   filteredTypeMinus,
   filteredTypePlus,
 } from '../../redux/statistics/statisticsSelectors';
-import filtredIncome from '../helpers/filterdIncome.js';
-import handleDataDisplay from '../helpers/handleDataDisplay.js';
+import filtredIncome from '../../helpers/filterdIncome.js';
+import handleDataDisplay from '../../helpers/handleDataDisplay.js';
 import useTableScreen from '../../hooks/UseTableScreen';
 import {getTransactions} from '../../redux/transactions/selectors';
 

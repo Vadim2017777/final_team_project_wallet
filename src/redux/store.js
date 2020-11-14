@@ -13,7 +13,7 @@ import storage from 'redux-persist/lib/storage';
 
 import authReducer from './auth/authReducer';
 import transactionReducer from './transactions/reducer';
-import currrencyReducer from '../redux/currency/currencyReducer';
+import currencyReducer from '../redux/currency/currencyReducer';
 
 const persistConfig = {
   key: 'auth',
@@ -25,7 +25,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
     transaction: transactionReducer,
-    currency: currrencyReducer,
+    currency: currencyReducer,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: {
