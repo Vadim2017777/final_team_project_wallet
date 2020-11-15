@@ -1,24 +1,26 @@
 import React, {useState} from 'react';
+import {useSelector} from 'react-redux';
+import {NavLink} from 'react-router-dom';
 import filtredIncome from '../../helpers/filterdIncome';
 import filtredCosts from '../../helpers/filtredCosts';
 import handleDataDisplay from '../../helpers/handleDataDisplay';
 import useTableScreen from '../../hooks/UseTableScreen';
-import {getTransactions} from '../../redux/transactions/selectors';
-import {useSelector} from 'react-redux';
-import {NavLink} from 'react-router-dom';
+import {transactionsSelector} from '../../redux/transactions/selectors';
+import {
+  HOME_ROUTE,
+  CURRENCY_ROUTE,
+  STATISTICS_ROUTE,
+} from '../../helpers/routerConfig';
 import {Home} from '../Svg/Home';
 import {Timeline} from '../Svg/Timeline';
 import {Money} from '../Svg/Money';
-
 import style from './Navigation.module.css';
 
 const Navigation = () => {
-  const transaction = useSelector(state => getTransactions(state));
+  const transaction = useSelector(transactionsSelector);
   const tableScreen = useTableScreen();
-
   const [inputMonth] = useState('');
   const [inputYear] = useState('');
-
   const {transactions} = transaction;
   const filteredCost = transactions.filter(({type}) => type === '-');
   const filteredIncome = transactions.filter(({type}) => type === '+');
@@ -35,7 +37,7 @@ const Navigation = () => {
         <NavLink
           className={style.link}
           activeClassName={style.active}
-          to="/home"
+          to={HOME_ROUTE}
         >
           <button className={style.button}>
             {tableScreen <= 767 ? (
@@ -51,7 +53,7 @@ const Navigation = () => {
         <NavLink
           className={style.link}
           activeClassName={style.active}
-          to="/statistics"
+          to={STATISTICS_ROUTE}
         >
           <button className={style.button}>
             {tableScreen <= 767 ? (
@@ -68,7 +70,7 @@ const Navigation = () => {
           <NavLink
             className={style.link}
             activeClassName={style.active}
-            to="/currency"
+            to={CURRENCY_ROUTE}
           >
             <button className={style.button}>
               <Money s={style.svg} />

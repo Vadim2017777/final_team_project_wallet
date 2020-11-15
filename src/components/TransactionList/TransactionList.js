@@ -2,9 +2,9 @@ import React, {useEffect, useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import useTableScreen from '../../hooks/UseTableScreen';
 import {
-  getTransactions,
-  getLoading,
-  getAddTransactionPage,
+  transactionsSelector,
+  loadingSelector,
+  addTransactionPageSelector,
 } from '../../redux/transactions/selectors';
 import {changeTransactionPage} from '../../redux/transactions/transactionActions';
 import {getAllTransactions} from '../../redux/transactions/operations';
@@ -16,10 +16,10 @@ import style from './TransactionList.module.css';
 
 const TransactionList = () => {
   const tableScreen = useTableScreen();
-  const transaction = useSelector(getTransactions);
+  const transaction = useSelector(transactionsSelector);
   const token = useSelector(authSelectors.isAuthenticated);
-  const isActive = useSelector(getAddTransactionPage);
-  const loading = useSelector(getLoading);
+  const isActive = useSelector(addTransactionPageSelector);
+  const loading = useSelector(loadingSelector);
   const dispatch = useDispatch();
   const updateStatus = pageStatus =>
     dispatch(changeTransactionPage(pageStatus));

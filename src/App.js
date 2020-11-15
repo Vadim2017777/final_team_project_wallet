@@ -5,9 +5,15 @@ import HomePage from './views/HomePage';
 import StatisticPage from './views/StatisticPage';
 import LoginPage from './views/LoginPage';
 import RegisterPage from './views/RegisterPage';
-import PublicRoute from './PublicRoute.js';
-import PrivateRoute from './PrivateRoute.js';
-import { HOME_ROUTE, SINGIN_ROUTE, SINGUP_ROUTE, CURRENCY_ROUTE, STATISTICS_ROUTE } from './helpers/routerConfig';
+import PublicRoute from './Routers/PublicRoute.js';
+import PrivateRoute from './Routers/PrivateRoute.js';
+import {
+  HOME_ROUTE,
+  SINGIN_ROUTE,
+  SINGUP_ROUTE,
+  CURRENCY_ROUTE,
+  STATISTICS_ROUTE,
+} from './helpers/routerConfig';
 
 function App() {
   return (

@@ -8,12 +8,12 @@ import {
 import filtredIncome from '../../helpers/filterdIncome.js';
 import handleDataDisplay from '../../helpers/handleDataDisplay.js';
 import useTableScreen from '../../hooks/UseTableScreen';
-import {getTransactions} from '../../redux/transactions/selectors';
+import {transactionsSelector} from '../../redux/transactions/selectors';
 
 import style from './Balance.module.css';
 
 const Balance = () => {
-  const transaction = useSelector(state => getTransactions(state));
+  const transaction = useSelector(transactionsSelector);
   const {transactions} = transaction;
 
   const filteredCost = filteredTypeMinus(transactions);

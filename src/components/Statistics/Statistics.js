@@ -8,7 +8,7 @@ import {
   filteredTypePlus,
 } from '../../redux/statistics/statisticsSelectors';
 import isAuth from '../../redux/auth/authSelectors';
-import {getTransactions} from '../../redux/transactions/selectors';
+import {transactionsSelector} from '../../redux/transactions/selectors';
 import {getAllTransactions} from '../../redux/transactions/operations';
 import CategoryTable from './CategoryTable';
 import Chart from './Chart';
@@ -18,10 +18,8 @@ import style from './Statistics.module.css';
 const Statistics = () => {
   const [inputMonth, setInputMonth] = useState('');
   const [inputYear, setInputYear] = useState('');
-
-  const transaction = useSelector(state => getTransactions(state));
-  const token = useSelector(state => isAuth.isAuthenticated(state));
-
+  const transaction = useSelector(transactionsSelector);
+  const token = useSelector(isAuth.isAuthenticated);
   const getCurrentTransactions = useDispatch();
 
   useEffect(() => {
