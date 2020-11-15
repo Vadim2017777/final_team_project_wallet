@@ -7,7 +7,7 @@ import LoginPage from './views/LoginPage';
 import RegisterPage from './views/RegisterPage';
 import PublicRoute from './PublicRoute.js';
 import PrivateRoute from './PrivateRoute.js';
-import { HOME_ROUTE, SINGIN_ROUTE } from './helpers/routerConfig';
+import { HOME_ROUTE, SINGIN_ROUTE, SINGUP_ROUTE, CURRENCY_ROUTE, STATISTICS_ROUTE } from './helpers/routerConfig';
 
 function App() {
   return (
@@ -17,11 +17,11 @@ function App() {
       </Route>
 
       <PrivateRoute exact path={HOME_ROUTE} component={HomePage} />
-      <PrivateRoute exact path="/statistics" component={StatisticPage} />
-      <PrivateRoute exact path="/currency" component={CurrencyPage} />
+      <PrivateRoute exact path={STATISTICS_ROUTE} component={StatisticPage} />
+      <PrivateRoute exact path={CURRENCY_ROUTE} component={CurrencyPage} />
 
       <PublicRoute exact isAuth path={SINGIN_ROUTE} component={LoginPage} />
-      <PublicRoute exact isAuth path="/signup" component={RegisterPage} />
+      <PublicRoute exact isAuth path={SINGUP_ROUTE} component={RegisterPage} />
     </Switch>
   );
 }

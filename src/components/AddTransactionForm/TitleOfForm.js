@@ -3,11 +3,11 @@ import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {getAddTransactionPage} from '../../redux/transactions/selectors';
 import {changeTransactionPage} from '../../redux/transactions/transactionActions';
-import { HOME_ROUTE } from '../../helpers/routerConfig';
+import {HOME_ROUTE} from '../../helpers/routerConfig';
 import style from './TitleOfForm.module.css';
 
 const TitleOfForm = () => {
-  const isActive = useSelector(state => getAddTransactionPage(state));
+  const isActive = useSelector(getAddTransactionPage);
   const updateStatus = useDispatch();
   const pageStatus = !isActive;
 

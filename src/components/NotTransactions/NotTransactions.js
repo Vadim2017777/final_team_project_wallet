@@ -1,5 +1,4 @@
 import React from 'react';
-
 import style from './NotTransactions.module.css';
 
 const NotTransactions = () => {

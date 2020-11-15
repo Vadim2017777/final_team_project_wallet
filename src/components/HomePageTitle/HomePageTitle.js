@@ -1,30 +1,25 @@
 import {useDispatch, useSelector} from 'react-redux';
 import useTableScreen from '../../hooks/UseTableScreen';
 import {authOperations} from '../../redux/auth';
-import getName from '../../redux/auth/authSelectors';
-import {Link} from 'react-router-dom';
+import authSelectors from '../../redux/auth/authSelectors';
 import {Logo} from '../Svg/Logo';
 import {Exit} from '../Svg/Exit';
 import style from './HomePageTitle.module.css';
 
 const HomePageTitle = () => {
-  const name = useSelector(state => getName.getUserName(state));
+  const name = useSelector(authSelectors.getUserName);
   const dispatch = useDispatch();
   const tableScreen = useTableScreen();
 
   return (
     <div className={style.wrapper}>
       <div className={style.container}>
-        <Link
-          to="/home"
-          className={style.logoBox}
-          style={{textDecoration: 'none'}}
-        >
+        <div className={style.logoBox}>
           <div className={style.logoBox}>
             <Logo s={style.logo} />
             <span className={style.logoName}>Wallet</span>
           </div>
-        </Link>
+        </div>
         <div className={style.userInfo}>
           <span className={style.userName}>{name}</span>
 

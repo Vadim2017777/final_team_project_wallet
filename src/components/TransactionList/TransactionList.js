@@ -8,24 +8,21 @@ import {
 } from '../../redux/transactions/selectors';
 import {changeTransactionPage} from '../../redux/transactions/transactionActions';
 import {getAllTransactions} from '../../redux/transactions/operations';
-import isAuth from '../../redux/auth/authSelectors';
+import authSelectors from '../../redux/auth/authSelectors';
 import TransactionItem from '../TransactionItem/TransactionItem';
 import NotTransactions from '../NotTransactions/NotTransactions';
 import Spiner from '../../components/Spinner/Spinner.js';
-
 import style from './TransactionList.module.css';
 
 const TransactionList = () => {
   const tableScreen = useTableScreen();
-  const transaction = useSelector(state => getTransactions(state));
-  const token = useSelector(state => isAuth.isAuthenticated(state));
-  const isActive = useSelector(state => getAddTransactionPage(state));
-  const loading = useSelector(state => getLoading(state));
+  const transaction = useSelector(getTransactions);
+  const token = useSelector(authSelectors.isAuthenticated);
+  const isActive = useSelector(getAddTransactionPage);
+  const loading = useSelector(getLoading);
   const dispatch = useDispatch();
-
   const updateStatus = pageStatus =>
     dispatch(changeTransactionPage(pageStatus));
-
   const getCurrentTransactions = useCallback(
     token => {
       dispatch(getAllTransactions(token));
@@ -79,7 +76,7 @@ const TransactionList = () => {
       {statusPage && (
         <button
           className={style.btnAdd}
-          onClick={e => updateStatus(statusPage)}
+          onClick={() => updateStatus(statusPage)}
         >
           &#43;
         </button>

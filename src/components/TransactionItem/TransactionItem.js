@@ -1,19 +1,15 @@
 import React from 'react';
 import useTableScreen from '../../hooks/UseTableScreen';
-
 import style from './TransactionItem.module.css';
 
 const TransactionItem = ({items}) => {
   const item = Object.entries(items);
   const [category, balance, , date, type, comments, amount] = item;
-
   const newDate = date[1].split('-').reverse().join('.');
-
   let currentStyle = 'amount';
   if (type[1] === '-') {
     currentStyle = 'amountMinus';
   }
-
   const tableScreen = useTableScreen();
 
   return (

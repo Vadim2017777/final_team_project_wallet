@@ -2,15 +2,14 @@ import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {getAddTransactionPage} from '../../redux/transactions/selectors';
 import {changeTransactionPage} from '../../redux/transactions/transactionActions';
-import isAuth from '../../redux/auth/authSelectors';
+import authSelectors from '../../redux/auth/authSelectors';
 import {addTransaction} from '../../redux/transactions/operations';
 import TitleOfForm from './TitleOfForm';
 import style from './AddTransactionForm.module.css';
 
 const AddTransactionForm = () => {
-  const isActive = useSelector(state => getAddTransactionPage(state));
-  const token = useSelector(state => isAuth.isAuthenticated(state));
-
+  const isActive = useSelector(getAddTransactionPage);
+  const token = useSelector(authSelectors.isAuthenticated);
   const dispatch = useDispatch();
   const updateStatus = pageStatus =>
     dispatch(changeTransactionPage(pageStatus));
