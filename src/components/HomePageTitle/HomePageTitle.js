@@ -1,13 +1,13 @@
 import {useDispatch, useSelector} from 'react-redux';
 import useTableScreen from '../../hooks/UseTableScreen';
 import {authOperations} from '../../redux/auth';
-import authSelectors from '../../redux/auth/authSelectors';
+import {userNameSelector} from '../../redux/auth/authSelectors';
 import {Logo} from '../Svg/Logo';
 import {Exit} from '../Svg/Exit';
 import style from './HomePageTitle.module.css';
 
 const HomePageTitle = () => {
-  const name = useSelector(authSelectors.getUserName);
+  const name = useSelector(userNameSelector);
   const dispatch = useDispatch();
   const tableScreen = useTableScreen();
 

@@ -1,4 +1,6 @@
 import {createSelector} from 'reselect';
+
+export const getTransactionsSelector = state => state.transaction;
 export const addTransactionPageSelector = state =>
   state.transaction.transactionPage;
 export const loadingSelector = state => state.transaction.loading;

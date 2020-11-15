@@ -1,5 +1,18 @@
 import axios from 'axios';
-import * as authActions from './authActions';
+import {
+  registerRequest,
+  registerSuccess,
+  registerError,
+  logoutRequest,
+  logoutSuccess,
+  logoutError,
+  loginRequest,
+  loginSuccess,
+  loginError,
+  getCurrentUserRequest,
+  getCurrentUserSuccess,
+  getCurrentUserError,
+} from './authActions';
 
 axios.defaults.baseURL = 'https://lit-mountain-68142.herokuapp.com';
 
@@ -13,34 +26,34 @@ const token = {
 };
 
 const register = credentials => async dispatch => {
-  dispatch(authActions.registerRequest());
-  dispatch(authActions.registerError(null));
+  dispatch(registerRequest());
+  dispatch(registerError(null));
 
   try {
     const {data} = await axios.post('/users/signup', credentials);
     token.set(data.token);
-    dispatch(authActions.registerSuccess(data));
+    dispatch(registerSuccess(data));
   } catch (error) {
     if (error.response.status === 409) {
       error.message = 'EMAIL ALREADY EXISTS';
     }
-    dispatch(authActions.registerError(error.message));
+    dispatch(registerError(error.message));
   }
 };
 
 const logIn = credentials => async dispatch => {
-  dispatch(authActions.loginRequest());
-  dispatch(authActions.loginError(null));
+  dispatch(loginRequest());
+  dispatch(loginError(null));
   try {
     const {data} = await axios.post('/users/signin', credentials);
 
     token.set(data.token);
-    dispatch(authActions.loginSuccess(data));
+    dispatch(loginSuccess(data));
   } catch (error) {
     if (error.response.status === 400 || 401) {
       error.message = 'INCORRECT EMAIL OR PASSWORD';
     }
-    dispatch(authActions.loginError(error.message));
+    dispatch(loginError(error.message));
   }
 };
 
@@ -54,24 +67,24 @@ const getCurrentUser = () => async (dispatch, getState) => {
   }
 
   token.set(persistedToken);
-  dispatch(authActions.getCurrentUserRequest());
+  dispatch(getCurrentUserRequest());
   try {
     const {data} = await axios.get('/users/current');
 
-    dispatch(authActions.getCurrentUserSuccess(data));
+    dispatch(getCurrentUserSuccess(data));
   } catch (error) {
-    dispatch(authActions.getCurrentUserError(error.message));
+    dispatch(getCurrentUserError(error.message));
   }
 };
 
 const logOut = () => async dispatch => {
-  dispatch(authActions.logoutRequest());
+  dispatch(logoutRequest());
   try {
     await axios.post('/users/logout');
     token.unset();
-    dispatch(authActions.logoutSuccess());
+    dispatch(logoutSuccess());
   } catch (error) {
-    dispatch(authActions.logoutError(error.message));
+    dispatch(logoutError(error.message));
   }
 };
 

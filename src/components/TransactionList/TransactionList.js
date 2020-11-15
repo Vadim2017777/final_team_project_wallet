@@ -1,4 +1,4 @@
-import React, {useEffect, useCallback} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import useTableScreen from '../../hooks/UseTableScreen';
 import {
@@ -8,7 +8,7 @@ import {
 } from '../../redux/transactions/selectors';
 import {changeTransactionPage} from '../../redux/transactions/transactionActions';
 import {getAllTransactions} from '../../redux/transactions/operations';
-import authSelectors from '../../redux/auth/authSelectors';
+import {authenticatedSelector} from '../../redux/auth/authSelectors';
 import TransactionItem from '../TransactionItem/TransactionItem';
 import NotTransactions from '../NotTransactions/NotTransactions';
 import Spiner from '../../components/Spinner/Spinner.js';
@@ -17,25 +17,20 @@ import style from './TransactionList.module.css';
 const TransactionList = () => {
   const tableScreen = useTableScreen();
   const transaction = useSelector(transactionsSelector);
-  const token = useSelector(authSelectors.isAuthenticated);
+  const token = useSelector(authenticatedSelector);
   const isActive = useSelector(addTransactionPageSelector);
   const loading = useSelector(loadingSelector);
   const dispatch = useDispatch();
   const updateStatus = pageStatus =>
     dispatch(changeTransactionPage(pageStatus));
-  const getCurrentTransactions = useCallback(
-    token => {
-      dispatch(getAllTransactions(token));
-    },
-    [dispatch],
-  );
+
   const statusPage = !isActive;
   const {transactions} = transaction;
   const isTransactions = transactions.length > 0;
 
   useEffect(() => {
-    getCurrentTransactions(token);
-  }, [getCurrentTransactions, token]);
+    dispatch(getAllTransactions(token));
+  }, [dispatch, token]);
 
   return (
     <>

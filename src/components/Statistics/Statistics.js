@@ -3,16 +3,14 @@ import handleDataDisplay from '../../helpers/handleDataDisplay.js';
 import filtredCosts from '../../helpers/filtredCosts.js';
 import filtredIncome from '../../helpers/filterdIncome.js';
 import {useDispatch, useSelector} from 'react-redux';
-
-import isAuth from '../../redux/auth/authSelectors';
-
+import {authenticatedSelector} from '../../redux/auth/authSelectors';
 import {getAllTransactions} from '../../redux/transactions/operations';
-import CategoryTable from './CategoryTable';
-import Chart from './Chart';
 import {
   costTransactionsSelector,
   incomeTransactionsSelector,
 } from '../../redux/transactions/selectors';
+import Chart from './Chart';
+import CategoryTable from './CategoryTable';
 
 import style from './Statistics.module.css';
 
@@ -20,7 +18,7 @@ const Statistics = () => {
   const [inputMonth, setInputMonth] = useState('');
   const [inputYear, setInputYear] = useState('');
 
-  const token = useSelector(isAuth.isAuthenticated);
+  const token = useSelector(authenticatedSelector);
   const getCurrentTransactions = useDispatch();
 
   useEffect(() => {
@@ -51,8 +49,8 @@ const Statistics = () => {
         </div>
         <div className={style.CategoryTable}>
           <CategoryTable
-            hanleMonthUpdate={updateInputMonth}
-            hanleYearUpdate={updateInputYear}
+            handleMonthUpdate={updateInputMonth}
+            handleYearUpdate={updateInputYear}
             data={dataToDisplay}
           />
         </div>

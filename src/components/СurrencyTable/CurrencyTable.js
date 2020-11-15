@@ -1,4 +1,4 @@
-import React, {useEffect, useCallback} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {getCurrencyValue} from '../../redux/currency/currencyOperation';
 import {getCurrencyState} from '../../redux/currency/currencySelectors';
@@ -9,13 +9,9 @@ const CurrencyTable = () => {
   const currency = useSelector(getCurrencyState);
   const dispatch = useDispatch();
 
-  const getCurrency = useCallback(() => {
+  useEffect(() => {
     dispatch(getCurrencyValue());
   }, [dispatch]);
-
-  useEffect(() => {
-    getCurrency();
-  }, [getCurrency]);
 
   return (
     <div className={style.container}>
