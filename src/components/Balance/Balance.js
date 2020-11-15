@@ -1,23 +1,19 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import filtredCosts from '../../helpers/filtredCosts.js';
-import {
-  filteredTypeMinus,
-  filteredTypePlus,
-} from '../../redux/statistics/statisticsSelectors';
 import filtredIncome from '../../helpers/filterdIncome.js';
 import handleDataDisplay from '../../helpers/handleDataDisplay.js';
 import useTableScreen from '../../hooks/UseTableScreen';
-import {transactionsSelector} from '../../redux/transactions/selectors';
+import {
+  costTransactionsSelector,
+  incomeTransactionsSelector,
+} from '../../redux/transactions/selectors';
 
 import style from './Balance.module.css';
 
 const Balance = () => {
-  const transaction = useSelector(transactionsSelector);
-  const {transactions} = transaction;
-
-  const filteredCost = filteredTypeMinus(transactions);
-  const filteredIncome = filteredTypePlus(transactions);
+  const filteredCost = useSelector(costTransactionsSelector);
+  const filteredIncome = useSelector(incomeTransactionsSelector);
   const cost = filtredCosts(filteredCost);
   const income = filtredIncome(filteredIncome);
   const dataToDisplay = handleDataDisplay(cost, income);

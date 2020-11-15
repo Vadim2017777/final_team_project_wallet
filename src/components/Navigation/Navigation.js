@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useSelector} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import filtredIncome from '../../helpers/filterdIncome';
 import filtredCosts from '../../helpers/filtredCosts';
 import handleDataDisplay from '../../helpers/handleDataDisplay';
 import useTableScreen from '../../hooks/UseTableScreen';
-import {transactionsSelector} from '../../redux/transactions/selectors';
+import {
+  costTransactionsSelector,
+  incomeTransactionsSelector,
+} from '../../redux/transactions/selectors';
 import {
   HOME_ROUTE,
   CURRENCY_ROUTE,
@@ -14,22 +17,16 @@ import {
 import {Home} from '../Svg/Home';
 import {Timeline} from '../Svg/Timeline';
 import {Money} from '../Svg/Money';
+
 import style from './Navigation.module.css';
 
 const Navigation = () => {
-  const transaction = useSelector(transactionsSelector);
   const tableScreen = useTableScreen();
-  const [inputMonth] = useState('');
-  const [inputYear] = useState('');
-  const {transactions} = transaction;
-  const filteredCost = transactions.filter(({type}) => type === '-');
-  const filteredIncome = transactions.filter(({type}) => type === '+');
-  const cost = filtredCosts(filteredCost, inputMonth, inputYear);
-  const income = filtredIncome(filteredIncome, inputMonth, inputYear);
+  const filteredCost = useSelector(costTransactionsSelector);
+  const filteredIncome = useSelector(incomeTransactionsSelector);
+  const cost = filtredCosts(filteredCost);
+  const income = filtredIncome(filteredIncome);
   const dataToDisplay = handleDataDisplay(cost, income);
-  let minusTransactions = dataToDisplay.costs;
-  let plusTransactions = dataToDisplay.income;
-  let globalBalance = plusTransactions - minusTransactions;
 
   return (
     <div className={style.box}>
@@ -80,7 +77,10 @@ const Navigation = () => {
         {tableScreen >= 768 && tableScreen < 1279 && (
           <div className={[style.btnBox, style.balance, style.link].join(' ')}>
             <span className={style.text}>Balance:</span>{' '}
-            <span className={style.amount}> {globalBalance} UAH</span>
+            <span className={style.amount}>
+              {' '}
+              {dataToDisplay.globalBalance} UAH
+            </span>
           </div>
         )}
       </nav>
