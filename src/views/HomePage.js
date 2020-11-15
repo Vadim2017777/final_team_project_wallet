@@ -14,11 +14,11 @@ const HomePage = () => {
 
   return (
     <BaseLayout>
-      {(Number(tableScreen) <= 767 && !isActive) || (Number(tableScreen) >= 1280) && <Balance/>}
-      {/*{Number(tableScreen) >= 1280 && <Balance/>}*/}
-      {Number(tableScreen) <= 767 && !isActive && <TransactionList/>}
-      {Number(tableScreen) >= 768 && <TransactionList/>}
-      {Number(tableScreen) >= 768 && <CurrencyTable/>}
+      {tableScreen <= 767 && !isActive}
+      {tableScreen >= 1280 && <Balance/>}
+      {tableScreen <= 767 && !isActive && <TransactionList/>}
+      {tableScreen >= 768 && <TransactionList/>}
+      {tableScreen >= 768 && <CurrencyTable/>}
       {isActive && <AddTransactionForm/>}
     </BaseLayout>
   );
