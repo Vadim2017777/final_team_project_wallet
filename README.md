@@ -17,9 +17,9 @@ On your transaction table, you can see the balance of every separate item.
 On the left sidebar, you can see your current global balance.
 
     Statistics:
-if you want to see the current statistics: 
--on the mobile version, you should click on the statistics icon;
--on the other versions, you should click on the appropriate link named 'statistics';
+If you want to see the current statistics: 
+- on the mobile version, you should click on the statistics icon;
+- on the other versions, you should click on the appropriate link named 'statistics';
 On this page, you can see all your costs and the incomes, and so filter your transactions by any period by choosing a month and year if you need it. And also, this page displays the diagram of costs by categories. 
 
     Exchange rate:
