@@ -2,7 +2,7 @@
 
 Link to site: https://final-team-project-wallet.netlify.app/
 
-    This site enables the user to save information about costs and incomes.  
+This site enables the user to save information about costs and incomes.  
     
     Transaction table:
 As the user, you can create a new transaction, which will be displayed in the transaction's table on your home page. For this action, you should click the appropriate button on your display and fill in all fields. That is,  you need:
