@@ -7,7 +7,7 @@ This site enables the user to save information about costs and incomes.
 Transaction table:
 ------------------
 As the user, you can create a new transaction, which will be displayed in the transaction's table on your home page. For this action, you should click the appropriate button on your display and fill in all fields. That is,  you need:
-* to choose the type of transaction (cost or income);
+* choose the type of transaction (cost or income);
 * select the category (if it is the cost) from the list;
 * enter the amount of transaction into relevant input;
 * choose the date (if you don't do it, the date is the current date);
@@ -27,7 +27,7 @@ On this page, you can see all your costs and the incomes, and so filter your tra
 
 Exchange rate:
 --------------
-In the mobile version, you can see the current exchange rate by click on the dollar icon. In the other versions,  it is displayed on the left sidebar. 
+In the mobile version, you can see the current exchange rate by click on the dollar icon. In the other versions, it is displayed on the left sidebar. 
 
 Authorization:
 --------------
