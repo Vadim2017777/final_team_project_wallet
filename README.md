@@ -1,7 +1,7 @@
 # final_team_project_wallet
 
 Link to site: <https://final-team-project-wallet.netlify.app/>
-============================================================
+--------------------------------------------------------------
 This site enables the user to save information about costs and incomes.  
     
 Transaction table:
@@ -33,4 +33,4 @@ Authorization:
 --------------
 When you enter this site first, you must register by filling the form. Otherwise, you put your relevant login name (your email address) and the current password. Finally, you get access to your account. If you don't exit the site by the button of logout, and only close your browser window, you can open your site again without re-authorization. 
 
-**Enjoi using the site!
+**Enjoi using the site!**
