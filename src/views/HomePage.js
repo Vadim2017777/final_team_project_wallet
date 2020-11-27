@@ -16,8 +16,9 @@ const HomePage = () => {
     <BaseLayout>
       {tableScreen <= 767 && !isActive}
       {tableScreen >= 1280 && <Balance/>}
-      {tableScreen <= 767 && !isActive && <TransactionList/>}
+      {tableScreen <= 767 && !isActive && <Balance/>}
       {tableScreen >= 768 && <TransactionList/>}
+      {tableScreen <= 767 && !isActive && <TransactionList/>}
       {tableScreen >= 768 && <CurrencyTable/>}
       {isActive && <AddTransactionForm/>}
     </BaseLayout>
