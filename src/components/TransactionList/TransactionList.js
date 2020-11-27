@@ -27,6 +27,12 @@ const TransactionList = () => {
   const statusPage = !isActive;
   const {transactions} = transaction;
   const isTransactions = transactions.length > 0;
+  let sortedTransactionList;
+
+  if(isTransactions) {
+    sortedTransactionList =[...transactions].reverse();
+    console.log(sortedTransactionList);
+  }
 
   useEffect(() => {
     dispatch(getAllTransactions(token));
@@ -39,7 +45,7 @@ const TransactionList = () => {
         <>
           {tableScreen <= 767 && (
             <ul className={style.list}>
-              {transactions.map(item => {
+              {sortedTransactionList.map(item => {
                 return <TransactionItem items={item} key={item._id} />;
               })}
             </ul>
@@ -58,7 +64,7 @@ const TransactionList = () => {
                   </tr>
                 </thead>
                 <tbody className={style.tbody}>
-                  {transactions.map(item => {
+                  {sortedTransactionList.map(item => {
                     return <TransactionItem items={item} key={item._id} />;
                   })}
                 </tbody>
