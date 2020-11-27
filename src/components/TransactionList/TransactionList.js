@@ -31,7 +31,6 @@ const TransactionList = () => {
 
   if(isTransactions) {
     sortedTransactionList =[...transactions].reverse();
-    console.log(sortedTransactionList);
   }
 
   useEffect(() => {
