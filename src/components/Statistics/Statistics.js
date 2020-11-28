@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {currentMonth, currentYear} from '../../helpers/constants.js';
 import handleDataDisplay from '../../helpers/handleDataDisplay.js';
 import filtredCosts from '../../helpers/filtredCosts.js';
 import filtredIncome from '../../helpers/filterdIncome.js';
@@ -15,8 +16,8 @@ import CategoryTable from './CategoryTable';
 import style from './Statistics.module.css';
 
 const Statistics = () => {
-  const [inputMonth, setInputMonth] = useState('');
-  const [inputYear, setInputYear] = useState('');
+  const [inputMonth, setInputMonth] = useState(currentMonth);
+  const [inputYear, setInputYear] = useState(currentYear);
 
   const token = useSelector(authenticatedSelector);
   const getCurrentTransactions = useDispatch();

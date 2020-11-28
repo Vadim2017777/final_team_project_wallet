@@ -1,5 +1,10 @@
 import React from 'react';
-import {months, years} from '../../helpers/constants.js';
+import {
+  months,
+  years,
+  currentMonth,
+  currentYear,
+} from '../../helpers/constants.js';
 
 import style from './CategoryTable.module.css';
 
@@ -9,7 +14,7 @@ const CategoryTable = ({handleMonthUpdate, handleYearUpdate, data}) => {
       <div className={style.form}>
         <select className={style.select} onChange={handleMonthUpdate}>
           <option defaultValue="Month" hidden>
-            Month
+            {currentMonth}
           </option>
           {months.map(month => (
             <option key={month}>{month}</option>
@@ -18,7 +23,7 @@ const CategoryTable = ({handleMonthUpdate, handleYearUpdate, data}) => {
 
         <select className={style.select} onChange={handleYearUpdate}>
           <option defaultValue="Year" hidden>
-            Year
+            {currentYear}
           </option>
           {years.map(year => (
             <option key={year}>{year}</option>

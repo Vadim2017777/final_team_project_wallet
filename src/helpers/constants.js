@@ -1,3 +1,5 @@
+const d = new Date();
+
 const months = [
   'January',
   'February',
@@ -14,5 +16,7 @@ const months = [
 ];
 
 const years = ['2020', '2021'];
+const currentMonth = months[d.getMonth()];
+const currentYear = d.getFullYear().toString();
 
-export {months, years};
+export {months, currentMonth, years, currentYear};
