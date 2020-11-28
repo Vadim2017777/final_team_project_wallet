@@ -16,7 +16,7 @@ const AddTransactionForm = () => {
   const onAddTransaction = formData => dispatch(addTransaction(formData));
 
   const pageStatus = !isActive;
-  const [typeOfTransaction, setTypeOfTransiction] = useState('');
+  const [typeOfTransaction, setTypeOfTransiction] = useState('+');
   const updateTypeOfTransiction = e => {
     setAnmount('');
     setDate(currentDate);
@@ -109,9 +109,7 @@ const AddTransactionForm = () => {
                     onChange={updateCategory}
                     required
                   >
-                    <option defaultValue="Select category">
-                      Select category...
-                    </option>
+                    <option value="">Select category...</option>
                     <option value="Main expenses">Main expenses</option>
                     <option value="Food">Food</option>
                     <option value="Car">Car</option>
@@ -153,7 +151,6 @@ const AddTransactionForm = () => {
                   value={comments}
                   onChange={updateComment}
                   maxLength="30"
-                  required
                 >
                   Lorem impsut lorem{' '}
                 </textarea>{' '}
