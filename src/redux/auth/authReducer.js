@@ -12,6 +12,7 @@ import {
   loginError,
   getCurrentUserSuccess,
   getCurrentUserError,
+  registerErrorReset,
 } from './authActions';
 
 const initialUserState = {name: null, email: null};
@@ -34,6 +35,7 @@ const error = createReducer(null, {
   [loginError]: (_, {payload}) => payload,
   [logoutError]: (_, {payload}) => payload,
   [getCurrentUserError]: (_, {payload}) => payload,
+  [registerErrorReset]: (_, {payload}) => payload,
 });
 
 const loading = createReducer(false, {

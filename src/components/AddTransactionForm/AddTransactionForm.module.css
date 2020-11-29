@@ -1,42 +1,44 @@
 .box {
-    width: 281px;
-    margin: 0 auto;
-    height: 488px;
+  width: 281px;
+  margin: 0 auto;
+  height: 488px;
 }
 
 .form {
-    display: flex;
-    flex-wrap: wrap;
-    height: 488px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 488px;
 }
 
 .formBox {
-    width: 281px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 210px;
+  width: 281px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 210px;
 }
 
-.formBox input, .formBox textarea, .formBox select {
-    outline: none;
+.formBox input,
+.formBox textarea,
+.formBox select {
+  outline: none;
 }
 
 .labelBox {
-    width: 50%;
-    height: 73px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+  width: 50%;
+  height: 73px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .labelBox span {
-    color: #939393;
+  color: #939393;
 }
 
-.inputRadio:checked+span {
-    color: #fc842c;
+.inputRadio:checked + span {
+  color: #fc842c;
 }
 
 .inputRadio {
@@ -48,120 +50,120 @@
 
 .inputNumber,
 .inputDate {
-    max-width: 128px;
-    height: 34px;
-    border: 2px solid #b9c9d4;
-    border-radius: 5px 5px 5px 5px;
-    margin-bottom: 25px;
-    padding: 0px;
+  max-width: 128px;
+  height: 34px;
+  border: 2px solid #b9c9d4;
+  border-radius: 5px 5px 5px 5px;
+  margin-bottom: 25px;
+  padding: 0px;
 }
 
 .inputNumber::placeholder {
-    text-align: center;
+  text-align: center;
 }
 .inputDate {
-    padding-left: 5px;
-    text-align: end;
+  padding-left: 5px;
+  text-align: end;
 }
 .inputNumber {
-    padding-left: 5px;
-    text-align: center;
+  padding-left: 5px;
+  text-align: center;
 }
 
 .inputCategory {
-    width: 281px;
-    height: 34px;
-    border: 2px solid #b9c9d4;
-    border-radius: 5px 5px 5px 5px;
+  width: 281px;
+  height: 34px;
+  border: 2px solid #b9c9d4;
+  border-radius: 5px 5px 5px 5px;
 }
 .textareaBox {
-    width: 281px;
+  width: 281px;
 }
 
 .commentNote {
-    width: 281px;
-    text-align: left;
-    margin-bottom: 15px;
-    font-weight: bold;
-    font-size: 15px;
+  width: 281px;
+  text-align: left;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 .textarea {
-    box-sizing: border-box;
-    width: 281px;
-    border-radius: 5px 5px 5px 5px;
-    border: 2px solid #b9c9d4;
-    resize: none;
-    height: 54px;
-    padding: 5px;
+  box-sizing: border-box;
+  width: 281px;
+  border-radius: 5px 5px 5px 5px;
+  border: 2px solid #b9c9d4;
+  resize: none;
+  height: 54px;
+  padding: 5px;
 }
 
 .button {
-    width: 281px;
-    height: 40px;
-    margin: 0 auto;
-    background-color: #fc842c;
-    border-radius: 5px 5px 5px 5px;
-    border: none;
-    color: #ffffff;
-    outline: none;
-    cursor: pointer;
-    font-size: 15px;
+  width: 281px;
+  height: 40px;
+  margin: 0 auto;
+  background-color: #fc842c;
+  border-radius: 5px 5px 5px 5px;
+  border: none;
+  color: #ffffff;
+  outline: none;
+  cursor: pointer;
+  font-size: 15px;
 }
 
 .btnBox {
-    height: 70px;
-    width: 100vw;
-    display: flex;
-    align-items: center;
+  height: 70px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
 }
 
 .categoryBox {
-    height: 67px;
+  height: 67px;
 }
 
 @media screen and (min-width: 768px) {
-    .modal {
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: #00000071;
-        display: flex;
-        position: fixed;
-        justify-content: center;
-        align-items: center;
-        z-index: 2;
-    }
+  .modal {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #00000071;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
 
-    .container {
-        width: 500px;
-        height: 478px;
-        border-radius: 5px 5px 5px 5px;
-        background-color: #ffffff;
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
-    }
-    .form {
-        height: 340px;
-    }
+  .container {
+    width: 500px;
+    height: 478px;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #ffffff;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .form {
+    height: 340px;
+  }
 
-    .formBox {
-        margin-bottom: 33px;
-    }
-    .button {
-        background-color: #415b7d;
-    }
+  .formBox {
+    margin-bottom: 33px;
+  }
+  .button {
+    background-color: #415b7d;
+  }
 
-    .button:hover {
-        background-color: #fc842c;
-    }
+  .button:hover {
+    background-color: #fc842c;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-    .form {
-        height: 404px;
-    }
+  .form {
+    height: 404px;
+  }
 }

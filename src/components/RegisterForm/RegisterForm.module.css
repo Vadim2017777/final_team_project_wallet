@@ -178,6 +178,31 @@
   background-color: rgb(219, 191, 168);
 }
 
+.enter {
+  opacity: 0.1;
+  transform: translateY(-100%);
+}
+
+.enterActive {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition: all 350ms linear;
+}
+
+.exit {
+  opacity: 1;
+
+  transform: translateX(0);
+}
+.exitActive {
+  opacity: 0;
+
+  transform: translateX(-100%);
+  transition: all 350ms linear;
+}
+
 @media screen and (max-width: 767px) {
   .ImgBGWrapper {
     display: none;

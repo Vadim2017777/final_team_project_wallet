@@ -7,6 +7,7 @@ const FETCH_AUTHY_ERROR = 'AUTH/getFailure';
 const FETCH_AUTH_LOGINREQUEST = 'AUTH/loginRequest';
 const FETCH_AUTH_LOGINSUCCESS = 'AUTH/loginSuccess';
 const FETCH_AUTHY_LOGINERROR = 'AUTH/loginError';
+const FETCH_AUTHY_LOGINERRORRESET = 'AUTH/registerErrorReset';
 
 const FETCH_AUTH_LOGOUTINREQUEST = 'AUTH/logoutRequest';
 const FETCH_AUTH_LOGOUTINSUCCESS = 'AUTH/logoutSuccess';
@@ -19,6 +20,7 @@ const FETCH_AUTHY_GETCURRENTUSERERROR = 'AUTH/getCurrentUserError';
 export const registerRequest = createAction(FETCH_AUTH_REQUEST);
 export const registerSuccess = createAction(FETCH_AUTH_SUCCESS);
 export const registerError = createAction(FETCH_AUTHY_ERROR);
+export const registerErrorReset = createAction(FETCH_AUTHY_LOGINERRORRESET);
 
 export const loginRequest = createAction(FETCH_AUTH_LOGINREQUEST);
 export const loginSuccess = createAction(FETCH_AUTH_LOGINSUCCESS);
